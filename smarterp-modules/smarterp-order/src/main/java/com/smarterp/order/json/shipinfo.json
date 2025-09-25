@@ -1,0 +1,78 @@
+[
+  {
+    "id": "PACKAGE_HEIGHT",
+    "name": "Altura del paquete",
+    "value_name": "9 cm",
+    "value_struct": {
+      "number": 9,
+      "unit": "cm"
+    },
+    "values": [
+      {
+        "name": "9 cm",
+        "struct": {
+          "number": 9,
+          "unit": "cm"
+        }
+      }
+    ],
+    "value_type": "number_unit"
+  },
+  {
+    "id": "PACKAGE_WIDTH",
+    "name": "Ancho del paquete",
+    "value_name": "10 cm",
+    "value_struct": {
+      "number": 10,
+      "unit": "cm"
+    },
+    "values": [
+      {
+        "name": "10 cm",
+        "struct": {
+          "number": 10,
+          "unit": "cm"
+        }
+      }
+    ],
+    "value_type": "number_unit"
+  },
+  {
+    "id": "PACKAGE_LENGTH",
+    "name": "Largo del paquete",
+    "value_name": "27 cm",
+    "value_struct": {
+      "number": 27,
+      "unit": "cm"
+    },
+    "values": [
+      {
+        "name": "27 cm",
+        "struct": {
+          "number": 27,
+          "unit": "cm"
+        }
+      }
+    ],
+    "value_type": "number_unit"
+  },
+  {
+    "id": "PACKAGE_WEIGHT",
+    "name": "Peso del paquete",
+    "value_name": "490 g",
+    "value_struct": {
+      "number": 490,
+      "unit": "g"
+    },
+    "values": [
+      {
+        "name": "490 g",
+        "struct": {
+          "number": 490,
+          "unit": "g"
+        }
+      }
+    ],
+    "value_type": "number_unit"
+  }
+]

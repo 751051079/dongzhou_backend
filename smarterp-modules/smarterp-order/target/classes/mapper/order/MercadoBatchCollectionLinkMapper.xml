@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smarterp.order.mapper.MercadoBatchCollectionLinkMapper">
+
+    <resultMap type="com.smarterp.order.domain.MercadoBatchCollectionLink" id="MercadoBatchCollectionLinkResult">
+        <result property="id" column="id"/>
+        <result property="itemId" column="item_id"/>
+        <result property="merchantId" column="merchant_id"/>
+        <result property="productUrl" column="product_url"/>
+        <result property="pictureUrl" column="picture_url"/>
+        <result property="userId" column="user_id"/>
+        <result property="deptId" column="dept_id"/>
+        <result property="createBy" column="create_by"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateBy" column="update_by"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="systemCreateTime" column="system_create_time"/>
+        <result property="price" column="price"/>
+        <result property="currencyId" column="currency_id"/>
+        <result property="title" column="title"/>
+        <result property="siteId" column="site_id"/>
+        <result property="categoryId" column="category_id"/>
+        <result property="domainId" column="domain_id"/>
+    </resultMap>
+
+    <sql id="selectMercadoBatchCollectionLinkVo">
+        select id,
+               item_id,
+               merchant_id,
+               product_url,
+               picture_url,
+               user_id,
+               dept_id,
+               create_by,
+               create_time,
+               update_by,
+               update_time,
+               system_create_time,
+               price,
+               currency_id,
+               title,
+               site_id,
+               category_id,
+               domain_id
+        from mercado_batch_collection_link
+    </sql>
+
+    <select id="selectMercadoBatchCollectionLinkList"
+            parameterType="com.smarterp.order.domain.dto.MercadoBatchCollectionLinkQuery"
+            resultType="com.smarterp.order.domain.dto.MercadoBatchCollectionLinkDetails">
+        select
+        link.id as id,
+        link.item_id as itemId,
+        link.picture_url as pictureUrl,
+        link.merchant_id as merchantId,
+        sys_dept.dept_name as companyName,
+        sys_user.user_name as createdName,
+        link.create_time as createdTime,
+        link.update_time as updatedTime,
+        link.system_create_time as systemCreateTime,
+        link.product_url as productUrl,
+        link.price as price,
+        link.currency_id as currencyId,
+        link.title as title,
+        link.site_id as siteId,
+        link.category_id as categoryId,
+        link.domain_id as domainId
+        from mercado_batch_collection_link link
+        left join sys_dept sys_dept on link.dept_id = sys_dept.dept_id
+        left join sys_user sys_user on link.create_by = sys_user.user_id
+        <where>
+            <if test="merchantId != null  and merchantId != ''">
+                and link.merchant_id = #{merchantId}
+            </if>
+            <if test="deptId != null ">
+                and link.dept_id = #{deptId}
+            </if>
+            <if test="siteId != null ">
+                and link.site_id = #{siteId}
+            </if>
+            <if test="createdName != null ">
+                and LOCATE(#{createdName},sys_user.user_name) > 0
+            </if>
+            <if test="createBeginTime != null and createEndTime != null">
+                and link.create_time between #{createBeginTime} and #{createEndTime}
+            </if>
+            <if test="updateBeginTime != null and updateEndTime != null">
+                and link.update_time between #{updateBeginTime} and #{updateEndTime}
+            </if>
+            <if test="systemBeginTime != null and systemEndTime != null">
+                and link.system_create_time between #{systemBeginTime} and #{systemEndTime}
+            </if>
+        </where>
+        <choose>
+            <!-- 当参数中的orderByColumn和isAsc都不为空时，选择第一个条件 -->
+            <when test="orderByColumn != null and isAsc != null">
+                <!-- 正序 -->
+                <if test="isAsc == 'ascending'">
+                    <if test="orderByColumn == 'createdTime'">
+                        order by link.create_time asc
+                    </if>
+                    <if test="orderByColumn == 'updatedTime'">
+                        order by link.update_time asc
+                    </if>
+                    <if test="orderByColumn == 'systemCreateTime'">
+                        order by link.system_create_time asc
+                    </if>
+                </if>
+                <!-- 倒序 -->
+                <if test="isAsc == 'descending'">
+                    <if test="orderByColumn == 'createdTime'">
+                        order by link.create_time desc
+                    </if>
+                    <if test="orderByColumn == 'updatedTime'">
+                        order by link.update_time desc
+                    </if>
+                    <if test="orderByColumn == 'systemCreateTime'">
+                        order by link.system_create_time desc
+                    </if>
+                </if>
+            </when>
+            <!-- 当以上条件都不成立时，执行otherwise中的条件 -->
+            <otherwise>
+                order by link.create_time desc
+            </otherwise>
+        </choose>
+    </select>
+
+    <select id="selectMercadoBatchCollectionLinkById" parameterType="String"
+            resultMap="MercadoBatchCollectionLinkResult">
+        <include refid="selectMercadoBatchCollectionLinkVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertMercadoBatchCollectionLink" parameterType="com.smarterp.order.domain.MercadoBatchCollectionLink">
+        replace into mercado_batch_collection_link
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="itemId != null">item_id,</if>
+            <if test="merchantId != null">merchant_id,</if>
+            <if test="productUrl != null">product_url,</if>
+            <if test="pictureUrl != null">picture_url,</if>
+            <if test="userId != null">user_id,</if>
+            <if test="deptId != null">dept_id,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateBy != null">update_by,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="systemCreateTime != null">system_create_time,</if>
+            <if test="price != null">price,</if>
+            <if test="currencyId != null">currency_id,</if>
+            <if test="title != null">title,</if>
+            <if test="siteId != null">site_id,</if>
+            <if test="categoryId != null">category_id,</if>
+            <if test="domainId != null">domain_id,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="itemId != null">#{itemId},</if>
+            <if test="merchantId != null">#{merchantId},</if>
+            <if test="productUrl != null">#{productUrl},</if>
+            <if test="pictureUrl != null">#{pictureUrl},</if>
+            <if test="userId != null">#{userId},</if>
+            <if test="deptId != null">#{deptId},</if>
+            <if test="createBy != null">#{createBy},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateBy != null">#{updateBy},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="systemCreateTime != null">#{systemCreateTime},</if>
+            <if test="price != null">#{price},</if>
+            <if test="currencyId != null">#{currencyId},</if>
+            <if test="title != null">#{title},</if>
+            <if test="siteId != null">#{siteId},</if>
+            <if test="categoryId != null">#{categoryId},</if>
+            <if test="domainId != null">#{domainId},</if>
+        </trim>
+    </insert>
+
+    <update id="updateMercadoBatchCollectionLink" parameterType="com.smarterp.order.domain.MercadoBatchCollectionLink">
+        update mercado_batch_collection_link
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="itemId != null">item_id = #{itemId},</if>
+            <if test="merchantId != null">merchant_id = #{merchantId},</if>
+            <if test="productUrl != null">product_url = #{productUrl},</if>
+            <if test="pictureUrl != null">picture_url = #{pictureUrl},</if>
+            <if test="userId != null">user_id = #{userId},</if>
+            <if test="deptId != null">dept_id = #{deptId},</if>
+            <if test="createBy != null">create_by = #{createBy},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="systemCreateTime != null">system_create_time = #{systemCreateTime},</if>
+            <if test="price != null">price = #{price},</if>
+            <if test="currencyId != null">currency_id = #{currencyId},</if>
+            <if test="title != null">title = #{title},</if>
+            <if test="siteId != null">site_id = #{siteId},</if>
+            <if test="categoryId != null">category_id = #{categoryId},</if>
+            <if test="domainId != null">domain_id = #{domainId},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteMercadoBatchCollectionLinkById" parameterType="String">
+        delete
+        from mercado_batch_collection_link
+        where id = #{id}
+    </delete>
+
+    <delete id="deleteMercadoBatchCollectionLinkByIds" parameterType="String">
+        delete from mercado_batch_collection_link where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <select id="getUpcCodeByDept" resultType="com.smarterp.order.domain.dto.MercadoUpcItem">
+        SELECT upc_code   upcCode,
+               mui.id     id,
+               mui.upc_id upcId
+        FROM mercado_upc_item mui
+                 LEFT JOIN mercado_upc mu ON mui.upc_id = mu.id
+        WHERE mu.dept_id = #{deptId}
+          AND mui.upc_status = 'NO'
+          AND mui.is_deleted = 0
+            LIMIT #{count}
+    </select>
+
+    <update id="updateUpcStatus">
+        UPDATE mercado_upc_item
+        SET upc_status = 'YES'
+        WHERE id IN
+        <foreach collection="upcIdList" item="upcId" open="(" separator="," close=")">
+            #{upcId}
+        </foreach>
+    </update>
+
+    <update id="updateUpcCount">
+        UPDATE mercado_upc
+        SET available_num =(SELECT COUNT(1) FROM mercado_upc_item WHERE upc_status = 'NO' AND upc_id = #{upcId}),
+            used_num      = (SELECT COUNT(1) FROM mercado_upc_item WHERE upc_status = 'YES' AND upc_id = #{upcId})
+        WHERE id = #{upcId}
+    </update>
+
+    <select id="linkCount" parameterType="com.smarterp.order.domain.MercadoBatchCollectionLink"
+            resultType="java.lang.Integer">
+        select
+        count(1)
+        from mercado_batch_collection_link
+        <where>
+            <if test="itemId != null  and itemId != ''">
+                and item_id = #{itemId}
+            </if>
+            <if test="deptId != null ">
+                and dept_id = #{deptId}
+            </if>
+        </where>
+    </select>
+</mapper>

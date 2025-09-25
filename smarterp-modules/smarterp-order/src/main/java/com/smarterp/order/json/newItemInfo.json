@@ -1,0 +1,2059 @@
+{
+  "id": "MLM2628011400",
+  "site_id": "MLM",
+  "title": "Chamarra De Mezclilla Gruesa De Talla Grande Para Hombre",
+  "seller_id": 1237424825,
+  "category_id": "MLM112197",
+  "official_store_id": null,
+  "price": 1004.50,
+  "base_price": 1004.50,
+  "original_price": null,
+  "currency_id": "MXN",
+  "initial_quantity": 606,
+  "sale_terms": [
+    {
+      "id": "WARRANTY_TYPE",
+      "name": "Tipo de garantía",
+      "value_id": "2230280",
+      "value_name": "Garantía del vendedor",
+      "value_struct": null,
+      "values": [
+        {
+          "id": "2230280",
+          "name": "Garantía del vendedor",
+          "struct": null
+        }
+      ],
+      "value_type": "list"
+    },
+    {
+      "id": "WARRANTY_TIME",
+      "name": "Tiempo de garantía",
+      "value_id": null,
+      "value_name": "1 meses",
+      "value_struct": {
+        "number": 1,
+        "unit": "meses"
+      },
+      "values": [
+        {
+          "id": null,
+          "name": "1 meses",
+          "struct": {
+            "number": 1,
+            "unit": "meses"
+          }
+        }
+      ],
+      "value_type": "number_unit"
+    },
+    {
+      "id": "PURCHASE_MAX_QUANTITY",
+      "name": "Cantidad máxima de compra",
+      "value_id": null,
+      "value_name": "3",
+      "value_struct": null,
+      "values": [
+        {
+          "id": null,
+          "name": "3",
+          "struct": null
+        }
+      ],
+      "value_type": "number"
+    }
+  ],
+  "buying_mode": "buy_it_now",
+  "listing_type_id": "gold_pro",
+  "condition": "new",
+  "permalink": "https://articulo.mercadolibre.com.mx/MLM-2628011400-chamarra-de-mezclilla-gruesa-de-talla-grande-para-hombre-_JM",
+  "thumbnail_id": "691870-CBT71322694679_082023",
+  "thumbnail": "http://http2.mlstatic.com/D_691870-CBT71322694679_082023-I.jpg",
+  "pictures": [
+    {
+      "id": "691870-CBT71322694679_082023",
+      "url": "http://http2.mlstatic.com/D_691870-CBT71322694679_082023-O.jpg",
+      "secure_url": "https://http2.mlstatic.com/D_691870-CBT71322694679_082023-O.jpg",
+      "size": "389x500",
+      "max_size": "623x800",
+      "quality": ""
+    },
+    {
+      "id": "673443-CBT71322694675_082023",
+      "url": "http://http2.mlstatic.com/D_673443-CBT71322694675_082023-O.jpg",
+      "secure_url": "https://http2.mlstatic.com/D_673443-CBT71322694675_082023-O.jpg",
+      "size": "500x500",
+      "max_size": "800x800",
+      "quality": ""
+    },
+    {
+      "id": "610987-CBT71322694683_082023",
+      "url": "http://http2.mlstatic.com/D_610987-CBT71322694683_082023-O.jpg",
+      "secure_url": "https://http2.mlstatic.com/D_610987-CBT71322694683_082023-O.jpg",
+      "size": "500x500",
+      "max_size": "800x800",
+      "quality": ""
+    },
+    {
+      "id": "974242-CBT71322694677_082023",
+      "url": "http://http2.mlstatic.com/D_974242-CBT71322694677_082023-O.jpg",
+      "secure_url": "https://http2.mlstatic.com/D_974242-CBT71322694677_082023-O.jpg",
+      "size": "500x500",
+      "max_size": "800x800",
+      "quality": ""
+    },
+    {
+      "id": "814094-CBT71322694681_082023",
+      "url": "http://http2.mlstatic.com/D_814094-CBT71322694681_082023-O.jpg",
+      "secure_url": "https://http2.mlstatic.com/D_814094-CBT71322694681_082023-O.jpg",
+      "size": "500x500",
+      "max_size": "800x800",
+      "quality": ""
+    }
+  ],
+  "video_id": null,
+  "descriptions": [],
+  "accepts_mercadopago": true,
+  "non_mercado_pago_payment_methods": [],
+  "shipping": {
+    "mode": "me2",
+    "methods": [],
+    "tags": [
+      "mandatory_free_shipping"
+    ],
+    "dimensions": null,
+    "local_pick_up": false,
+    "free_shipping": true,
+    "logistic_type": "cross_docking",
+    "store_pick_up": false
+  },
+  "international_delivery_mode": "DDP",
+  "seller_address": {
+    "city": {
+      "id": "Q04tR0RHdWFuZ3pob3U",
+      "name": "Guangzhou"
+    },
+    "state": {
+      "id": "CN-GD",
+      "name": "Guangdong"
+    },
+    "country": {
+      "id": "CN",
+      "name": "China"
+    },
+    "search_location": {
+      "city": {
+        "id": "Q2FudG9uQ04",
+        "name": "Canton"
+      },
+      "state": {
+        "id": "CHN",
+        "name": "China"
+      }
+    },
+    "id": 1265135821
+  },
+  "seller_contact": null,
+  "location": {},
+  "coverage_areas": [],
+  "attributes": [
+    {
+      "id": "FABRIC_TYPE",
+      "name": "Tipo de tela",
+      "value_id": null,
+      "value_name": "Microfibra",
+      "values": [
+        {
+          "id": null,
+          "name": "Microfibra",
+          "struct": null
+        }
+      ],
+      "value_type": "string"
+    },
+    {
+      "id": "AGE_GROUP",
+      "name": "Edad",
+      "value_id": "6725189",
+      "value_name": "Adultos",
+      "values": [
+        {
+          "id": "6725189",
+          "name": "Adultos",
+          "struct": null
+        }
+      ],
+      "value_type": "list"
+    },
+    {
+      "id": "BRAND",
+      "name": "Marca",
+      "value_id": "276243",
+      "value_name": "Genérica",
+      "values": [
+        {
+          "id": "276243",
+          "name": "Genérica",
+          "struct": null
+        }
+      ],
+      "value_type": "string"
+    },
+    {
+      "id": "COMPOSITION",
+      "name": "Composición",
+      "value_id": "5735611",
+      "value_name": "90% algodón",
+      "values": [
+        {
+          "id": "5735611",
+          "name": "90% algodón",
+          "struct": null
+        }
+      ],
+      "value_type": "string"
+    },
+    {
+      "id": "EXTERNAL_POCKETS_NUMBER",
+      "name": "Cantidad de bolsillos externos",
+      "value_id": null,
+      "value_name": "2",
+      "values": [
+        {
+          "id": null,
+          "name": "2",
+          "struct": null
+        }
+      ],
+      "value_type": "number"
+    },
+    {
+      "id": "GARMENT_TYPE",
+      "name": "Tipo de prenda",
+      "value_id": "35461198",
+      "value_name": "Gabardina",
+      "values": [
+        {
+          "id": "35461198",
+          "name": "Gabardina",
+          "struct": null
+        }
+      ],
+      "value_type": "string"
+    },
+    {
+      "id": "GENDER",
+      "name": "Género",
+      "value_id": "339666",
+      "value_name": "Hombre",
+      "values": [
+        {
+          "id": "339666",
+          "name": "Hombre",
+          "struct": null
+        }
+      ],
+      "value_type": "list"
+    },
+    {
+      "id": "INTERNAL_POCKETS_NUMBER",
+      "name": "Cantidad de bolsillos internos",
+      "value_id": null,
+      "value_name": "1",
+      "values": [
+        {
+          "id": null,
+          "name": "1",
+          "struct": null
+        }
+      ],
+      "value_type": "number"
+    },
+    {
+      "id": "IS_IMPERMEABLE",
+      "name": "Es impermeable",
+      "value_id": "242085",
+      "value_name": "Sí",
+      "values": [
+        {
+          "id": "242085",
+          "name": "Sí",
+          "struct": null
+        }
+      ],
+      "value_type": "boolean"
+    },
+    {
+      "id": "IS_OVERSIZE",
+      "name": "Es oversize",
+      "value_id": "242085",
+      "value_name": "Sí",
+      "values": [
+        {
+          "id": "242085",
+          "name": "Sí",
+          "struct": null
+        }
+      ],
+      "value_type": "boolean"
+    },
+    {
+      "id": "IS_SPORTIVE",
+      "name": "Es deportiva",
+      "value_id": "242085",
+      "value_name": "Sí",
+      "values": [
+        {
+          "id": "242085",
+          "name": "Sí",
+          "struct": null
+        }
+      ],
+      "value_type": "boolean"
+    },
+    {
+      "id": "IS_THERMIC",
+      "name": "Es térmica",
+      "value_id": "242085",
+      "value_name": "Sí",
+      "values": [
+        {
+          "id": "242085",
+          "name": "Sí",
+          "struct": null
+        }
+      ],
+      "value_type": "boolean"
+    },
+    {
+      "id": "IS_ULTRALIGHT",
+      "name": "Es ultra liviana",
+      "value_id": "242084",
+      "value_name": "No",
+      "values": [
+        {
+          "id": "242084",
+          "name": "No",
+          "struct": null
+        }
+      ],
+      "value_type": "boolean"
+    },
+    {
+      "id": "ITEM_CONDITION",
+      "name": "Condición del ítem",
+      "value_id": "2230284",
+      "value_name": "Nuevo",
+      "values": [
+        {
+          "id": "2230284",
+          "name": "Nuevo",
+          "struct": null
+        }
+      ],
+      "value_type": "list"
+    },
+    {
+      "id": "MAIN_MATERIAL",
+      "name": "Material principal",
+      "value_id": "466793",
+      "value_name": "Algodón",
+      "values": [
+        {
+          "id": "466793",
+          "name": "Algodón",
+          "struct": null
+        }
+      ],
+      "value_type": "string"
+    },
+    {
+      "id": "MODEL",
+      "name": "Modelo",
+      "value_id": null,
+      "value_name": "Jacket, coat",
+      "values": [
+        {
+          "id": null,
+          "name": "Jacket, coat",
+          "struct": null
+        }
+      ],
+      "value_type": "string"
+    },
+    {
+      "id": "POCKETS_CLOSURE_TYPES",
+      "name": "Tipos de cierre de los bolsillos",
+      "value_id": null,
+      "value_name": "0",
+      "values": [
+        {
+          "id": null,
+          "name": "0",
+          "struct": null
+        }
+      ],
+      "value_type": "string"
+    },
+    {
+      "id": "RECOMMENDED_USES",
+      "name": "Usos recomendados",
+      "value_id": "12040161",
+      "value_name": "Trekking",
+      "values": [
+        {
+          "id": "12040161",
+          "name": "Trekking",
+          "struct": null
+        }
+      ],
+      "value_type": "string"
+    },
+    {
+      "id": "RELEASE_SEASON",
+      "name": "Temporada de lanzamiento",
+      "value_id": "994284",
+      "value_name": "Otoño/Invierno",
+      "values": [
+        {
+          "id": "994284",
+          "name": "Otoño/Invierno",
+          "struct": null
+        }
+      ],
+      "value_type": "list"
+    },
+    {
+      "id": "WITH_HOOD",
+      "name": "Con capucha",
+      "value_id": "242084",
+      "value_name": "No",
+      "values": [
+        {
+          "id": "242084",
+          "name": "No",
+          "struct": null
+        }
+      ],
+      "value_type": "boolean"
+    },
+    {
+      "id": "WITH_POCKETS",
+      "name": "Con bolsillos",
+      "value_id": "242085",
+      "value_name": "Sí",
+      "values": [
+        {
+          "id": "242085",
+          "name": "Sí",
+          "struct": null
+        }
+      ],
+      "value_type": "boolean"
+    },
+    {
+      "id": "WITH_RECYCLED_MATERIALS",
+      "name": "Con materiales reciclados",
+      "value_id": "242085",
+      "value_name": "Sí",
+      "values": [
+        {
+          "id": "242085",
+          "name": "Sí",
+          "struct": null
+        }
+      ],
+      "value_type": "boolean"
+    }
+  ],
+  "listing_source": "",
+  "variations": [
+    {
+      "id": 179052247100,
+      "price": 1004.50,
+      "attribute_combinations": [
+        {
+          "id": "COLOR",
+          "name": "Color",
+          "value_id": "52049",
+          "value_name": "Negro",
+          "values": [
+            {
+              "id": "52049",
+              "name": "Negro",
+              "struct": null
+            }
+          ],
+          "value_type": "string"
+        },
+        {
+          "id": "SIZE",
+          "name": "Talla",
+          "value_id": "2282666",
+          "value_name": "M",
+          "values": [
+            {
+              "id": "2282666",
+              "name": "M",
+              "struct": null
+            }
+          ],
+          "value_type": "string"
+        }
+      ],
+      "sale_terms": [],
+      "picture_ids": [
+        "691870-CBT71322694679_082023",
+        "673443-CBT71322694675_082023",
+        "610987-CBT71322694683_082023",
+        "974242-CBT71322694677_082023",
+        "814094-CBT71322694681_082023"
+      ],
+      "catalog_product_id": null,
+      "attributes": [
+        {
+          "id": "PACKAGE_HEIGHT",
+          "name": "Altura del paquete",
+          "value_id": null,
+          "value_name": "11 cm",
+          "value_struct": {
+            "number": 11,
+            "unit": "cm"
+          },
+          "values": [
+            {
+              "id": null,
+              "name": "11 cm",
+              "struct": {
+                "number": 11,
+                "unit": "cm"
+              }
+            }
+          ],
+          "value_type": "number_unit"
+        },
+        {
+          "id": "PACKAGE_WIDTH",
+          "name": "Ancho del paquete",
+          "value_id": null,
+          "value_name": "11 cm",
+          "value_struct": {
+            "number": 11,
+            "unit": "cm"
+          },
+          "values": [
+            {
+              "id": null,
+              "name": "11 cm",
+              "struct": {
+                "number": 11,
+                "unit": "cm"
+              }
+            }
+          ],
+          "value_type": "number_unit"
+        },
+        {
+          "id": "GTIN",
+          "name": "Código universal de producto",
+          "value_id": null,
+          "value_name": "944705119653",
+          "value_struct": null,
+          "values": [
+            {
+              "id": null,
+              "name": "944705119653",
+              "struct": null
+            }
+          ],
+          "value_type": "string"
+        },
+        {
+          "id": "PACKAGE_LENGTH",
+          "name": "Largo del paquete",
+          "value_id": null,
+          "value_name": "33 cm",
+          "value_struct": {
+            "number": 33,
+            "unit": "cm"
+          },
+          "values": [
+            {
+              "id": null,
+              "name": "33 cm",
+              "struct": {
+                "number": 33,
+                "unit": "cm"
+              }
+            }
+          ],
+          "value_type": "number_unit"
+        },
+        {
+          "id": "PACKAGE_WEIGHT",
+          "name": "Peso del paquete",
+          "value_id": null,
+          "value_name": "790 g",
+          "value_struct": {
+            "number": 790,
+            "unit": "g"
+          },
+          "values": [
+            {
+              "id": null,
+              "name": "790 g",
+              "struct": {
+                "number": 790,
+                "unit": "g"
+              }
+            }
+          ],
+          "value_type": "number_unit"
+        },
+        {
+          "id": "SELLER_SKU",
+          "name": "SKU",
+          "value_id": null,
+          "value_name": "NN-B592_Negro_M",
+          "value_struct": null,
+          "values": [
+            {
+              "id": null,
+              "name": "NN-B592_Negro_M",
+              "struct": null
+            }
+          ],
+          "value_type": "string"
+        },
+        {
+          "id": "FILTRABLE_SIZE",
+          "name": "Talla filtrable",
+          "value_id": "12917795",
+          "value_name": "M",
+          "value_struct": null,
+          "values": [
+            {
+              "id": "12917795",
+              "name": "M",
+              "struct": null
+            }
+          ],
+          "value_type": "list"
+        }
+      ]
+    },
+    {
+      "id": 179052247102,
+      "price": 1004.50,
+      "attribute_combinations": [
+        {
+          "id": "COLOR",
+          "name": "Color",
+          "value_id": "52049",
+          "value_name": "Negro",
+          "values": [
+            {
+              "id": "52049",
+              "name": "Negro",
+              "struct": null
+            }
+          ],
+          "value_type": "string"
+        },
+        {
+          "id": "SIZE",
+          "name": "Talla",
+          "value_id": "10490141",
+          "value_name": "G",
+          "values": [
+            {
+              "id": "10490141",
+              "name": "G",
+              "struct": null
+            }
+          ],
+          "value_type": "string"
+        }
+      ],
+      "sale_terms": [],
+      "picture_ids": [
+        "691870-CBT71322694679_082023",
+        "673443-CBT71322694675_082023",
+        "610987-CBT71322694683_082023",
+        "974242-CBT71322694677_082023",
+        "814094-CBT71322694681_082023"
+      ],
+      "catalog_product_id": null,
+      "attributes": [
+        {
+          "id": "PACKAGE_HEIGHT",
+          "name": "Altura del paquete",
+          "value_id": null,
+          "value_name": "11 cm",
+          "value_struct": {
+            "number": 11,
+            "unit": "cm"
+          },
+          "values": [
+            {
+              "id": null,
+              "name": "11 cm",
+              "struct": {
+                "number": 11,
+                "unit": "cm"
+              }
+            }
+          ],
+          "value_type": "number_unit"
+        },
+        {
+          "id": "PACKAGE_WIDTH",
+          "name": "Ancho del paquete",
+          "value_id": null,
+          "value_name": "11 cm",
+          "value_struct": {
+            "number": 11,
+            "unit": "cm"
+          },
+          "values": [
+            {
+              "id": null,
+              "name": "11 cm",
+              "struct": {
+                "number": 11,
+                "unit": "cm"
+              }
+            }
+          ],
+          "value_type": "number_unit"
+        },
+        {
+          "id": "GTIN",
+          "name": "Código universal de producto",
+          "value_id": null,
+          "value_name": "944705119653",
+          "value_struct": null,
+          "values": [
+            {
+              "id": null,
+              "name": "944705119653",
+              "struct": null
+            }
+          ],
+          "value_type": "string"
+        },
+        {
+          "id": "PACKAGE_LENGTH",
+          "name": "Largo del paquete",
+          "value_id": null,
+          "value_name": "33 cm",
+          "value_struct": {
+            "number": 33,
+            "unit": "cm"
+          },
+          "values": [
+            {
+              "id": null,
+              "name": "33 cm",
+              "struct": {
+                "number": 33,
+                "unit": "cm"
+              }
+            }
+          ],
+          "value_type": "number_unit"
+        },
+        {
+          "id": "PACKAGE_WEIGHT",
+          "name": "Peso del paquete",
+          "value_id": null,
+          "value_name": "790 g",
+          "value_struct": {
+            "number": 790,
+            "unit": "g"
+          },
+          "values": [
+            {
+              "id": null,
+              "name": "790 g",
+              "struct": {
+                "number": 790,
+                "unit": "g"
+              }
+            }
+          ],
+          "value_type": "number_unit"
+        },
+        {
+          "id": "SELLER_SKU",
+          "name": "SKU",
+          "value_id": null,
+          "value_name": "NN-B592_Negro_L",
+          "value_struct": null,
+          "values": [
+            {
+              "id": null,
+              "name": "NN-B592_Negro_L",
+              "struct": null
+            }
+          ],
+          "value_type": "string"
+        },
+        {
+          "id": "FILTRABLE_SIZE",
+          "name": "Talla filtrable",
+          "value_id": "13853814",
+          "value_name": "G",
+          "value_struct": null,
+          "values": [
+            {
+              "id": "13853814",
+              "name": "G",
+              "struct": null
+            }
+          ],
+          "value_type": "list"
+        }
+      ]
+    },
+    {
+      "id": 179052247104,
+      "price": 1004.50,
+      "attribute_combinations": [
+        {
+          "id": "COLOR",
+          "name": "Color",
+          "value_id": "52049",
+          "value_name": "Negro",
+          "values": [
+            {
+              "id": "52049",
+              "name": "Negro",
+              "struct": null
+            }
+          ],
+          "value_type": "string"
+        },
+        {
+          "id": "SIZE",
+          "name": "Talla",
+          "value_id": "433336",
+          "value_name": "XL",
+          "values": [
+            {
+              "id": "433336",
+              "name": "XL",
+              "struct": null
+            }
+          ],
+          "value_type": "string"
+        }
+      ],
+      "sale_terms": [],
+      "picture_ids": [
+        "691870-CBT71322694679_082023",
+        "673443-CBT71322694675_082023",
+        "610987-CBT71322694683_082023",
+        "974242-CBT71322694677_082023",
+        "814094-CBT71322694681_082023"
+      ],
+      "catalog_product_id": null,
+      "attributes": [
+        {
+          "id": "PACKAGE_HEIGHT",
+          "name": "Altura del paquete",
+          "value_id": null,
+          "value_name": "11 cm",
+          "value_struct": {
+            "number": 11,
+            "unit": "cm"
+          },
+          "values": [
+            {
+              "id": null,
+              "name": "11 cm",
+              "struct": {
+                "number": 11,
+                "unit": "cm"
+              }
+            }
+          ],
+          "value_type": "number_unit"
+        },
+        {
+          "id": "PACKAGE_WIDTH",
+          "name": "Ancho del paquete",
+          "value_id": null,
+          "value_name": "11 cm",
+          "value_struct": {
+            "number": 11,
+            "unit": "cm"
+          },
+          "values": [
+            {
+              "id": null,
+              "name": "11 cm",
+              "struct": {
+                "number": 11,
+                "unit": "cm"
+              }
+            }
+          ],
+          "value_type": "number_unit"
+        },
+        {
+          "id": "GTIN",
+          "name": "Código universal de producto",
+          "value_id": null,
+          "value_name": "944705119653",
+          "value_struct": null,
+          "values": [
+            {
+              "id": null,
+              "name": "944705119653",
+              "struct": null
+            }
+          ],
+          "value_type": "string"
+        },
+        {
+          "id": "PACKAGE_LENGTH",
+          "name": "Largo del paquete",
+          "value_id": null,
+          "value_name": "33 cm",
+          "value_struct": {
+            "number": 33,
+            "unit": "cm"
+          },
+          "values": [
+            {
+              "id": null,
+              "name": "33 cm",
+              "struct": {
+                "number": 33,
+                "unit": "cm"
+              }
+            }
+          ],
+          "value_type": "number_unit"
+        },
+        {
+          "id": "PACKAGE_WEIGHT",
+          "name": "Peso del paquete",
+          "value_id": null,
+          "value_name": "790 g",
+          "value_struct": {
+            "number": 790,
+            "unit": "g"
+          },
+          "values": [
+            {
+              "id": null,
+              "name": "790 g",
+              "struct": {
+                "number": 790,
+                "unit": "g"
+              }
+            }
+          ],
+          "value_type": "number_unit"
+        },
+        {
+          "id": "SELLER_SKU",
+          "name": "SKU",
+          "value_id": null,
+          "value_name": "NN-B592_Negro_XL",
+          "value_struct": null,
+          "values": [
+            {
+              "id": null,
+              "name": "NN-B592_Negro_XL",
+              "struct": null
+            }
+          ],
+          "value_type": "string"
+        },
+        {
+          "id": "FILTRABLE_SIZE",
+          "name": "Talla filtrable",
+          "value_id": "12917774",
+          "value_name": "XG",
+          "value_struct": null,
+          "values": [
+            {
+              "id": "12917774",
+              "name": "XG",
+              "struct": null
+            }
+          ],
+          "value_type": "list"
+        }
+      ]
+    },
+    {
+      "id": 179052247106,
+      "price": 1004.50,
+      "attribute_combinations": [
+        {
+          "id": "COLOR",
+          "name": "Color",
+          "value_id": "52049",
+          "value_name": "Negro",
+          "values": [
+            {
+              "id": "52049",
+              "name": "Negro",
+              "struct": null
+            }
+          ],
+          "value_type": "string"
+        },
+        {
+          "id": "SIZE",
+          "name": "Talla",
+          "value_id": "3423417",
+          "value_name": "XXL",
+          "values": [
+            {
+              "id": "3423417",
+              "name": "XXL",
+              "struct": null
+            }
+          ],
+          "value_type": "string"
+        }
+      ],
+      "sale_terms": [],
+      "picture_ids": [
+        "691870-CBT71322694679_082023",
+        "673443-CBT71322694675_082023",
+        "610987-CBT71322694683_082023",
+        "974242-CBT71322694677_082023",
+        "814094-CBT71322694681_082023"
+      ],
+      "catalog_product_id": null,
+      "attributes": [
+        {
+          "id": "PACKAGE_HEIGHT",
+          "name": "Altura del paquete",
+          "value_id": null,
+          "value_name": "11 cm",
+          "value_struct": {
+            "number": 11,
+            "unit": "cm"
+          },
+          "values": [
+            {
+              "id": null,
+              "name": "11 cm",
+              "struct": {
+                "number": 11,
+                "unit": "cm"
+              }
+            }
+          ],
+          "value_type": "number_unit"
+        },
+        {
+          "id": "PACKAGE_WIDTH",
+          "name": "Ancho del paquete",
+          "value_id": null,
+          "value_name": "11 cm",
+          "value_struct": {
+            "number": 11,
+            "unit": "cm"
+          },
+          "values": [
+            {
+              "id": null,
+              "name": "11 cm",
+              "struct": {
+                "number": 11,
+                "unit": "cm"
+              }
+            }
+          ],
+          "value_type": "number_unit"
+        },
+        {
+          "id": "GTIN",
+          "name": "Código universal de producto",
+          "value_id": null,
+          "value_name": "944705119653",
+          "value_struct": null,
+          "values": [
+            {
+              "id": null,
+              "name": "944705119653",
+              "struct": null
+            }
+          ],
+          "value_type": "string"
+        },
+        {
+          "id": "PACKAGE_LENGTH",
+          "name": "Largo del paquete",
+          "value_id": null,
+          "value_name": "33 cm",
+          "value_struct": {
+            "number": 33,
+            "unit": "cm"
+          },
+          "values": [
+            {
+              "id": null,
+              "name": "33 cm",
+              "struct": {
+                "number": 33,
+                "unit": "cm"
+              }
+            }
+          ],
+          "value_type": "number_unit"
+        },
+        {
+          "id": "PACKAGE_WEIGHT",
+          "name": "Peso del paquete",
+          "value_id": null,
+          "value_name": "790 g",
+          "value_struct": {
+            "number": 790,
+            "unit": "g"
+          },
+          "values": [
+            {
+              "id": null,
+              "name": "790 g",
+              "struct": {
+                "number": 790,
+                "unit": "g"
+              }
+            }
+          ],
+          "value_type": "number_unit"
+        },
+        {
+          "id": "SELLER_SKU",
+          "name": "SKU",
+          "value_id": null,
+          "value_name": "NN-B592_Negro_XXL",
+          "value_struct": null,
+          "values": [
+            {
+              "id": null,
+              "name": "NN-B592_Negro_XXL",
+              "struct": null
+            }
+          ],
+          "value_type": "string"
+        },
+        {
+          "id": "FILTRABLE_SIZE",
+          "name": "Talla filtrable",
+          "value_id": "13853826",
+          "value_name": "2XG",
+          "value_struct": null,
+          "values": [
+            {
+              "id": "13853826",
+              "name": "2XG",
+              "struct": null
+            }
+          ],
+          "value_type": "list"
+        }
+      ]
+    },
+    {
+      "id": 179052247108,
+      "price": 1004.50,
+      "attribute_combinations": [
+        {
+          "id": "COLOR",
+          "name": "Color",
+          "value_id": "52049",
+          "value_name": "Negro",
+          "values": [
+            {
+              "id": "52049",
+              "name": "Negro",
+              "struct": null
+            }
+          ],
+          "value_type": "string"
+        },
+        {
+          "id": "SIZE",
+          "name": "Talla",
+          "value_id": "2282662",
+          "value_name": "XXXL",
+          "values": [
+            {
+              "id": "2282662",
+              "name": "XXXL",
+              "struct": null
+            }
+          ],
+          "value_type": "string"
+        }
+      ],
+      "sale_terms": [],
+      "picture_ids": [
+        "691870-CBT71322694679_082023",
+        "673443-CBT71322694675_082023",
+        "610987-CBT71322694683_082023",
+        "974242-CBT71322694677_082023",
+        "814094-CBT71322694681_082023"
+      ],
+      "catalog_product_id": null,
+      "attributes": [
+        {
+          "id": "PACKAGE_HEIGHT",
+          "name": "Altura del paquete",
+          "value_id": null,
+          "value_name": "11 cm",
+          "value_struct": {
+            "number": 11,
+            "unit": "cm"
+          },
+          "values": [
+            {
+              "id": null,
+              "name": "11 cm",
+              "struct": {
+                "number": 11,
+                "unit": "cm"
+              }
+            }
+          ],
+          "value_type": "number_unit"
+        },
+        {
+          "id": "PACKAGE_WIDTH",
+          "name": "Ancho del paquete",
+          "value_id": null,
+          "value_name": "11 cm",
+          "value_struct": {
+            "number": 11,
+            "unit": "cm"
+          },
+          "values": [
+            {
+              "id": null,
+              "name": "11 cm",
+              "struct": {
+                "number": 11,
+                "unit": "cm"
+              }
+            }
+          ],
+          "value_type": "number_unit"
+        },
+        {
+          "id": "GTIN",
+          "name": "Código universal de producto",
+          "value_id": null,
+          "value_name": "944705119653",
+          "value_struct": null,
+          "values": [
+            {
+              "id": null,
+              "name": "944705119653",
+              "struct": null
+            }
+          ],
+          "value_type": "string"
+        },
+        {
+          "id": "PACKAGE_LENGTH",
+          "name": "Largo del paquete",
+          "value_id": null,
+          "value_name": "33 cm",
+          "value_struct": {
+            "number": 33,
+            "unit": "cm"
+          },
+          "values": [
+            {
+              "id": null,
+              "name": "33 cm",
+              "struct": {
+                "number": 33,
+                "unit": "cm"
+              }
+            }
+          ],
+          "value_type": "number_unit"
+        },
+        {
+          "id": "PACKAGE_WEIGHT",
+          "name": "Peso del paquete",
+          "value_id": null,
+          "value_name": "790 g",
+          "value_struct": {
+            "number": 790,
+            "unit": "g"
+          },
+          "values": [
+            {
+              "id": null,
+              "name": "790 g",
+              "struct": {
+                "number": 790,
+                "unit": "g"
+              }
+            }
+          ],
+          "value_type": "number_unit"
+        },
+        {
+          "id": "SELLER_SKU",
+          "name": "SKU",
+          "value_id": null,
+          "value_name": "NN-B592_Negro_XXXL",
+          "value_struct": null,
+          "values": [
+            {
+              "id": null,
+              "name": "NN-B592_Negro_XXXL",
+              "struct": null
+            }
+          ],
+          "value_type": "string"
+        },
+        {
+          "id": "FILTRABLE_SIZE",
+          "name": "Talla filtrable",
+          "value_id": "13853827",
+          "value_name": "3XG",
+          "value_struct": null,
+          "values": [
+            {
+              "id": "13853827",
+              "name": "3XG",
+              "struct": null
+            }
+          ],
+          "value_type": "list"
+        }
+      ]
+    },
+    {
+      "id": 179052247110,
+      "price": 1004.50,
+      "attribute_combinations": [
+        {
+          "id": "COLOR",
+          "name": "Color",
+          "value_id": "52049",
+          "value_name": "Negro",
+          "values": [
+            {
+              "id": "52049",
+              "name": "Negro",
+              "struct": null
+            }
+          ],
+          "value_type": "string"
+        },
+        {
+          "id": "SIZE",
+          "name": "Talla",
+          "value_id": "3583218",
+          "value_name": "XXXXL",
+          "values": [
+            {
+              "id": "3583218",
+              "name": "XXXXL",
+              "struct": null
+            }
+          ],
+          "value_type": "string"
+        }
+      ],
+      "sale_terms": [],
+      "picture_ids": [
+        "691870-CBT71322694679_082023",
+        "673443-CBT71322694675_082023",
+        "610987-CBT71322694683_082023",
+        "974242-CBT71322694677_082023",
+        "814094-CBT71322694681_082023"
+      ],
+      "catalog_product_id": null,
+      "attributes": [
+        {
+          "id": "PACKAGE_HEIGHT",
+          "name": "Altura del paquete",
+          "value_id": null,
+          "value_name": "11 cm",
+          "value_struct": {
+            "number": 11,
+            "unit": "cm"
+          },
+          "values": [
+            {
+              "id": null,
+              "name": "11 cm",
+              "struct": {
+                "number": 11,
+                "unit": "cm"
+              }
+            }
+          ],
+          "value_type": "number_unit"
+        },
+        {
+          "id": "PACKAGE_WIDTH",
+          "name": "Ancho del paquete",
+          "value_id": null,
+          "value_name": "11 cm",
+          "value_struct": {
+            "number": 11,
+            "unit": "cm"
+          },
+          "values": [
+            {
+              "id": null,
+              "name": "11 cm",
+              "struct": {
+                "number": 11,
+                "unit": "cm"
+              }
+            }
+          ],
+          "value_type": "number_unit"
+        },
+        {
+          "id": "GTIN",
+          "name": "Código universal de producto",
+          "value_id": null,
+          "value_name": "944705119653",
+          "value_struct": null,
+          "values": [
+            {
+              "id": null,
+              "name": "944705119653",
+              "struct": null
+            }
+          ],
+          "value_type": "string"
+        },
+        {
+          "id": "PACKAGE_LENGTH",
+          "name": "Largo del paquete",
+          "value_id": null,
+          "value_name": "33 cm",
+          "value_struct": {
+            "number": 33,
+            "unit": "cm"
+          },
+          "values": [
+            {
+              "id": null,
+              "name": "33 cm",
+              "struct": {
+                "number": 33,
+                "unit": "cm"
+              }
+            }
+          ],
+          "value_type": "number_unit"
+        },
+        {
+          "id": "PACKAGE_WEIGHT",
+          "name": "Peso del paquete",
+          "value_id": null,
+          "value_name": "790 g",
+          "value_struct": {
+            "number": 790,
+            "unit": "g"
+          },
+          "values": [
+            {
+              "id": null,
+              "name": "790 g",
+              "struct": {
+                "number": 790,
+                "unit": "g"
+              }
+            }
+          ],
+          "value_type": "number_unit"
+        },
+        {
+          "id": "SELLER_SKU",
+          "name": "SKU",
+          "value_id": null,
+          "value_name": "NN-B592_Negro_XXXXL",
+          "value_struct": null,
+          "values": [
+            {
+              "id": null,
+              "name": "NN-B592_Negro_XXXXL",
+              "struct": null
+            }
+          ],
+          "value_type": "string"
+        },
+        {
+          "id": "FILTRABLE_SIZE",
+          "name": "Talla filtrable",
+          "value_id": "13853828",
+          "value_name": "4XG",
+          "value_struct": null,
+          "values": [
+            {
+              "id": "13853828",
+              "name": "4XG",
+              "struct": null
+            }
+          ],
+          "value_type": "list"
+        }
+      ]
+    },
+    {
+      "id": 179052247112,
+      "price": 1004.50,
+      "attribute_combinations": [
+        {
+          "id": "COLOR",
+          "name": "Color",
+          "value_id": "52049",
+          "value_name": "Negro",
+          "values": [
+            {
+              "id": "52049",
+              "name": "Negro",
+              "struct": null
+            }
+          ],
+          "value_type": "string"
+        },
+        {
+          "id": "SIZE",
+          "name": "Talla",
+          "value_id": "3026715",
+          "value_name": "5XL",
+          "values": [
+            {
+              "id": "3026715",
+              "name": "5XL",
+              "struct": null
+            }
+          ],
+          "value_type": "string"
+        }
+      ],
+      "sale_terms": [],
+      "picture_ids": [
+        "691870-CBT71322694679_082023",
+        "673443-CBT71322694675_082023",
+        "610987-CBT71322694683_082023",
+        "974242-CBT71322694677_082023",
+        "814094-CBT71322694681_082023"
+      ],
+      "catalog_product_id": null,
+      "attributes": [
+        {
+          "id": "PACKAGE_HEIGHT",
+          "name": "Altura del paquete",
+          "value_id": null,
+          "value_name": "11 cm",
+          "value_struct": {
+            "number": 11,
+            "unit": "cm"
+          },
+          "values": [
+            {
+              "id": null,
+              "name": "11 cm",
+              "struct": {
+                "number": 11,
+                "unit": "cm"
+              }
+            }
+          ],
+          "value_type": "number_unit"
+        },
+        {
+          "id": "PACKAGE_WIDTH",
+          "name": "Ancho del paquete",
+          "value_id": null,
+          "value_name": "11 cm",
+          "value_struct": {
+            "number": 11,
+            "unit": "cm"
+          },
+          "values": [
+            {
+              "id": null,
+              "name": "11 cm",
+              "struct": {
+                "number": 11,
+                "unit": "cm"
+              }
+            }
+          ],
+          "value_type": "number_unit"
+        },
+        {
+          "id": "GTIN",
+          "name": "Código universal de producto",
+          "value_id": null,
+          "value_name": "944705119653",
+          "value_struct": null,
+          "values": [
+            {
+              "id": null,
+              "name": "944705119653",
+              "struct": null
+            }
+          ],
+          "value_type": "string"
+        },
+        {
+          "id": "PACKAGE_LENGTH",
+          "name": "Largo del paquete",
+          "value_id": null,
+          "value_name": "33 cm",
+          "value_struct": {
+            "number": 33,
+            "unit": "cm"
+          },
+          "values": [
+            {
+              "id": null,
+              "name": "33 cm",
+              "struct": {
+                "number": 33,
+                "unit": "cm"
+              }
+            }
+          ],
+          "value_type": "number_unit"
+        },
+        {
+          "id": "PACKAGE_WEIGHT",
+          "name": "Peso del paquete",
+          "value_id": null,
+          "value_name": "790 g",
+          "value_struct": {
+            "number": 790,
+            "unit": "g"
+          },
+          "values": [
+            {
+              "id": null,
+              "name": "790 g",
+              "struct": {
+                "number": 790,
+                "unit": "g"
+              }
+            }
+          ],
+          "value_type": "number_unit"
+        },
+        {
+          "id": "SELLER_SKU",
+          "name": "SKU",
+          "value_id": null,
+          "value_name": "NN-B592_Negro_5XL",
+          "value_struct": null,
+          "values": [
+            {
+              "id": null,
+              "name": "NN-B592_Negro_5XL",
+              "struct": null
+            }
+          ],
+          "value_type": "string"
+        },
+        {
+          "id": "FILTRABLE_SIZE",
+          "name": "Talla filtrable",
+          "value_id": "13853829",
+          "value_name": "5XG",
+          "value_struct": null,
+          "values": [
+            {
+              "id": "13853829",
+              "name": "5XG",
+              "struct": null
+            }
+          ],
+          "value_type": "list"
+        }
+      ]
+    },
+    {
+      "id": 179052247114,
+      "price": 1004.50,
+      "attribute_combinations": [
+        {
+          "id": "COLOR",
+          "name": "Color",
+          "value_id": "52049",
+          "value_name": "Negro",
+          "values": [
+            {
+              "id": "52049",
+              "name": "Negro",
+              "struct": null
+            }
+          ],
+          "value_type": "string"
+        },
+        {
+          "id": "SIZE",
+          "name": "Talla",
+          "value_id": "3029598",
+          "value_name": "6XL",
+          "values": [
+            {
+              "id": "3029598",
+              "name": "6XL",
+              "struct": null
+            }
+          ],
+          "value_type": "string"
+        }
+      ],
+      "sale_terms": [],
+      "picture_ids": [
+        "691870-CBT71322694679_082023",
+        "673443-CBT71322694675_082023",
+        "610987-CBT71322694683_082023",
+        "974242-CBT71322694677_082023",
+        "814094-CBT71322694681_082023"
+      ],
+      "catalog_product_id": null,
+      "attributes": [
+        {
+          "id": "PACKAGE_HEIGHT",
+          "name": "Altura del paquete",
+          "value_id": null,
+          "value_name": "11 cm",
+          "value_struct": {
+            "number": 11,
+            "unit": "cm"
+          },
+          "values": [
+            {
+              "id": null,
+              "name": "11 cm",
+              "struct": {
+                "number": 11,
+                "unit": "cm"
+              }
+            }
+          ],
+          "value_type": "number_unit"
+        },
+        {
+          "id": "PACKAGE_WIDTH",
+          "name": "Ancho del paquete",
+          "value_id": null,
+          "value_name": "11 cm",
+          "value_struct": {
+            "number": 11,
+            "unit": "cm"
+          },
+          "values": [
+            {
+              "id": null,
+              "name": "11 cm",
+              "struct": {
+                "number": 11,
+                "unit": "cm"
+              }
+            }
+          ],
+          "value_type": "number_unit"
+        },
+        {
+          "id": "GTIN",
+          "name": "Código universal de producto",
+          "value_id": null,
+          "value_name": "944705119653",
+          "value_struct": null,
+          "values": [
+            {
+              "id": null,
+              "name": "944705119653",
+              "struct": null
+            }
+          ],
+          "value_type": "string"
+        },
+        {
+          "id": "PACKAGE_LENGTH",
+          "name": "Largo del paquete",
+          "value_id": null,
+          "value_name": "33 cm",
+          "value_struct": {
+            "number": 33,
+            "unit": "cm"
+          },
+          "values": [
+            {
+              "id": null,
+              "name": "33 cm",
+              "struct": {
+                "number": 33,
+                "unit": "cm"
+              }
+            }
+          ],
+          "value_type": "number_unit"
+        },
+        {
+          "id": "PACKAGE_WEIGHT",
+          "name": "Peso del paquete",
+          "value_id": null,
+          "value_name": "790 g",
+          "value_struct": {
+            "number": 790,
+            "unit": "g"
+          },
+          "values": [
+            {
+              "id": null,
+              "name": "790 g",
+              "struct": {
+                "number": 790,
+                "unit": "g"
+              }
+            }
+          ],
+          "value_type": "number_unit"
+        },
+        {
+          "id": "SELLER_SKU",
+          "name": "SKU",
+          "value_id": null,
+          "value_name": "NN-B592_Negro_6XL",
+          "value_struct": null,
+          "values": [
+            {
+              "id": null,
+              "name": "NN-B592_Negro_6XL",
+              "struct": null
+            }
+          ],
+          "value_type": "string"
+        },
+        {
+          "id": "FILTRABLE_SIZE",
+          "name": "Talla filtrable",
+          "value_id": "13853830",
+          "value_name": "6XG",
+          "value_struct": null,
+          "values": [
+            {
+              "id": "13853830",
+              "name": "6XG",
+              "struct": null
+            }
+          ],
+          "value_type": "list"
+        }
+      ]
+    },
+    {
+      "id": 179052247116,
+      "price": 1004.50,
+      "attribute_combinations": [
+        {
+          "id": "COLOR",
+          "name": "Color",
+          "value_id": "52049",
+          "value_name": "Negro",
+          "values": [
+            {
+              "id": "52049",
+              "name": "Negro",
+              "struct": null
+            }
+          ],
+          "value_type": "string"
+        },
+        {
+          "id": "SIZE",
+          "name": "Talla",
+          "value_id": "4944607",
+          "value_name": "8XL",
+          "values": [
+            {
+              "id": "4944607",
+              "name": "8XL",
+              "struct": null
+            }
+          ],
+          "value_type": "string"
+        }
+      ],
+      "sale_terms": [],
+      "picture_ids": [
+        "691870-CBT71322694679_082023",
+        "673443-CBT71322694675_082023",
+        "610987-CBT71322694683_082023",
+        "974242-CBT71322694677_082023",
+        "814094-CBT71322694681_082023"
+      ],
+      "catalog_product_id": null,
+      "attributes": [
+        {
+          "id": "PACKAGE_HEIGHT",
+          "name": "Altura del paquete",
+          "value_id": null,
+          "value_name": "11 cm",
+          "value_struct": {
+            "number": 11,
+            "unit": "cm"
+          },
+          "values": [
+            {
+              "id": null,
+              "name": "11 cm",
+              "struct": {
+                "number": 11,
+                "unit": "cm"
+              }
+            }
+          ],
+          "value_type": "number_unit"
+        },
+        {
+          "id": "PACKAGE_WIDTH",
+          "name": "Ancho del paquete",
+          "value_id": null,
+          "value_name": "11 cm",
+          "value_struct": {
+            "number": 11,
+            "unit": "cm"
+          },
+          "values": [
+            {
+              "id": null,
+              "name": "11 cm",
+              "struct": {
+                "number": 11,
+                "unit": "cm"
+              }
+            }
+          ],
+          "value_type": "number_unit"
+        },
+        {
+          "id": "GTIN",
+          "name": "Código universal de producto",
+          "value_id": null,
+          "value_name": "944705119653",
+          "value_struct": null,
+          "values": [
+            {
+              "id": null,
+              "name": "944705119653",
+              "struct": null
+            }
+          ],
+          "value_type": "string"
+        },
+        {
+          "id": "PACKAGE_LENGTH",
+          "name": "Largo del paquete",
+          "value_id": null,
+          "value_name": "33 cm",
+          "value_struct": {
+            "number": 33,
+            "unit": "cm"
+          },
+          "values": [
+            {
+              "id": null,
+              "name": "33 cm",
+              "struct": {
+                "number": 33,
+                "unit": "cm"
+              }
+            }
+          ],
+          "value_type": "number_unit"
+        },
+        {
+          "id": "PACKAGE_WEIGHT",
+          "name": "Peso del paquete",
+          "value_id": null,
+          "value_name": "790 g",
+          "value_struct": {
+            "number": 790,
+            "unit": "g"
+          },
+          "values": [
+            {
+              "id": null,
+              "name": "790 g",
+              "struct": {
+                "number": 790,
+                "unit": "g"
+              }
+            }
+          ],
+          "value_type": "number_unit"
+        },
+        {
+          "id": "SELLER_SKU",
+          "name": "SKU",
+          "value_id": null,
+          "value_name": "NN-B592_Negro_8XL",
+          "value_struct": null,
+          "values": [
+            {
+              "id": null,
+              "name": "NN-B592_Negro_8XL",
+              "struct": null
+            }
+          ],
+          "value_type": "string"
+        },
+        {
+          "id": "FILTRABLE_SIZE",
+          "name": "Talla filtrable",
+          "value_id": "13853832",
+          "value_name": "8XG",
+          "value_struct": null,
+          "values": [
+            {
+              "id": "13853832",
+              "name": "8XG",
+              "struct": null
+            }
+          ],
+          "value_type": "list"
+        }
+      ]
+    }
+  ],
+  "status": "active",
+  "sub_status": [],
+  "tags": [
+    "cbt_item",
+    "certified_quality_thumbnail",
+    "good_quality_thumbnail",
+    "immediate_payment",
+    "cart_eligible"
+  ],
+  "warranty": "Garantía del vendedor: 1 meses",
+  "catalog_product_id": null,
+  "domain_id": "MLM-JACKETS_AND_COATS",
+  "parent_item_id": null,
+  "deal_ids": [
+    "MLM55024"
+  ],
+  "automatic_relist": false,
+  "date_created": "2023-10-24T08:51:10.000Z",
+  "last_updated": "2024-10-19T23:44:18.002Z",
+  "health": 1,
+  "catalog_listing": false
+}

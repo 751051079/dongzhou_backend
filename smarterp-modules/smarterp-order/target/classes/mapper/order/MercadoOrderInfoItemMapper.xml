@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smarterp.order.mapper.MercadoOrderInfoItemMapper">
+
+    <resultMap type="com.smarterp.order.domain.MercadoOrderInfoItem" id="MercadoOrderInfoItemResult">
+        <result property="id" column="id"/>
+        <result property="orderId" column="order_id"/>
+        <result property="itemId" column="item_id"/>
+        <result property="title" column="title"/>
+        <result property="categoryId" column="category_id"/>
+        <result property="variationId" column="variation_id"/>
+        <result property="variationAttributes" column="variation_attributes"/>
+        <result property="warranty" column="warranty"/>
+        <result property="sellerSku" column="seller_sku"/>
+        <result property="parentItemId" column="parent_item_id"/>
+        <result property="quantity" column="quantity"/>
+        <result property="unitPrice" column="unit_price"/>
+        <result property="fullUnitPrice" column="full_unit_price"/>
+        <result property="currencyId" column="currency_id"/>
+        <result property="saleFee" column="sale_fee"/>
+        <result property="baseExchangeRate" column="base_exchange_rate"/>
+    </resultMap>
+
+    <sql id="selectMercadoOrderInfoItemVo">
+        select id,
+               order_id,
+               item_id,
+               title,
+               category_id,
+               variation_id,
+               variation_attributes,
+               warranty,
+               seller_sku,
+               parent_item_id,
+               quantity,
+               unit_price,
+               full_unit_price,
+               currency_id,
+               sale_fee,
+               base_exchange_rate
+        from mercado_order_info_item
+    </sql>
+
+    <select id="selectMercadoOrderInfoItemList" parameterType="com.smarterp.order.domain.MercadoOrderInfoItem"
+            resultMap="MercadoOrderInfoItemResult">
+        <include refid="selectMercadoOrderInfoItemVo"/>
+        <where>
+            <if test="orderId != null  and orderId != ''">and order_id = #{orderId}</if>
+            <if test="itemId != null  and itemId != ''">and item_id = #{itemId}</if>
+            <if test="title != null  and title != ''">and title = #{title}</if>
+            <if test="categoryId != null  and categoryId != ''">and category_id = #{categoryId}</if>
+            <if test="variationId != null  and variationId != ''">and variation_id = #{variationId}</if>
+            <if test="variationAttributes != null  and variationAttributes != ''">and variation_attributes =
+                #{variationAttributes}
+            </if>
+            <if test="warranty != null  and warranty != ''">and warranty = #{warranty}</if>
+            <if test="sellerSku != null  and sellerSku != ''">and seller_sku = #{sellerSku}</if>
+            <if test="parentItemId != null  and parentItemId != ''">and parent_item_id = #{parentItemId}</if>
+            <if test="quantity != null  and quantity != ''">and quantity = #{quantity}</if>
+            <if test="unitPrice != null  and unitPrice != ''">and unit_price = #{unitPrice}</if>
+            <if test="fullUnitPrice != null  and fullUnitPrice != ''">and full_unit_price = #{fullUnitPrice}</if>
+            <if test="currencyId != null  and currencyId != ''">and currency_id = #{currencyId}</if>
+            <if test="saleFee != null  and saleFee != ''">and sale_fee = #{saleFee}</if>
+            <if test="baseExchangeRate != null  and baseExchangeRate != ''">and base_exchange_rate =
+                #{baseExchangeRate}
+            </if>
+        </where>
+    </select>
+
+    <select id="selectMercadoOrderInfoItemById" parameterType="String" resultMap="MercadoOrderInfoItemResult">
+        <include refid="selectMercadoOrderInfoItemVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertMercadoOrderInfoItem" parameterType="com.smarterp.order.domain.MercadoOrderInfoItem">
+        replace into mercado_order_info_item
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="orderId != null">order_id,</if>
+            <if test="itemId != null">item_id,</if>
+            <if test="title != null">title,</if>
+            <if test="categoryId != null">category_id,</if>
+            <if test="variationId != null">variation_id,</if>
+            <if test="variationAttributes != null">variation_attributes,</if>
+            <if test="warranty != null">warranty,</if>
+            <if test="sellerSku != null">seller_sku,</if>
+            <if test="parentItemId != null">parent_item_id,</if>
+            <if test="quantity != null">quantity,</if>
+            <if test="unitPrice != null">unit_price,</if>
+            <if test="fullUnitPrice != null">full_unit_price,</if>
+            <if test="currencyId != null">currency_id,</if>
+            <if test="saleFee != null">sale_fee,</if>
+            <if test="baseExchangeRate != null">base_exchange_rate,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="orderId != null">#{orderId},</if>
+            <if test="itemId != null">#{itemId},</if>
+            <if test="title != null">#{title},</if>
+            <if test="categoryId != null">#{categoryId},</if>
+            <if test="variationId != null">#{variationId},</if>
+            <if test="variationAttributes != null">#{variationAttributes},</if>
+            <if test="warranty != null">#{warranty},</if>
+            <if test="sellerSku != null">#{sellerSku},</if>
+            <if test="parentItemId != null">#{parentItemId},</if>
+            <if test="quantity != null">#{quantity},</if>
+            <if test="unitPrice != null">#{unitPrice},</if>
+            <if test="fullUnitPrice != null">#{fullUnitPrice},</if>
+            <if test="currencyId != null">#{currencyId},</if>
+            <if test="saleFee != null">#{saleFee},</if>
+            <if test="baseExchangeRate != null">#{baseExchangeRate},</if>
+        </trim>
+    </insert>
+
+    <update id="updateMercadoOrderInfoItem" parameterType="com.smarterp.order.domain.MercadoOrderInfoItem">
+        update mercado_order_info_item
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="orderId != null">order_id = #{orderId},</if>
+            <if test="itemId != null">item_id = #{itemId},</if>
+            <if test="title != null">title = #{title},</if>
+            <if test="categoryId != null">category_id = #{categoryId},</if>
+            <if test="variationId != null">variation_id = #{variationId},</if>
+            <if test="variationAttributes != null">variation_attributes = #{variationAttributes},</if>
+            <if test="warranty != null">warranty = #{warranty},</if>
+            <if test="sellerSku != null">seller_sku = #{sellerSku},</if>
+            <if test="parentItemId != null">parent_item_id = #{parentItemId},</if>
+            <if test="quantity != null">quantity = #{quantity},</if>
+            <if test="unitPrice != null">unit_price = #{unitPrice},</if>
+            <if test="fullUnitPrice != null">full_unit_price = #{fullUnitPrice},</if>
+            <if test="currencyId != null">currency_id = #{currencyId},</if>
+            <if test="saleFee != null">sale_fee = #{saleFee},</if>
+            <if test="baseExchangeRate != null">base_exchange_rate = #{baseExchangeRate},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteMercadoOrderInfoItemById" parameterType="String">
+        delete
+        from mercado_order_info_item
+        where id = #{id}
+    </delete>
+
+    <delete id="deleteMercadoOrderInfoItemByIds" parameterType="String">
+        delete from mercado_order_info_item where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

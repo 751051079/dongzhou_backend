@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smarterp.system.mapper.MercadoUpcMapper">
+
+    <resultMap type="com.smarterp.system.domain.MercadoUpc" id="MercadoUpcResult">
+        <result property="id" column="id"/>
+        <result property="deptId" column="dept_id"/>
+        <result property="codeName" column="code_name"/>
+        <result property="codeType" column="code_type"/>
+        <result property="totalNum" column="total_num"/>
+        <result property="availableNum" column="available_num"/>
+        <result property="usedNum" column="used_num"/>
+        <result property="createTime" column="create_time"/>
+        <result property="createBy" column="create_by"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="updateBy" column="update_by"/>
+        <result property="isDeleted" column="is_deleted"/>
+    </resultMap>
+
+    <sql id="selectMercadoUpcVo">
+        select id,
+               dept_id,
+               code_name,
+               code_type,
+               total_num,
+               available_num,
+               used_num,
+               create_time,
+               create_by,
+               update_time,
+               update_by,
+               is_deleted
+        from mercado_upc
+    </sql>
+
+    <select id="selectMercadoUpcList" parameterType="com.smarterp.system.domain.MercadoUpc"
+            resultMap="MercadoUpcResult">
+        <include refid="selectMercadoUpcVo"/>
+        <where>
+            <if test="deptId != null ">
+                and dept_id = #{deptId}
+            </if>
+            <if test="codeName != null  and codeName != ''">
+                and code_name like concat('%', #{codeName}, '%')
+            </if>
+            <if test="codeType != null  and codeType != ''">
+                and code_type = #{codeType}
+            </if>
+            <if test="totalNum != null ">
+                and total_num = #{totalNum}
+            </if>
+            <if test="availableNum != null ">
+                and available_num = #{availableNum}
+            </if>
+            <if test="usedNum != null ">
+                and used_num = #{usedNum}
+            </if>
+            <if test="createTime != null ">
+                and create_time = #{createTime}
+            </if>
+            <if test="createBy != null ">
+                and create_by = #{createBy}
+            </if>
+            <if test="updateTime != null ">
+                and update_time = #{updateTime}
+            </if>
+            <if test="updateBy != null ">
+                and update_by = #{updateBy}
+            </if>
+            <if test="isDeleted != null ">
+                and is_deleted = #{isDeleted}
+            </if>
+        </where>
+    </select>
+
+    <resultMap type="com.smarterp.system.domain.vo.MercadoUpcVO" id="MercadoUpcDeptResult">
+        <result property="deptId" column="dept_id"/>
+        <result property="codeName" column="code_name"/>
+        <result property="deptName" column="dept_name"/>
+        <result property="codeType" column="code_type"/>
+        <result property="totalNum" column="total_num"/>
+        <result property="availableNum" column="available_num"/>
+        <result property="usedNum" column="used_num"/>
+        <result property="createTime" column="create_time"/>
+        <result property="createName" column="user_name"/>
+    </resultMap>
+
+    <select id="selectMercadoUpcDeptList" parameterType="com.smarterp.system.domain.MercadoUpc"
+            resultMap="MercadoUpcDeptResult">
+        select
+        upc.id,
+        upc.dept_id,
+        dept.dept_name,
+        upc.code_name,
+        upc.code_type,
+        upc.total_num,
+        upc.available_num,
+        upc.used_num,
+        upc.create_time,
+        su.user_name
+        from mercado_upc upc
+        LEFT JOIN sys_dept dept ON upc.dept_id = dept.dept_id
+        LEFT JOIN sys_user su ON su.user_id = upc.create_by
+        WHERE '1' = '1'
+        <if test="deptId != null ">
+            and upc.dept_id = #{deptId}
+        </if>
+        <if test="codeName != null  and codeName != ''">
+            and upc.code_name like concat('%', #{codeName}, '%')
+        </if>
+        <if test="codeType != null  and codeType != ''">
+            and upc.code_type = #{codeType}
+        </if>
+        <if test="totalNum != null ">
+            and upc.total_num = #{totalNum}
+        </if>
+        <if test="availableNum != null ">
+            and upc.available_num = #{availableNum}
+        </if>
+        <if test="usedNum != null ">
+            and upc.used_num = #{usedNum}
+        </if>
+        <if test="createTime != null ">
+            and upc.create_time = #{createTime}
+        </if>
+        <!-- 数据范围过滤 -->
+        ${params.dataScope}
+    </select>
+
+    <select id="selectMercadoUpcById" parameterType="Long" resultMap="MercadoUpcResult">
+        <include refid="selectMercadoUpcVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertMercadoUpc" parameterType="com.smarterp.system.domain.MercadoUpc">
+        insert into mercado_upc
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="deptId != null">
+                dept_id,
+            </if>
+            <if test="codeName != null">
+                code_name,
+            </if>
+            <if test="codeType != null">
+                code_type,
+            </if>
+            <if test="totalNum != null">
+                total_num,
+            </if>
+            <if test="availableNum != null">
+                available_num,
+            </if>
+            <if test="usedNum != null">
+                used_num,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="createBy != null">
+                create_by,
+            </if>
+            <if test="updateTime != null">
+                update_time,
+            </if>
+            <if test="updateBy != null">
+                update_by,
+            </if>
+            <if test="isDeleted != null">
+                is_deleted,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=BIGINT},
+            </if>
+            <if test="deptId != null">
+                #{deptId},
+            </if>
+            <if test="codeName != null">
+                #{codeName},
+            </if>
+            <if test="codeType != null">
+                #{codeType},
+            </if>
+            <if test="totalNum != null">
+                #{totalNum},
+            </if>
+            <if test="availableNum != null">
+                #{availableNum},
+            </if>
+            <if test="usedNum != null">
+                #{usedNum},
+            </if>
+            <if test="createTime != null">
+                #{createTime},
+            </if>
+            <if test="createBy != null">
+                #{createBy},
+            </if>
+            <if test="updateTime != null">
+                #{updateTime},
+            </if>
+            <if test="updateBy != null">
+                #{updateBy},
+            </if>
+            <if test="isDeleted != null">
+                #{isDeleted},
+            </if>
+        </trim>
+    </insert>
+
+    <update id="updateMercadoUpc" parameterType="com.smarterp.system.domain.MercadoUpc">
+        update mercado_upc
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="deptId != null">
+                dept_id = #{deptId},
+            </if>
+            <if test="codeName != null">
+                code_name = #{codeName},
+            </if>
+            <if test="codeType != null">
+                code_type = #{codeType},
+            </if>
+            <if test="totalNum != null">
+                total_num = #{totalNum},
+            </if>
+            <if test="availableNum != null">
+                available_num = #{availableNum},
+            </if>
+            <if test="usedNum != null">
+                used_num = #{usedNum},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime},
+            </if>
+            <if test="createBy != null">
+                create_by = #{createBy},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime},
+            </if>
+            <if test="updateBy != null">
+                update_by = #{updateBy},
+            </if>
+            <if test="isDeleted != null">
+                is_deleted = #{isDeleted},
+            </if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteMercadoUpcById" parameterType="Long">
+        delete
+        from mercado_upc
+        where id = #{id}
+    </delete>
+
+    <delete id="deleteMercadoUpcByIds" parameterType="String">
+        delete from mercado_upc where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

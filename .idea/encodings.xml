@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/smarterp-api/smarterp-api-system/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/smarterp-api/smarterp-api-system/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/smarterp-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/smarterp-api/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/smarterp-auth/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/smarterp-auth/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/smarterp-common/smarterp-common-core/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/smarterp-common/smarterp-common-core/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/smarterp-common/smarterp-common-datascope/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/smarterp-common/smarterp-common-datascope/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/smarterp-common/smarterp-common-datasource/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/smarterp-common/smarterp-common-datasource/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/smarterp-common/smarterp-common-log/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/smarterp-common/smarterp-common-log/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/smarterp-common/smarterp-common-redis/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/smarterp-common/smarterp-common-redis/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/smarterp-common/smarterp-common-seata/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/smarterp-common/smarterp-common-seata/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/smarterp-common/smarterp-common-security/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/smarterp-common/smarterp-common-security/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/smarterp-common/smarterp-common-swagger/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/smarterp-common/smarterp-common-swagger/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/smarterp-common/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/smarterp-common/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/smarterp-gateway/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/smarterp-gateway/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/smarterp-modules/smarterp-file/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/smarterp-modules/smarterp-file/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/smarterp-modules/smarterp-gen/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/smarterp-modules/smarterp-gen/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/smarterp-modules/smarterp-job/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/smarterp-modules/smarterp-job/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/smarterp-modules/smarterp-message/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/smarterp-modules/smarterp-message/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/smarterp-modules/smarterp-order/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/smarterp-modules/smarterp-order/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/smarterp-modules/smarterp-system/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/smarterp-modules/smarterp-system/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/smarterp-modules/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/smarterp-modules/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/smarterp-visual/smarterp-monitor/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/smarterp-visual/smarterp-monitor/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/smarterp-visual/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/smarterp-visual/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+  </component>
+</project>

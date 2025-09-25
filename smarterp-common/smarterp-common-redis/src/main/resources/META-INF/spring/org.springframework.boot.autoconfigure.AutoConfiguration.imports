@@ -1,0 +1,2 @@
+com.smarterp.common.redis.configure.RedisConfig
+com.smarterp.common.redis.service.RedisService

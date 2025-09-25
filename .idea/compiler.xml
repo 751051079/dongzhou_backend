@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="smarterp-modules-system" />
+        <module name="smarterp-common-swagger" />
+        <module name="smarterp-modules-job" />
+        <module name="smarterp-common-log" />
+        <module name="smarterp-api-system" />
+        <module name="smarterp-visual-monitor" />
+        <module name="smarterp-common-core" />
+        <module name="smarterp-common-redis" />
+        <module name="smarterp-modules-gen" />
+        <module name="smarterp-modules-message" />
+        <module name="smarterp-common-datasource" />
+        <module name="smarterp-gateway" />
+        <module name="smarterp-common-datascope" />
+        <module name="smarterp-common-security" />
+        <module name="smarterp-auth" />
+        <module name="smarterp-modules-file" />
+        <module name="smarterp-common-seata" />
+        <module name="smarterp-modules-order" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>

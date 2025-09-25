@@ -1,0 +1,109 @@
+{
+  "id": 2000004336179108,
+  "date_created": "2022-10-08T15:12:24.000-04:00",
+  "date_closed": "2022-10-08T15:12:25.000-04:00",
+  "last_updated": "2022-11-05T15:25:32.000-04:00",
+  "feedback": {},
+  "mediations": [],
+  "order_request": {},
+  "fulfilled": true,
+  "paid_amount": 49,
+  "coupon": {
+    "amount": 0
+  },
+  "expiration_date": "2022-11-05T15:12:25.000-04:00",
+  "order_items": [
+    {
+      "item": {
+        "id": "MLM1397176000",
+        "title": "Botas De Motocicleta Punk Con Plataforma De Cuña",
+        "category_id": "MLM192062",
+        "variation_id": 174342810998,
+        "variation_attributes": [
+          {
+            "id": "SIZE",
+            "name": "Talla",
+            "value_name": "EU38=MX4.5=MX24=Feet length 24cm"
+          },
+          {
+            "id": "COLOR",
+            "name": "Color",
+            "value_id": "52049",
+            "value_name": "Negro"
+          }
+        ],
+        "warranty": "Garantía del vendedor: 1 meses",
+        "condition": "new",
+        "seller_sku": "XX-XZ-005_Black_EU38=MX4.5=MX24=Feetlength24cm",
+        "parent_item_id": "CBT1460777842"
+      },
+      "quantity": 1,
+      "unit_price": 49,
+      "full_unit_price": 49,
+      "currency_id": "USD",
+      "sale_fee": 9.8,
+      "base_exchange_rate": 20.16
+    }
+  ],
+  "currency_id": "USD",
+  "payments": [
+    {
+      "id": 50316557220,
+      "order_id": 2000004336179108,
+      "payer_id": 345261662,
+      "collector": {
+        "id": 817540989
+      },
+      "card_id": 0,
+      "site_id": "MLM",
+      "reason": "Botas De Motocicleta Punk Con Plataforma De Cuña",
+      "payment_method_id": "consumer_credits",
+      "currency_id": "USD",
+      "installments": 1,
+      "issuer_id": "",
+      "atm_transfer_reference": {
+        "transaction_id": "293697939"
+      },
+      "operation_type": "regular_payment",
+      "payment_type": "digital_currency",
+      "available_actions": [
+        "refund"
+      ],
+      "status": "approved",
+      "status_detail": "accredited",
+      "transaction_amount": 49,
+      "taxes_amount": 0,
+      "shipping_cost": 0,
+      "coupon_amount": 0,
+      "overpaid_amount": 0,
+      "total_paid_amount": 49,
+      "installment_amount": 0,
+      "date_approved": "2022-10-08T15:12:25.000-04:00",
+      "authorization_code": "",
+      "date_created": "2022-10-08T15:12:25.000-04:00",
+      "date_last_modified": "2022-10-11T17:19:19.000-04:00"
+    }
+  ],
+  "shipping": {
+    "id": 41711338051
+  },
+  "status": "paid",
+  "buyer": {
+    "id": 345261662,
+    "nickname": "DINA4281791",
+    "last_name": "Diaz Acosta",
+    "first_name": "Nimbe Noemi"
+  },
+  "seller": {
+    "id": 817540989
+  },
+  "taxes": {},
+  "context": {
+    "channel": "marketplace",
+    "site": "MLM",
+    "flows": [
+      "cbt"
+    ],
+    "application": "buyingflow-api"
+  }
+}

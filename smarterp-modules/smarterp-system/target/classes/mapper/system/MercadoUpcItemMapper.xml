@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smarterp.system.mapper.MercadoUpcItemMapper">
+
+    <resultMap type="com.smarterp.system.domain.MercadoUpcItem" id="MercadoUpcItemResult">
+        <result property="id" column="id"/>
+        <result property="upcId" column="upc_id"/>
+        <result property="upcCode" column="upc_code"/>
+        <result property="upcStatus" column="upc_status"/>
+        <result property="createTime" column="create_time"/>
+        <result property="createBy" column="create_by"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="updateBy" column="update_by"/>
+        <result property="isDeleted" column="is_deleted"/>
+    </resultMap>
+
+    <sql id="selectMercadoUpcItemVo">
+        select id,
+               upc_id,
+               upc_code,
+               upc_status,
+               create_time,
+               create_by,
+               update_time,
+               update_by,
+               is_deleted
+        from mercado_upc_item
+    </sql>
+
+    <select id="selectMercadoUpcItemList" parameterType="com.smarterp.system.domain.MercadoUpcItem"
+            resultMap="MercadoUpcItemResult">
+        select id,
+        upc_id,
+        upc_code,
+        case upc_status
+        when 'NO' then '未使用'
+        when 'YES' then '已使用'
+        end as upc_status,
+        create_time,
+        create_by,
+        update_time,
+        update_by,
+        is_deleted
+        from mercado_upc_item
+        <where>
+            <if test="upcId != null ">
+                and upc_id = #{upcId}
+            </if>
+            <if test="upcCode != null  and upcCode != ''">
+                and upc_code = #{upcCode}
+            </if>
+            <if test="upcStatus != null  and upcStatus != ''">
+                and upc_status = #{upcStatus}
+            </if>
+        </where>
+    </select>
+
+    <select id="selectMercadoUpcItemById" parameterType="Long" resultMap="MercadoUpcItemResult">
+        <include refid="selectMercadoUpcItemVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertMercadoUpcItem" parameterType="com.smarterp.system.domain.MercadoUpcItem">
+        insert into mercado_upc_item
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            id,
+            <if test="upcId != null">
+                upc_id,
+            </if>
+            <if test="upcCode != null">
+                upc_code,
+            </if>
+            <if test="upcStatus != null">
+                upc_status,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="createBy != null">
+                create_by,
+            </if>
+            <if test="updateTime != null">
+                update_time,
+            </if>
+            <if test="updateBy != null">
+                update_by,
+            </if>
+            <if test="isDeleted != null">
+                is_deleted,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            #{id},
+            <if test="upcId != null">
+                #{upcId},
+            </if>
+            <if test="upcCode != null">
+                #{upcCode},
+            </if>
+            <if test="upcStatus != null">
+                #{upcStatus},
+            </if>
+            <if test="createTime != null">
+                #{createTime},
+            </if>
+            <if test="createBy != null">
+                #{createBy},
+            </if>
+            <if test="updateTime != null">
+                #{updateTime},
+            </if>
+            <if test="updateBy != null">
+                #{updateBy},
+            </if>
+            <if test="isDeleted != null">
+                #{isDeleted},
+            </if>
+        </trim>
+    </insert>
+
+    <update id="updateMercadoUpcItem" parameterType="com.smarterp.system.domain.MercadoUpcItem">
+        update mercado_upc_item
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="upcId != null">
+                upc_id = #{upcId},
+            </if>
+            <if test="upcCode != null">
+                upc_code = #{upcCode},
+            </if>
+            <if test="upcStatus != null">
+                upc_status = #{upcStatus},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime},
+            </if>
+            <if test="createBy != null">
+                create_by = #{createBy},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime},
+            </if>
+            <if test="updateBy != null">
+                update_by = #{updateBy},
+            </if>
+            <if test="isDeleted != null">
+                is_deleted = #{isDeleted},
+            </if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteMercadoUpcItemById" parameterType="Long">
+        delete
+        from mercado_upc_item
+        where id = #{id}
+    </delete>
+
+    <delete id="deleteMercadoUpcItemByIds" parameterType="String">
+        delete from mercado_upc_item where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <delete id="deleteMercadoUpcItemByUpcId" parameterType="Long">
+        delete
+        from mercado_upc_item
+        where upc_id = #{upcId}
+    </delete>
+</mapper>

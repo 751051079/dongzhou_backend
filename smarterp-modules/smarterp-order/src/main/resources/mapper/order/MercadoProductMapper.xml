@@ -1,0 +1,610 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smarterp.order.mapper.MercadoProductMapper">
+
+    <resultMap type="com.smarterp.order.domain.MercadoProduct" id="MercadoProductResult">
+        <result property="id" column="id"/>
+        <result property="userId" column="user_id"/>
+        <result property="deptId" column="dept_id"/>
+        <result property="merchantId" column="merchant_id"/>
+        <result property="mercadoProductUrl" column="mercado_product_url"/>
+        <result property="productTitle" column="product_title"/>
+        <result property="productDescription" column="product_description"/>
+        <result property="salePrice" column="sale_price"/>
+        <result property="cbtItemId" column="cbt_item_id"/>
+        <result property="cbtProId" column="cbt_pro_id"/>
+        <result property="cbtCategory" column="cbt_category"/>
+        <result property="upcCode" column="upc_code"/>
+        <result property="skuPre" column="sku_pre"/>
+        <result property="shipType" column="ship_type"/>
+        <result property="releaseStatus" column="release_status"/>
+        <result property="pictures" column="pictures"/>
+        <result property="availableQuantity" column="available_quantity"/>
+        <result property="createTime" column="create_time"/>
+        <result property="createBy" column="create_by"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="updateBy" column="update_by"/>
+        <result property="isDeleted" column="is_deleted"/>
+        <result property="domainId" column="domain_id"/>
+        <result property="genderId" column="gender_id"/>
+        <result property="shipInfo" column="ship_info"/>
+        <result property="infringementInfo" column="infringement_info"/>
+        <result property="infringementStatus" column="infringement_status"/>
+    </resultMap>
+
+    <sql id="selectMercadoProductVo">
+        select id,
+               user_id,
+               dept_id,
+               merchant_id,
+               mercado_product_url,
+               product_title,
+               product_description,
+               sale_price,
+               cbt_item_id,
+               cbt_pro_id,
+               cbt_category,
+               upc_code,
+               sku_pre,
+               ship_type,
+               release_status,
+               pictures,
+               available_quantity,
+               create_time,
+               create_by,
+               update_time,
+               update_by,
+               is_deleted,
+               domain_id,
+               gender_id,
+               ship_info,
+               infringement_info,
+               infringement_status
+        from mercado_product
+    </sql>
+
+    <resultMap type="com.smarterp.order.domain.vo.MercadoProductDetail" id="MercadoProductDetailResult">
+        <result property="id" column="id"/>
+        <result property="pictureUrl" column="pictures"/>
+        <result property="title" column="product_title"/>
+        <result property="shopName" column="mercado_shop_name"/>
+        <result property="releaseStatus" column="release_status"/>
+        <result property="cbtProId" column="cbt_pro_id"/>
+        <result property="createName" column="user_name"/>
+        <result property="createTime" column="create_time"/>
+        <result property="skuPre" column="sku_pre"/>
+        <result property="upcCode" column="upc_code"/>
+        <result property="cbtItemId" column="cbt_item_id"/>
+        <result property="mercadoProductUrl" column="mercado_product_url"/>
+        <result property="shipInfo" column="ship_info"/>
+        <result property="infringementInfo" column="infringement_info"/>
+        <result property="infringementStatus" column="infringement_status"/>
+    </resultMap>
+
+    <select id="selectMercadoProductList" parameterType="com.smarterp.order.domain.MercadoProduct"
+            resultMap="MercadoProductDetailResult">
+        select
+        product.id,
+        product.pictures,
+        product.product_title,
+        shop.mercado_shop_name,
+        product.release_status,
+        product.cbt_pro_id,
+        su.user_name,
+        product.create_time,
+        product.sku_pre,
+        product.upc_code,
+        product.cbt_item_id,
+        product.mercado_product_url,
+        product.ship_info,
+        product.infringement_info,
+        product.infringement_status
+        from mercado_product product
+        left join sys_user su ON product.create_by = su.user_id
+        left join mercado_shop_info shop ON product.merchant_id = shop.id
+        left join sys_dept dept ON dept.dept_id = product.dept_id
+        where '1' = '1'
+        <if test="userId != null ">
+            and product.user_id = #{userId}
+        </if>
+        <if test="deptId != null ">
+            and product.dept_id = #{deptId}
+        </if>
+        <if test="merchantId != null ">
+            and product.merchant_id = #{merchantId}
+        </if>
+        <if test="mercadoProductUrl != null  and mercadoProductUrl != ''">
+            and product.mercado_product_url = #{mercadoProductUrl}
+        </if>
+        <if test="productTitle != null  and productTitle != ''">
+            and product.product_title = #{productTitle}
+        </if>
+        <if test="productDescription != null  and productDescription != ''">
+            and product.product_description = #{productDescription}
+        </if>
+        <if test="salePrice != null ">
+            and product.sale_price = #{salePrice}
+        </if>
+        <if test="cbtItemId != null  and cbtItemId != ''">
+            and product.cbt_item_id = #{cbtItemId}
+        </if>
+        <if test="cbtProId != null  and cbtProId != ''">
+            and product.cbt_pro_id = #{cbtProId}
+        </if>
+        <if test="cbtCategory != null  and cbtCategory != ''">
+            and product.cbt_category = #{cbtCategory}
+        </if>
+        <if test="upcCode != null  and upcCode != ''">
+            and product.upc_code = #{upcCode}
+        </if>
+        <if test="skuPre != null  and skuPre != ''">
+            and product.sku_pre like concat('%', #{skuPre}, '%')
+        </if>
+        <if test="shipType != null ">
+            and product.ship_type = #{shipType}
+        </if>
+        <if test="releaseStatus != null  and releaseStatus != ''">
+            and product.release_status = #{releaseStatus}
+        </if>
+        <if test="pictures != null  and pictures != ''">
+            and product.pictures = #{pictures}
+        </if>
+        <if test="availableQuantity != null  and availableQuantity != ''">
+            and product.available_quantity = #{availableQuantity}
+        </if>
+        <if test="isDeleted != null ">
+            and product.is_deleted = #{isDeleted}
+        </if>
+        <if test="infringementStatus != null ">
+            and product.infringement_status = #{infringementStatus}
+        </if>
+        <!-- 数据范围过滤 -->
+        ${params.dataScope}
+        order by product.id desc
+    </select>
+
+    <select id="selectMercadoProductById" parameterType="Long" resultMap="MercadoProductResult">
+        <include refid="selectMercadoProductVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertMercadoProduct" parameterType="com.smarterp.order.domain.MercadoProduct">
+        insert into mercado_product
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="userId != null">
+                user_id,
+            </if>
+            <if test="deptId != null">
+                dept_id,
+            </if>
+            <if test="merchantId != null">
+                merchant_id,
+            </if>
+            <if test="mercadoProductUrl != null">
+                mercado_product_url,
+            </if>
+            <if test="productTitle != null">
+                product_title,
+            </if>
+            <if test="productDescription != null">
+                product_description,
+            </if>
+            <if test="salePrice != null">
+                sale_price,
+            </if>
+            <if test="cbtItemId != null">
+                cbt_item_id,
+            </if>
+            <if test="cbtProId != null">
+                cbt_pro_id,
+            </if>
+            <if test="cbtCategory != null">
+                cbt_category,
+            </if>
+            <if test="upcCode != null">
+                upc_code,
+            </if>
+            <if test="skuPre != null">
+                sku_pre,
+            </if>
+            <if test="shipType != null">
+                ship_type,
+            </if>
+            <if test="releaseStatus != null">
+                release_status,
+            </if>
+            <if test="pictures != null">
+                pictures,
+            </if>
+            <if test="availableQuantity != null">
+                available_quantity,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="createBy != null">
+                create_by,
+            </if>
+            <if test="updateTime != null">
+                update_time,
+            </if>
+            <if test="updateBy != null">
+                update_by,
+            </if>
+            <if test="isDeleted != null">
+                is_deleted,
+            </if>
+            <if test="domainId != null">
+                domain_id,
+            </if>
+            <if test="genderId != null">
+                gender_id,
+            </if>
+            <if test="shipInfo != null">
+                ship_info,
+            </if>
+            <if test="infringementInfo != null">
+                infringement_info,
+            </if>
+            <if test="infringementStatus != null">
+                infringement_status,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id},
+            </if>
+            <if test="userId != null">
+                #{userId},
+            </if>
+            <if test="deptId != null">
+                #{deptId},
+            </if>
+            <if test="merchantId != null">
+                #{merchantId},
+            </if>
+            <if test="mercadoProductUrl != null">
+                #{mercadoProductUrl},
+            </if>
+            <if test="productTitle != null">
+                #{productTitle},
+            </if>
+            <if test="productDescription != null">
+                #{productDescription},
+            </if>
+            <if test="salePrice != null">
+                #{salePrice},
+            </if>
+            <if test="cbtItemId != null">
+                #{cbtItemId},
+            </if>
+            <if test="cbtProId != null">
+                #{cbtProId},
+            </if>
+            <if test="cbtCategory != null">
+                #{cbtCategory},
+            </if>
+            <if test="upcCode != null">
+                #{upcCode},
+            </if>
+            <if test="skuPre != null">
+                #{skuPre},
+            </if>
+            <if test="shipType != null">
+                #{shipType},
+            </if>
+            <if test="releaseStatus != null">
+                #{releaseStatus},
+            </if>
+            <if test="pictures != null">
+                #{pictures},
+            </if>
+            <if test="availableQuantity != null">
+                #{availableQuantity},
+            </if>
+            <if test="createTime != null">
+                #{createTime},
+            </if>
+            <if test="createBy != null">
+                #{createBy},
+            </if>
+            <if test="updateTime != null">
+                #{updateTime},
+            </if>
+            <if test="updateBy != null">
+                #{updateBy},
+            </if>
+            <if test="isDeleted != null">
+                #{isDeleted},
+            </if>
+            <if test="domainId != null">
+                #{domainId},
+            </if>
+            <if test="genderId != null">
+                #{genderId},
+            </if>
+            <if test="shipInfo != null">
+                #{shipInfo},
+            </if>
+            <if test="infringementInfo != null">
+                #{infringementInfo},
+            </if>
+            <if test="infringementStatus != null">
+                #{infringementStatus},
+            </if>
+        </trim>
+    </insert>
+
+    <update id="updateMercadoProduct" parameterType="com.smarterp.order.domain.MercadoProduct">
+        update mercado_product
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="userId != null">
+                user_id = #{userId},
+            </if>
+            <if test="deptId != null">
+                dept_id = #{deptId},
+            </if>
+            <if test="merchantId != null">
+                merchant_id = #{merchantId},
+            </if>
+            <if test="mercadoProductUrl != null">
+                mercado_product_url = #{mercadoProductUrl},
+            </if>
+            <if test="productTitle != null">
+                product_title = #{productTitle},
+            </if>
+            <if test="productDescription != null">
+                product_description = #{productDescription},
+            </if>
+            <if test="salePrice != null">
+                sale_price = #{salePrice},
+            </if>
+            <if test="cbtItemId != null">
+                cbt_item_id = #{cbtItemId},
+            </if>
+            <if test="cbtProId != null">
+                cbt_pro_id = #{cbtProId},
+            </if>
+            <if test="cbtCategory != null">
+                cbt_category = #{cbtCategory},
+            </if>
+            <if test="upcCode != null">
+                upc_code = #{upcCode},
+            </if>
+            <if test="skuPre != null">
+                sku_pre = #{skuPre},
+            </if>
+            <if test="shipType != null">
+                ship_type = #{shipType},
+            </if>
+            <if test="releaseStatus != null">
+                release_status = #{releaseStatus},
+            </if>
+            <if test="pictures != null">
+                pictures = #{pictures},
+            </if>
+            <if test="availableQuantity != null">
+                available_quantity = #{availableQuantity},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime},
+            </if>
+            <if test="createBy != null">
+                create_by = #{createBy},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime},
+            </if>
+            <if test="updateBy != null">
+                update_by = #{updateBy},
+            </if>
+            <if test="isDeleted != null">
+                is_deleted = #{isDeleted},
+            </if>
+            <if test="infringementInfo != null">
+                infringement_info = #{infringementInfo},
+            </if>
+            <if test="infringementStatus != null">
+                infringement_status = #{infringementStatus},
+            </if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteMercadoProductById" parameterType="Long">
+        delete
+        from mercado_product
+        where id = #{id}
+    </delete>
+
+    <delete id="deleteMercadoProductByIds" parameterType="String">
+        delete from mercado_product where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <select id="getShopList" resultType="com.smarterp.order.domain.dto.MercadoShopInfo">
+        select id,
+               access_token  accessToken,
+               refresh_token refreshToken
+        from mercado_shop_info
+        where authorize_status = 'Yes'
+            limit #{index}
+            , #{pageSize}
+    </select>
+
+    <update id="updateMercadoToken">
+        update mercado_shop_info
+        set access_token  = #{accessToken},
+            refresh_token = #{refreshToken},
+            update_time   = #{updateTime}
+        where id = #{id}
+    </update>
+
+    <select id="getMercadoToken" resultType="com.smarterp.order.domain.dto.MercadoShopInfo">
+        select id, access_token accessToken
+        from mercado_shop_info
+        where dept_id = #{deptId} limit 1
+    </select>
+
+    <select id="selectCountBy" parameterType="com.smarterp.order.domain.vo.MercadoProductDTO"
+            resultType="java.lang.Integer">
+        SELECT COUNT(*) FROM mercado_product WHERE dept_id = #{deptId}
+        AND cbt_item_id = #{cbtItemId} AND merchant_id IN
+        <foreach collection="merchantIdList" item="merchantId" open="(" separator="," close=")">
+            #{merchantId}
+        </foreach>
+    </select>
+
+
+    <resultMap type="com.smarterp.order.domain.dto.MercadoShopInfo" id="shopInfoResult">
+        <result property="id" column="id"/>
+        <result property="accessToken" column="access_token"/>
+        <result property="mercadoShopName" column="mercado_shop_name"/>
+        <result property="merchantId" column="merchant_id"/>
+        <result property="deptId" column="dept_id"/>
+    </resultMap>
+
+    <select id="getAccessTokenByMerchantId" parameterType="java.lang.Long" resultMap="shopInfoResult">
+        SELECT *
+        FROM mercado_shop_info
+        WHERE id = #{merchantId}
+    </select>
+
+    <select id="getAccessTokenByMerchantIds" parameterType="java.lang.Long" resultMap="shopInfoResult">
+        SELECT *
+        FROM mercado_shop_info
+        WHERE merchant_id = #{merchantId}
+    </select>
+
+    <select id="getOneUpcByDeptId" resultType="java.util.Map">
+        SELECT mui.upc_code upcCode, mui.id id, mui.upc_id upcId
+        FROM mercado_upc_item mui
+                 join mercado_upc mu on mui.upc_id = mu.id
+        where mu.dept_id = #{deptId}
+          and mui.upc_status = 'NO'
+          and mui.is_deleted = 0 limit 1
+    </select>
+
+    <update id="updateUpcItemStatus">
+        update mercado_upc_item
+        set update_time = now(),
+            upc_status  = 'YES'
+        where id = #{id}
+    </update>
+
+    <update id="updateUpcCount">
+        update mercado_upc
+        set available_num = available_num - 1,
+            used_num      = used_num + 1,
+            update_time   = now()
+        where id = #{upcId}
+    </update>
+    <select id="pullProductIdLyh" resultMap="MercadoProductResult">
+        <include refid="selectMercadoProductVo"/>
+        where user_id = 107
+        and sale_price >= 20 and sale_price &lt; 47
+        and release_status = 'ReleaseSuccess'
+        and ship_type &lt; 11
+        order by create_time desc
+        limit #{page},#{size}
+
+    </select>
+    <select id="selectProductLyhById" resultType="long">
+        select count(0)
+        from mercado_product_lyh
+        where id = #{id}
+    </select>
+    <insert id="addProductLyh">
+        INSERT INTO `mercado_product_lyh`
+        (`id`, `user_id`, `dept_id`, `merchant_id`, `mercado_product_url`, `product_title`, `product_description`,
+         `sale_price`, `cbt_item_id`, `cbt_pro_id`, `cbt_category`, `upc_code`, `sku_pre`, `ship_type`,
+         `release_status`,
+         `pictures`, `available_quantity`, `create_time`, `create_by`, `update_time`, `update_by`, `is_deleted`)
+        VALUES (#{id}, #{userId}, #{deptId}, #{merchantId}, #{mercadoProductUrl},
+                #{productTitle}, #{productDescription}, #{salePrice}, #{cbtItemId}, #{cbtProId}, #{cbtCategory},
+                #{upcCode}, #{skuPre}, #{shipType}, #{releaseStatus}, #{pictures}, #{availableQuantity},
+                #{createTime}, #{createBy}, #{updateTime}, #{updateBy}, #{isDeleted});
+    </insert>
+    <select id="pullProductByLyh" resultMap="MercadoProductResult">
+        select id,
+               product_title
+        from mercado_product_lyh
+        where flag = 0
+        order by create_time desc
+            limit #{page}, #{size}
+    </select>
+    <select id="selectProductLyhByTitle" resultType="long">
+        select id
+        from mercado_product_lyh
+        where product_title = #{productTitle}
+          and flag = 0
+    </select>
+    <select id="selectProductLyhByTitle102" resultType="long">
+        select count(0)
+        from mercado_product_item
+        where site_product_title = #{productTitle}
+          and create_by = 102
+    </select>
+
+    <delete id="deleteProductLyhById">
+        delete from mercado_product_lyh where id in
+        <foreach collection="list" open="(" item="item" separator="," index="" close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+    <delete id="deleteMercadoProductByProductIds">
+        DELETE FROM mercado_product WHERE id IN
+        <foreach item="id" collection="list" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <update id="updateMercadoProductStatus">
+        update mercado_product
+        set release_status = 'ReleaseIng'
+        where id in
+        <foreach collection="productIds" open="(" item="productId" separator="," index="" close=")">
+            #{productId}
+        </foreach>
+    </update>
+
+    <resultMap type="com.smarterp.order.domain.dto.MercadoShopInfoSite" id="MercadoShopInfoSiteResult">
+        <result property="id" column="id"/>
+        <result property="deptId" column="dept_id"/>
+        <result property="merchantId" column="merchant_id"/>
+        <result property="userId" column="user_id"/>
+        <result property="siteId" column="site_id"/>
+        <result property="logisticType" column="logistic_type"/>
+        <result property="createTime" column="create_time"/>
+        <result property="createBy" column="create_by"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="updateBy" column="update_by"/>
+        <result property="quota" column="quota"/>
+        <result property="totalItems" column="total_items"/>
+    </resultMap>
+
+    <select id="getMercadoInfoSite" parameterType="java.lang.String" resultMap="MercadoShopInfoSiteResult">
+        select *
+        from mercado_shop_info_site
+        where id = #{userId}
+    </select>
+
+    <select id="getMercadoInfoSiteAll" resultMap="MercadoShopInfoSiteResult">
+        select *
+        from mercado_shop_info_site
+    </select>
+
+    <select id="getMercadoInfoSiteByMerchantId" parameterType="java.lang.String" resultMap="MercadoShopInfoSiteResult">
+        select *
+        from mercado_shop_info_site
+        where merchant_id = #{merchantId}
+    </select>
+</mapper>

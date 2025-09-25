@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smarterp.message.mapper.MercadoCallBackMapper">
+
+    <resultMap type="com.smarterp.message.domain.MercadoCallBack" id="MercadoCallBackResult">
+        <result property="id" column="id"/>
+        <result property="backId" column="back_id"/>
+        <result property="topic" column="topic"/>
+        <result property="resource" column="resource"/>
+        <result property="userId" column="user_id"/>
+        <result property="applicationId" column="application_id"/>
+        <result property="sent" column="sent"/>
+        <result property="attempts" column="attempts"/>
+        <result property="received" column="received"/>
+    </resultMap>
+
+    <sql id="selectMercadoCallBackVo">
+        select id,
+               back_id,
+               topic,
+               resource,
+               user_id,
+               application_id,
+               sent,
+               attempts,
+               received
+        from mercado_call_back
+    </sql>
+
+    <select id="selectMercadoCallBackList" parameterType="com.smarterp.message.domain.MercadoCallBack" resultMap="MercadoCallBackResult">
+        <include refid="selectMercadoCallBackVo"/>
+        <where>
+            <if test="backId != null  and backId != ''">and back_id = #{backId}</if>
+            <if test="topic != null  and topic != ''">and topic = #{topic}</if>
+            <if test="resource != null  and resource != ''">and resource = #{resource}</if>
+            <if test="userId != null  and userId != ''">and user_id = #{userId}</if>
+            <if test="applicationId != null  and applicationId != ''">and application_id = #{applicationId}</if>
+            <if test="sent != null ">and sent = #{sent}</if>
+            <if test="attempts != null  and attempts != ''">and attempts = #{attempts}</if>
+            <if test="received != null ">and received = #{received}</if>
+        </where>
+    </select>
+
+    <select id="selectMercadoCallBackById" parameterType="Long" resultMap="MercadoCallBackResult">
+        <include refid="selectMercadoCallBackVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertMercadoCallBack" parameterType="com.smarterp.message.domain.MercadoCallBack">
+        insert into mercado_call_back
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="backId != null">back_id,</if>
+            <if test="topic != null">topic,</if>
+            <if test="resource != null">resource,</if>
+            <if test="userId != null">user_id,</if>
+            <if test="applicationId != null">application_id,</if>
+            <if test="sent != null">sent,</if>
+            <if test="attempts != null">attempts,</if>
+            <if test="received != null">received,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="backId != null">#{backId},</if>
+            <if test="topic != null">#{topic},</if>
+            <if test="resource != null">#{resource},</if>
+            <if test="userId != null">#{userId},</if>
+            <if test="applicationId != null">#{applicationId},</if>
+            <if test="sent != null">#{sent},</if>
+            <if test="attempts != null">#{attempts},</if>
+            <if test="received != null">#{received},</if>
+        </trim>
+    </insert>
+
+    <update id="updateMercadoCallBack" parameterType="com.smarterp.message.domain.MercadoCallBack">
+        update mercado_call_back
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="backId != null">back_id = #{backId},</if>
+            <if test="topic != null">topic = #{topic},</if>
+            <if test="resource != null">resource = #{resource},</if>
+            <if test="userId != null">user_id = #{userId},</if>
+            <if test="applicationId != null">application_id = #{applicationId},</if>
+            <if test="sent != null">sent = #{sent},</if>
+            <if test="attempts != null">attempts = #{attempts},</if>
+            <if test="received != null">received = #{received},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteMercadoCallBackById" parameterType="Long">
+        delete
+        from mercado_call_back
+        where id = #{id}
+    </delete>
+
+    <delete id="deleteMercadoCallBackByIds" parameterType="String">
+        delete from mercado_call_back where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <select id="selectMercadoCallBackListLimit" parameterType="com.smarterp.message.domain.MercadoCallBack" resultMap="MercadoCallBackResult">
+        <include refid="selectMercadoCallBackVo"/>
+        <where>
+            <if test="backId != null  and backId != ''">and back_id = #{backId}</if>
+            <if test="topic != null  and topic != ''">and topic = #{topic}</if>
+            <if test="resource != null  and resource != ''">and resource = #{resource}</if>
+            <if test="userId != null  and userId != ''">and user_id = #{userId}</if>
+            <if test="applicationId != null  and applicationId != ''">and application_id = #{applicationId}</if>
+            <if test="sent != null ">and sent = #{sent}</if>
+            <if test="attempts != null  and attempts != ''">and attempts = #{attempts}</if>
+            <if test="received != null ">and received = #{received}</if>
+        </where>
+        order by id asc limit #{limit}
+    </select>
+</mapper>

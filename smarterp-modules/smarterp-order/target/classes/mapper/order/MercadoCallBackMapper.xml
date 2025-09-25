@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smarterp.order.mapper.MercadoCallBackMapper">
+
+    <resultMap type="com.smarterp.order.domain.MercadoCallBack" id="MercadoCallBackResult">
+        <result property="id" column="id"/>
+        <result property="responseId" column="response_id"/>
+        <result property="resource" column="resource"/>
+        <result property="userId" column="user_id"/>
+        <result property="topic" column="topic"/>
+        <result property="applicationId" column="application_id"/>
+        <result property="attempts" column="attempts"/>
+        <result property="sent" column="sent"/>
+        <result property="received" column="received"/>
+    </resultMap>
+
+    <sql id="selectMercadoCallBackVo">
+        select id,
+               response_id,
+               resource,
+               user_id,
+               topic,
+               application_id,
+               attempts,
+               sent,
+               received
+        from mercado_call_back
+    </sql>
+
+    <select id="selectMercadoCallBackList" parameterType="com.smarterp.order.domain.MercadoCallBack"
+            resultMap="MercadoCallBackResult">
+        <include refid="selectMercadoCallBackVo"/>
+        <where>
+            <if test="responseId != null  and responseId != ''">
+                and response_id = #{responseId}
+            </if>
+            <if test="resource != null  and resource != ''">
+                and resource = #{resource}
+            </if>
+            <if test="userId != null  and userId != ''">
+                and user_id = #{userId}
+            </if>
+            <if test="topic != null  and topic != ''">
+                and topic = #{topic}
+            </if>
+            <if test="applicationId != null ">
+                and application_id = #{applicationId}
+            </if>
+            <if test="attempts != null ">
+                and attempts = #{attempts}
+            </if>
+            <if test="sent != null ">
+                and sent = #{sent}
+            </if>
+            <if test="received != null ">
+                and received = #{received}
+            </if>
+        </where>
+    </select>
+
+    <select id="selectMercadoCallBackById" parameterType="Long" resultMap="MercadoCallBackResult">
+        <include refid="selectMercadoCallBackVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertMercadoCallBack" parameterType="com.smarterp.order.domain.MercadoCallBack">
+        insert into mercado_call_back
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="responseId != null">
+                response_id,
+            </if>
+            <if test="resource != null">
+                resource,
+            </if>
+            <if test="userId != null">
+                user_id,
+            </if>
+            <if test="topic != null">
+                topic,
+            </if>
+            <if test="applicationId != null">
+                application_id,
+            </if>
+            <if test="attempts != null">
+                attempts,
+            </if>
+            <if test="sent != null">
+                sent,
+            </if>
+            <if test="received != null">
+                received,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id},
+            </if>
+            <if test="responseId != null">
+                #{responseId},
+            </if>
+            <if test="resource != null">
+                #{resource},
+            </if>
+            <if test="userId != null">
+                #{userId},
+            </if>
+            <if test="topic != null">
+                #{topic},
+            </if>
+            <if test="applicationId != null">
+                #{applicationId},
+            </if>
+            <if test="attempts != null">
+                #{attempts},
+            </if>
+            <if test="sent != null">
+                #{sent},
+            </if>
+            <if test="received != null">
+                #{received},
+            </if>
+        </trim>
+    </insert>
+
+    <update id="updateMercadoCallBack" parameterType="com.smarterp.order.domain.MercadoCallBack">
+        update mercado_call_back
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="responseId != null">
+                response_id = #{responseId},
+            </if>
+            <if test="resource != null">
+                resource = #{resource},
+            </if>
+            <if test="userId != null">
+                user_id = #{userId},
+            </if>
+            <if test="topic != null">
+                topic = #{topic},
+            </if>
+            <if test="applicationId != null">
+                application_id = #{applicationId},
+            </if>
+            <if test="attempts != null">
+                attempts = #{attempts},
+            </if>
+            <if test="sent != null">
+                sent = #{sent},
+            </if>
+            <if test="received != null">
+                received = #{received},
+            </if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteMercadoCallBackById" parameterType="Long">
+        delete
+        from mercado_call_back
+        where id = #{id}
+    </delete>
+
+    <delete id="deleteMercadoCallBackByIds" parameterType="String">
+        delete from mercado_call_back where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <select id="getProductIds" resultType="java.lang.Long" parameterType="java.lang.Integer">
+        SELECT id
+        FROM mercado_product_lijuntao
+        WHERE flag = '0' LIMIT #{limit}
+    </select>
+
+    <select id="getProductIdsByLyh" resultType="java.lang.Long" parameterType="java.lang.Integer">
+        SELECT id
+        FROM mercado_product_lyh
+        WHERE flag = '0'
+        order by create_time desc
+            LIMIT #{page}, #{size}
+    </select>
+
+    <update id="updateStatusByProductIds">
+        update
+        mercado_product_lijuntao
+        set flag = '1'
+        where id in
+        <foreach item="id" collection="list" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </update>
+
+    <update id="updateStatusByProductIdsByLyh">
+        update
+        mercado_product_lyh
+        set flag = '1',update_time = now()
+        where id in
+        <foreach item="id" collection="list" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </update>
+
+    <select id="pullProductLijuntao" resultType="java.lang.Long">
+        SELECT id
+        FROM mercado_product
+        WHERE release_status = 'NoRelease'
+          and merchant_id in
+              ('1661343542309687296', '1668239842682736640', '1668241494085079040')
+        order by create_time asc limit 1000
+    </select>
+
+    <select id="pullProductLyh" resultType="java.lang.Long">
+        SELECT id
+        FROM mercado_product
+        WHERE release_status = 'NoRelease'
+          and merchant_id in
+              ('1662135882976727040')
+        order by create_time asc limit 1
+    </select>
+
+    <select id="deleteProductLijuntao" resultType="java.lang.Long">
+        SELECT id
+        FROM mercado_product
+        WHERE release_status = 'ReleaseSuccess'
+          and merchant_id in
+              ('1661343542309687296', '1668239842682736640', '1668241494085079040')
+        order by create_time asc limit 20
+    </select>
+
+    <select id="selectProductIdsByLimit" resultType="java.lang.Long">
+        SELECT id
+        FROM mercado_product
+        WHERE create_time &lt;= DATE_SUB(NOW(), INTERVAL 30 DAY)
+        order by create_time ASC LIMIT #{limit}
+    </select>
+
+    <insert id="backUpProductData" parameterType="java.util.List">
+        REPLACE INTO `mercado_product_backup`.mercado_product_back (
+        id,
+        user_id,
+        dept_id,
+        merchant_id,
+        mercado_product_url,
+        product_title,
+        product_description,
+        sale_price,
+        cbt_item_id,
+        cbt_pro_id,
+        cbt_category,
+        upc_code,
+        sku_pre,
+        ship_type,
+        release_status,
+        pictures,
+        available_quantity,
+        create_time,
+        create_by,
+        update_time,
+        update_by,
+        is_deleted
+        )
+        SELECT id,
+        user_id,
+        dept_id,
+        merchant_id,
+        mercado_product_url,
+        product_title,
+        product_description,
+        sale_price,
+        cbt_item_id,
+        cbt_pro_id,
+        cbt_category,
+        upc_code,
+        sku_pre,
+        ship_type,
+        release_status,
+        pictures,
+        available_quantity,
+        create_time,
+        create_by,
+        update_time,
+        update_by,
+        is_deleted
+        FROM `ry-cloud`.mercado_product
+        WHERE id IN
+        <foreach item="id" collection="list" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+
+    </insert>
+
+    <insert id="backUpProductItemData" parameterType="java.util.List">
+        REPLACE INTO `mercado_product_backup`.mercado_product_item_back (
+        id,
+        product_id,
+        site_id,
+        logistic_type,
+        site_sale_price,
+        site_product_title,
+        site_product_description,
+        site_category,
+        site_release_status,
+        site_description_status,
+        site_item_id,
+        merchant_id,
+        create_time,
+        create_by,
+        update_time,
+        update_by,
+        is_deleted,
+        retry_num
+        ) SELECT
+        id,
+        product_id,
+        site_id,
+        logistic_type,
+        site_sale_price,
+        site_product_title,
+        site_product_description,
+        site_category,
+        site_release_status,
+        site_description_status,
+        site_item_id,
+        merchant_id,
+        create_time,
+        create_by,
+        update_time,
+        update_by,
+        is_deleted,
+        retry_num
+        FROM
+        `ry-cloud`.mercado_product_item
+        WHERE
+        product_id IN
+        <foreach item="id" collection="list" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </insert>
+
+    <insert id="backUpProductAttributesData" parameterType="java.util.List">
+        REPLACE INTO `mercado_product_backup`.mercado_product_attributes_back (
+        id,
+        product_id,
+        merchant_id,
+        attribute_id,
+        attribute_name,
+        attribute_value_id,
+        attribute_value_name,
+        attribute_values,
+        value_type,
+        attribute_type,
+        create_time,
+        create_by,
+        update_time,
+        update_by,
+        is_deleted
+        ) SELECT
+        id,
+        product_id,
+        merchant_id,
+        attribute_id,
+        attribute_name,
+        attribute_value_id,
+        attribute_value_name,
+        attribute_values,
+        value_type,
+        attribute_type,
+        create_time,
+        create_by,
+        update_time,
+        update_by,
+        is_deleted
+        FROM `ry-cloud`.mercado_product_attributes
+        WHERE product_id IN
+        <foreach item="id" collection="list" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </insert>
+
+    <insert id="backUpProductCombinationData" parameterType="java.util.List">
+        REPLACE INTO `mercado_product_backup`.mercado_product_combination_back (
+        id,
+        product_id,
+        combination_sku,
+        combination_price,
+        pictures,
+        combination_json,
+        available_quantity,
+        combination_sort,
+        create_time,
+        create_by,
+        update_time,
+        update_by,
+        is_deleted
+        ) SELECT
+        id,
+        product_id,
+        combination_sku,
+        combination_price,
+        pictures,
+        combination_json,
+        available_quantity,
+        combination_sort,
+        create_time,
+        create_by,
+        update_time,
+        update_by,
+        is_deleted
+        FROM `ry-cloud`.mercado_product_combination
+        WHERE product_id IN
+        <foreach item="id" collection="list" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </insert>
+
+
+</mapper>

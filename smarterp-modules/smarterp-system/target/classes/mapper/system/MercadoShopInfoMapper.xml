@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smarterp.system.mapper.MercadoShopInfoMapper">
+
+    <resultMap type="com.smarterp.system.domain.MercadoShopInfo" id="MercadoShopInfoResult">
+        <result property="id" column="id"/>
+        <result property="deptId" column="dept_id"/>
+        <result property="mercadoShopName" column="mercado_shop_name"/>
+        <result property="aliasName" column="alias_name"/>
+        <result property="merchantId" column="merchant_id"/>
+        <result property="authorizeStatus" column="authorize_status"/>
+        <result property="authorizeTime" column="authorize_time"/>
+        <result property="accessToken" column="access_token"/>
+        <result property="refreshToken" column="refresh_token"/>
+        <result property="remark" column="remark"/>
+        <result property="createTime" column="create_time"/>
+        <result property="createBy" column="create_by"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="updateBy" column="update_by"/>
+        <result property="isDeleted" column="is_deleted"/>
+        <result property="deptName" column="dept_name"/>
+        <result property="createName" column="user_name"/>
+    </resultMap>
+
+    <sql id="selectMercadoShopInfoVo">
+        select id,
+               dept_id,
+               mercado_shop_name,
+               alias_name,
+               merchant_id,
+               authorize_status,
+               authorize_time,
+               access_token,
+               refresh_token,
+               remark,
+               create_time,
+               create_by,
+               update_time,
+               update_by,
+               is_deleted
+        from mercado_shop_info
+    </sql>
+
+    <select id="selectMercadoShopInfoList" parameterType="com.smarterp.system.domain.MercadoShopInfo"
+            resultMap="MercadoShopInfoResult">
+        select
+        shop.id,
+        shop.dept_id,
+        shop.mercado_shop_name,
+        shop.alias_name,
+        shop.merchant_id,
+        case shop.authorize_status
+        when 'Yes' then '已授权'
+        when 'No' then '未授权'
+        end as authorize_status,
+        shop.authorize_time,
+        shop.access_token,
+        shop.refresh_token,
+        shop.remark,
+        shop.create_time,
+        shop.create_by,
+        shop.update_time,
+        shop.update_by,
+        shop.is_deleted,
+        dept.dept_name,
+        su.user_name
+        from mercado_shop_info shop
+        left join sys_dept dept ON dept.dept_id = shop.dept_id
+        left join sys_user su ON su.user_id = shop.create_by
+        where '1' = '1'
+        <if test="deptId != null ">
+            and shop.dept_id = #{deptId}
+        </if>
+        <if test="mercadoShopName != null  and mercadoShopName != ''">
+            and shop.mercado_shop_name like concat('%',
+            #{mercadoShopName}, '%')
+        </if>
+        <if test="aliasName != null  and aliasName != ''">
+            and shop.alias_name like concat('%', #{aliasName}, '%')
+        </if>
+        <if test="merchantId != null  and merchantId != ''">
+            and shop.merchant_id = #{merchantId}
+        </if>
+        <if test="authorizeStatus != null  and authorizeStatus != ''">
+            and shop.authorize_status = #{authorizeStatus}
+        </if>
+        <if test="authorizeTime != null ">
+            and shop.authorize_time = #{authorizeTime}
+        </if>
+        <if test="accessToken != null  and accessToken != ''">
+            and shop.access_token = #{accessToken}
+        </if>
+        <if test="refreshToken != null  and refreshToken != ''">
+            and shop.refresh_token = #{refreshToken}
+        </if>
+        <if test="createTime != null ">
+            and shop.create_time = #{createTime}
+        </if>
+        <if test="createBy != null ">
+            and shop.create_by = #{createBy}
+        </if>
+        <if test="updateTime != null ">
+            and shop.update_time = #{updateTime}
+        </if>
+        <if test="updateBy != null ">
+            and shop.update_by = #{updateBy}
+        </if>
+        <if test="isDeleted != null ">
+            and shop.is_deleted = #{isDeleted}
+        </if>
+        <!-- 数据范围过滤 -->
+        ${params.dataScope}
+    </select>
+
+    <select id="selectMercadoShopInfoById" parameterType="Long" resultMap="MercadoShopInfoResult">
+        <include refid="selectMercadoShopInfoVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertMercadoShopInfo" parameterType="com.smarterp.system.domain.MercadoShopInfo">
+        insert into mercado_shop_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="deptId != null">
+                dept_id,
+            </if>
+            <if test="mercadoShopName != null">
+                mercado_shop_name,
+            </if>
+            <if test="aliasName != null">
+                alias_name,
+            </if>
+            <if test="merchantId != null">
+                merchant_id,
+            </if>
+            <if test="authorizeStatus != null">
+                authorize_status,
+            </if>
+            <if test="authorizeTime != null">
+                authorize_time,
+            </if>
+            <if test="accessToken != null">
+                access_token,
+            </if>
+            <if test="refreshToken != null">
+                refresh_token,
+            </if>
+            <if test="remark != null">
+                remark,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="createBy != null">
+                create_by,
+            </if>
+            <if test="updateTime != null">
+                update_time,
+            </if>
+            <if test="updateBy != null">
+                update_by,
+            </if>
+            <if test="isDeleted != null">
+                is_deleted,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id},
+            </if>
+            <if test="deptId != null">
+                #{deptId},
+            </if>
+            <if test="mercadoShopName != null">
+                #{mercadoShopName},
+            </if>
+            <if test="aliasName != null">
+                #{aliasName},
+            </if>
+            <if test="merchantId != null">
+                #{merchantId},
+            </if>
+            <if test="authorizeStatus != null">
+                #{authorizeStatus},
+            </if>
+            <if test="authorizeTime != null">
+                #{authorizeTime},
+            </if>
+            <if test="accessToken != null">
+                #{accessToken},
+            </if>
+            <if test="refreshToken != null">
+                #{refreshToken},
+            </if>
+            <if test="remark != null">
+                #{remark},
+            </if>
+            <if test="createTime != null">
+                #{createTime},
+            </if>
+            <if test="createBy != null">
+                #{createBy},
+            </if>
+            <if test="updateTime != null">
+                #{updateTime},
+            </if>
+            <if test="updateBy != null">
+                #{updateBy},
+            </if>
+            <if test="isDeleted != null">
+                #{isDeleted},
+            </if>
+        </trim>
+    </insert>
+
+    <update id="updateMercadoShopInfo" parameterType="com.smarterp.system.domain.MercadoShopInfo">
+        update mercado_shop_info
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="deptId != null">
+                dept_id = #{deptId},
+            </if>
+            <if test="mercadoShopName != null">
+                mercado_shop_name = #{mercadoShopName},
+            </if>
+            <if test="aliasName != null">
+                alias_name = #{aliasName},
+            </if>
+            <if test="merchantId != null">
+                merchant_id = #{merchantId},
+            </if>
+            <if test="authorizeStatus != null">
+                authorize_status = #{authorizeStatus},
+            </if>
+            <if test="authorizeTime != null">
+                authorize_time = #{authorizeTime},
+            </if>
+            <if test="accessToken != null">
+                access_token = #{accessToken},
+            </if>
+            <if test="refreshToken != null">
+                refresh_token = #{refreshToken},
+            </if>
+            <if test="remark != null">
+                remark = #{remark},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime},
+            </if>
+            <if test="createBy != null">
+                create_by = #{createBy},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime},
+            </if>
+            <if test="updateBy != null">
+                update_by = #{updateBy},
+            </if>
+            <if test="isDeleted != null">
+                is_deleted = #{isDeleted},
+            </if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteMercadoShopInfoById" parameterType="Long">
+        delete
+        from mercado_shop_info
+        where id = #{id}
+    </delete>
+
+    <delete id="deleteMercadoShopInfoByIds" parameterType="String">
+        delete from mercado_shop_info where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <select id="selectMercadoShopByMerchantId" parameterType="java.lang.String" resultMap="MercadoShopInfoResult">
+        <include refid="selectMercadoShopInfoVo"/>
+        where merchant_id = #{merchantId}
+    </select>
+
+    <select id="selectIdByMerchantId" parameterType="java.lang.String" resultType="java.lang.Long">
+        select id
+        from mercado_shop_info_old
+        where merchant_id = #{merchantId}
+    </select>
+
+    <select id="getShopList" resultType="com.smarterp.system.domain.MercadoShopInfo">
+        select id,
+               access_token  accessToken,
+               refresh_token refreshToken,
+               merchant_id merchantId
+        from mercado_shop_info
+        where authorize_status = 'Yes'
+            limit #{index}
+            , #{pageSize}
+    </select>
+
+    <update id="updateMercadoToken">
+        update mercado_shop_info
+        set access_token  = #{accessToken},
+            refresh_token = #{refreshToken},
+            update_time   = #{updateTime}
+        where id = #{id}
+    </update>
+
+    <select id="selectAllList" resultMap="MercadoShopInfoResult">
+        <include refid="selectMercadoShopInfoVo"/> where authorize_status = 'Yes'
+    </select>
+</mapper>

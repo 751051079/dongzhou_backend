@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smarterp.system.mapper.MercadoSizeChartsMapper">
+
+    <resultMap type="com.smarterp.system.domain.MercadoSizeCharts" id="MercadoSizeChartsResult">
+        <result property="id" column="id"/>
+        <result property="names" column="names"/>
+        <result property="domainId" column="domain_id"/>
+        <result property="genderId" column="gender_id"/>
+        <result property="genderName" column="gender_name"/>
+        <result property="siteId" column="site_id"/>
+        <result property="type" column="type"/>
+        <result property="sellerId" column="seller_id"/>
+        <result property="measureType" column="measure_type"/>
+        <result property="mainAttributeId" column="main_attribute_id"/>
+        <result property="templateId" column="template_id"/>
+        <result property="sizeChartInfo" column="size_chart_info"/>
+        <result property="createdTime" column="created_time"/>
+    </resultMap>
+
+    <sql id="selectMercadoSizeChartsVo">
+        select id, names, domain_id, gender_id, gender_name, site_id, type, seller_id, measure_type, main_attribute_id, template_id, size_chart_info, created_time
+        from mercado_size_charts
+    </sql>
+
+    <select id="selectMercadoSizeChartsList" parameterType="com.smarterp.system.domain.MercadoSizeCharts"
+            resultMap="MercadoSizeChartsResult">
+        <include refid="selectMercadoSizeChartsVo"/>
+        <where>
+            <if test="names != null  and names != ''">
+                and names = #{names}
+            </if>
+            <if test="domainId != null  and domainId != ''">
+                and domain_id = #{domainId}
+            </if>
+            <if test="genderId != null  and genderId != ''">
+                and gender_id = #{genderId}
+            </if>
+            <if test="genderName != null  and genderName != ''">
+                and gender_name = #{genderName}
+            </if>
+            <if test="siteId != null  and siteId != ''">
+                and site_id = #{siteId}
+            </if>
+            <if test="type != null  and type != ''">
+                and type = #{type}
+            </if>
+            <if test="sellerId != null  and sellerId != ''">
+                and seller_id = #{sellerId}
+            </if>
+            <if test="measureType != null  and measureType != ''">
+                and measure_type = #{measureType}
+            </if>
+            <if test="mainAttributeId != null  and mainAttributeId != ''">
+                and main_attribute_id = #{mainAttributeId}
+            </if>
+            <if test="templateId != null  and templateId != ''">
+                and template_id = #{templateId}
+            </if>
+            <if test="sizeChartInfo != null  and sizeChartInfo != ''">
+                and size_chart_info = #{sizeChartInfo}
+            </if>
+            <if test="createdTime != null ">
+                and created_time = #{createdTime}
+            </if>
+        </where>
+    </select>
+
+    <select id="selectMercadoSizeChartsById" parameterType="String" resultMap="MercadoSizeChartsResult">
+        <include refid="selectMercadoSizeChartsVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertMercadoSizeCharts" parameterType="com.smarterp.system.domain.MercadoSizeCharts">
+        replace into mercado_size_charts
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="names != null">
+                names,
+            </if>
+            <if test="domainId != null">
+                domain_id,
+            </if>
+            <if test="genderId != null">
+                gender_id,
+            </if>
+            <if test="genderName != null">
+                gender_name,
+            </if>
+            <if test="siteId != null">
+                site_id,
+            </if>
+            <if test="type != null">
+                type,
+            </if>
+            <if test="sellerId != null">
+                seller_id,
+            </if>
+            <if test="measureType != null">
+                measure_type,
+            </if>
+            <if test="mainAttributeId != null">
+                main_attribute_id,
+            </if>
+            <if test="templateId != null">
+                template_id,
+            </if>
+            <if test="sizeChartInfo != null">
+                size_chart_info,
+            </if>
+            <if test="createdTime != null">
+                created_time,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id},
+            </if>
+            <if test="names != null">
+                #{names},
+            </if>
+            <if test="domainId != null">
+                #{domainId},
+            </if>
+            <if test="genderId != null">
+                #{genderId},
+            </if>
+            <if test="genderName != null">
+                #{genderName},
+            </if>
+            <if test="siteId != null">
+                #{siteId},
+            </if>
+            <if test="type != null">
+                #{type},
+            </if>
+            <if test="sellerId != null">
+                #{sellerId},
+            </if>
+            <if test="measureType != null">
+                #{measureType},
+            </if>
+            <if test="mainAttributeId != null">
+                #{mainAttributeId},
+            </if>
+            <if test="templateId != null">
+                #{templateId},
+            </if>
+            <if test="sizeChartInfo != null">
+                #{sizeChartInfo},
+            </if>
+            <if test="createdTime != null">
+                #{createdTime},
+            </if>
+        </trim>
+    </insert>
+
+    <update id="updateMercadoSizeCharts" parameterType="com.smarterp.system.domain.MercadoSizeCharts">
+        update mercado_size_charts
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="names != null">
+                names = #{names},
+            </if>
+            <if test="domainId != null">
+                domain_id = #{domainId},
+            </if>
+            <if test="genderId != null">
+                gender_id = #{genderId},
+            </if>
+            <if test="genderName != null">
+                gender_name = #{genderName},
+            </if>
+            <if test="siteId != null">
+                site_id = #{siteId},
+            </if>
+            <if test="type != null">
+                type = #{type},
+            </if>
+            <if test="sellerId != null">
+                seller_id = #{sellerId},
+            </if>
+            <if test="measureType != null">
+                measure_type = #{measureType},
+            </if>
+            <if test="mainAttributeId != null">
+                main_attribute_id = #{mainAttributeId},
+            </if>
+            <if test="templateId != null">
+                template_id = #{templateId},
+            </if>
+            <if test="sizeChartInfo != null">
+                size_chart_info = #{sizeChartInfo},
+            </if>
+            <if test="createdTime != null">
+                created_time = #{createdTime},
+            </if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteMercadoSizeChartsById" parameterType="String">
+        delete
+        from mercado_size_charts
+        where id = #{id}
+    </delete>
+
+    <delete id="deleteMercadoSizeChartsByIds" parameterType="String">
+        delete from mercado_size_charts where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

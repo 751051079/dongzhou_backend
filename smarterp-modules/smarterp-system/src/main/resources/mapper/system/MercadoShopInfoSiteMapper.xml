@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smarterp.system.mapper.MercadoShopInfoSiteMapper">
+
+    <resultMap type="com.smarterp.system.domain.MercadoShopInfoSite" id="MercadoShopInfoSiteResult">
+        <result property="id" column="id"/>
+        <result property="deptId" column="dept_id"/>
+        <result property="merchantId" column="merchant_id"/>
+        <result property="userId" column="user_id"/>
+        <result property="siteId" column="site_id"/>
+        <result property="logisticType" column="logistic_type"/>
+        <result property="createTime" column="create_time"/>
+        <result property="createBy" column="create_by"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="updateBy" column="update_by"/>
+        <result property="quota" column="quota"/>
+        <result property="totalItems" column="total_items"/>
+    </resultMap>
+
+    <sql id="selectMercadoShopInfoSiteVo">
+        select id,
+               dept_id,
+               merchant_id,
+               user_id,
+               site_id,
+               logistic_type,
+               create_time,
+               create_by,
+               update_time,
+               update_by,
+               quota,
+               total_items
+        from mercado_shop_info_site
+    </sql>
+
+    <select id="selectMercadoShopInfoSiteList" parameterType="com.smarterp.system.domain.MercadoShopInfoSite"
+            resultMap="MercadoShopInfoSiteResult">
+        <include refid="selectMercadoShopInfoSiteVo"/>
+        <where>
+            <if test="deptId != null ">
+                and dept_id = #{deptId}
+            </if>
+            <if test="merchantId != null  and merchantId != ''">
+                and merchant_id = #{merchantId}
+            </if>
+            <if test="userId != null  and userId != ''">
+                and user_id = #{userId}
+            </if>
+            <if test="siteId != null  and siteId != ''">
+                and site_id = #{siteId}
+            </if>
+            <if test="logisticType != null  and logisticType != ''">
+                and logistic_type = #{logisticType}
+            </if>
+            <if test="quota != null  and quota != ''">
+                and quota = #{quota}
+            </if>
+            <if test="totalItems != null  and totalItems != ''">
+                and total_items = #{totalItems}
+            </if>
+        </where>
+    </select>
+
+    <select id="selectMercadoShopInfoSiteById" parameterType="Long" resultMap="MercadoShopInfoSiteResult">
+        <include refid="selectMercadoShopInfoSiteVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertMercadoShopInfoSite" parameterType="com.smarterp.system.domain.MercadoShopInfoSite">
+        replace into mercado_shop_info_site
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="deptId != null">
+                dept_id,
+            </if>
+            <if test="merchantId != null">
+                merchant_id,
+            </if>
+            <if test="userId != null">
+                user_id,
+            </if>
+            <if test="siteId != null">
+                site_id,
+            </if>
+            <if test="logisticType != null">
+                logistic_type,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="createBy != null">
+                create_by,
+            </if>
+            <if test="updateTime != null">
+                update_time,
+            </if>
+            <if test="updateBy != null">
+                update_by,
+            </if>
+            <if test="quota != null">
+                quota,
+            </if>
+            <if test="totalItems != null">
+                total_items,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id},
+            </if>
+            <if test="deptId != null">
+                #{deptId},
+            </if>
+            <if test="merchantId != null">
+                #{merchantId},
+            </if>
+            <if test="userId != null">
+                #{userId},
+            </if>
+            <if test="siteId != null">
+                #{siteId},
+            </if>
+            <if test="logisticType != null">
+                #{logisticType},
+            </if>
+            <if test="createTime != null">
+                #{createTime},
+            </if>
+            <if test="createBy != null">
+                #{createBy},
+            </if>
+            <if test="updateTime != null">
+                #{updateTime},
+            </if>
+            <if test="updateBy != null">
+                #{updateBy},
+            </if>
+            <if test="quota != null">
+                #{quota},
+            </if>
+            <if test="totalItems != null">
+                #{totalItems},
+            </if>
+        </trim>
+    </insert>
+
+    <update id="updateMercadoShopInfoSite" parameterType="com.smarterp.system.domain.MercadoShopInfoSite">
+        update mercado_shop_info_site
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="deptId != null">
+                dept_id = #{deptId},
+            </if>
+            <if test="merchantId != null">
+                merchant_id = #{merchantId},
+            </if>
+            <if test="userId != null">
+                user_id = #{userId},
+            </if>
+            <if test="siteId != null">
+                site_id = #{siteId},
+            </if>
+            <if test="logisticType != null">
+                logistic_type = #{logisticType},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime},
+            </if>
+            <if test="createBy != null">
+                create_by = #{createBy},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime},
+            </if>
+            <if test="updateBy != null">
+                update_by = #{updateBy},
+            </if>
+            <if test="quota != null">
+                quota = #{quota},
+            </if>
+            <if test="totalItems != null">
+                total_items = #{totalItems},
+            </if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteMercadoShopInfoSiteById" parameterType="Long">
+        delete
+        from mercado_shop_info_site
+        where id = #{id}
+    </delete>
+
+    <delete id="deleteMercadoShopInfoSiteByIds" parameterType="String">
+        delete from mercado_shop_info_site where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <delete id="deleteSiteByMerchantId" parameterType="String">
+        delete from mercado_shop_info_site where merchant_id = #{merchantId}
+    </delete>
+
+    <select id="selectMercadoShopInfoSiteByMerchantId" parameterType="java.lang.String"
+            resultMap="MercadoShopInfoSiteResult">
+        <include refid="selectMercadoShopInfoSiteVo"/> where merchant_id = #{merchantId}
+    </select>
+
+</mapper>

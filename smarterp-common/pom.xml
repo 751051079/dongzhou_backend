@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>com.smarterp</groupId>
+        <artifactId>smarterp</artifactId>
+        <version>3.6.2</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <modules>
+        <module>smarterp-common-log</module>
+        <module>smarterp-common-core</module>
+        <module>smarterp-common-redis</module>
+        <module>smarterp-common-seata</module>
+        <module>smarterp-common-swagger</module>
+        <module>smarterp-common-security</module>
+        <module>smarterp-common-datascope</module>
+        <module>smarterp-common-datasource</module>
+    </modules>
+
+    <artifactId>smarterp-common</artifactId>
+    <packaging>pom</packaging>
+
+    <description>
+        smarterp-common通用模块
+    </description>
+
+</project>

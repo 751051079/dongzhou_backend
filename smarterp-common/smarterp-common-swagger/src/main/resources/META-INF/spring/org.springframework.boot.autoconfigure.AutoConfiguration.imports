@@ -1,0 +1,3 @@
+com.smarterp.common.swagger.config.SwaggerAutoConfiguration
+com.smarterp.common.swagger.config.SwaggerWebConfiguration
+com.smarterp.common.swagger.config.SwaggerBeanPostProcessor

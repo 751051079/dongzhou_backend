@@ -1,0 +1,2 @@
+com.smarterp.common.log.service.AsyncLogService
+com.smarterp.common.log.aspect.LogAspect

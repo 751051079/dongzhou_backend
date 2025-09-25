@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smarterp.system.mapper.MercadoComboInfoMapper">
+
+    <resultMap type="com.smarterp.system.domain.MercadoComboInfo" id="MercadoComboInfoResult">
+        <result property="id" column="id"/>
+        <result property="maxShopCount" column="max_shop_count"/>
+        <result property="maxChildAccount" column="max_child_account"/>
+        <result property="comboName" column="combo_name"/>
+        <result property="comboEfficientDays" column="combo_efficient_days"/>
+        <result property="comboSalePrice" column="combo_sale_price"/>
+        <result property="collectionQuantityDays" column="collection_quantity_days"/>
+        <result property="comboType" column="combo_type"/>
+        <result property="comboDescription" column="combo_description"/>
+        <result property="createTime" column="create_time"/>
+        <result property="createBy" column="create_by"/>
+        <result property="createName" column="user_name"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="updateBy" column="update_by"/>
+        <result property="isDeleted" column="is_deleted"/>
+    </resultMap>
+
+    <sql id="selectMercadoComboInfoVo">
+        select id,
+               max_shop_count,
+               max_child_account,
+               combo_name,
+               combo_efficient_days,
+               combo_sale_price,
+               collection_quantity_days,
+               combo_type,
+               combo_description,
+               create_time,
+               create_by,
+               update_time,
+               update_by,
+               is_deleted
+        from mercado_combo_info
+    </sql>
+
+    <select id="selectMercadoComboInfoList" parameterType="com.smarterp.system.domain.MercadoComboInfo"
+            resultType="com.smarterp.system.domain.MercadoComboInfo">
+        select
+        combo.id AS id,
+        combo.max_shop_count AS maxShopCount,
+        combo.max_child_account AS maxChildAccount,
+        combo.combo_name AS comboName,
+        combo.combo_efficient_days AS comboEfficientDays,
+        combo.combo_sale_price AS comboSalePrice,
+        combo.collection_quantity_days AS collectionQuantityDays,
+        combo.combo_type AS comboType,
+        combo.combo_description AS comboDescription,
+        combo.create_time AS createTime,
+        combo.create_by AS createBy,
+        combo.update_time AS updateTime,
+        combo.update_by AS updateBy,
+        su.user_name AS createName,
+        suser.user_name AS updateName
+        from mercado_combo_info combo
+        left join sys_user su ON su.user_id = combo.create_by
+        left join sys_user suser ON suser.user_id = combo.update_by
+        <where>
+            <if test="maxShopCount != null ">
+                and combo.max_shop_count = #{maxShopCount}
+            </if>
+            <if test="maxChildAccount != null ">
+                and combo.max_child_account = #{maxChildAccount}
+            </if>
+            <if test="comboName != null  and comboName != ''">
+                and combo.combo_name like concat('%', #{comboName}, '%')
+            </if>
+            <if test="comboEfficientDays != null ">
+                and combo.combo_efficient_days = #{comboEfficientDays}
+            </if>
+            <if test="comboSalePrice != null ">
+                and combo.combo_sale_price = #{comboSalePrice}
+            </if>
+            <if test="collectionQuantityDays != null ">
+                and combo.collection_quantity_days = #{collectionQuantityDays}
+            </if>
+            <if test="comboType != null  and comboType != ''">
+                and combo.combo_type = #{comboType}
+            </if>
+            <if test="comboDescription != null  and comboDescription != ''">
+                and combo.combo_description = #{comboDescription}
+            </if>
+            <if test="createTime != null ">
+                and combo.create_time = #{createTime}
+            </if>
+            <if test="createBy != null ">
+                and combo.create_by = #{createBy}
+            </if>
+            <if test="updateTime != null ">
+                and combo.update_time = #{updateTime}
+            </if>
+            <if test="updateBy != null ">
+                and combo.update_by = #{updateBy}
+            </if>
+            <if test="isDeleted != null ">
+                and combo.is_deleted = #{isDeleted}
+            </if>
+        </where>
+    </select>
+
+    <select id="selectMercadoComboInfoById" parameterType="Long" resultMap="MercadoComboInfoResult">
+        <include refid="selectMercadoComboInfoVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertMercadoComboInfo" parameterType="com.smarterp.system.domain.MercadoComboInfo">
+        insert into mercado_combo_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="maxShopCount != null">
+                max_shop_count,
+            </if>
+            <if test="maxChildAccount != null">
+                max_child_account,
+            </if>
+            <if test="comboName != null">
+                combo_name,
+            </if>
+            <if test="comboEfficientDays != null">
+                combo_efficient_days,
+            </if>
+            <if test="comboSalePrice != null">
+                combo_sale_price,
+            </if>
+            <if test="collectionQuantityDays != null">
+                collection_quantity_days,
+            </if>
+            <if test="comboType != null">
+                combo_type,
+            </if>
+            <if test="comboDescription != null">
+                combo_description,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="createBy != null">
+                create_by,
+            </if>
+            <if test="updateTime != null">
+                update_time,
+            </if>
+            <if test="updateBy != null">
+                update_by,
+            </if>
+            <if test="isDeleted != null">
+                is_deleted,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id},
+            </if>
+            <if test="maxShopCount != null">
+                #{maxShopCount},
+            </if>
+            <if test="maxChildAccount != null">
+                #{maxChildAccount},
+            </if>
+            <if test="comboName != null">
+                #{comboName},
+            </if>
+            <if test="comboEfficientDays != null">
+                #{comboEfficientDays},
+            </if>
+            <if test="comboSalePrice != null">
+                #{comboSalePrice},
+            </if>
+            <if test="collectionQuantityDays != null">
+                #{collectionQuantityDays},
+            </if>
+            <if test="comboType != null">
+                #{comboType},
+            </if>
+            <if test="comboDescription != null">
+                #{comboDescription},
+            </if>
+            <if test="createTime != null">
+                #{createTime},
+            </if>
+            <if test="createBy != null">
+                #{createBy},
+            </if>
+            <if test="updateTime != null">
+                #{updateTime},
+            </if>
+            <if test="updateBy != null">
+                #{updateBy},
+            </if>
+            <if test="isDeleted != null">
+                #{isDeleted},
+            </if>
+        </trim>
+    </insert>
+
+    <update id="updateMercadoComboInfo" parameterType="com.smarterp.system.domain.MercadoComboInfo">
+        update mercado_combo_info
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="maxShopCount != null">
+                max_shop_count = #{maxShopCount},
+            </if>
+            <if test="maxChildAccount != null">
+                max_child_account = #{maxChildAccount},
+            </if>
+            <if test="comboName != null">
+                combo_name = #{comboName},
+            </if>
+            <if test="comboEfficientDays != null">
+                combo_efficient_days = #{comboEfficientDays},
+            </if>
+            <if test="comboSalePrice != null">
+                combo_sale_price = #{comboSalePrice},
+            </if>
+            <if test="collectionQuantityDays != null">
+                collection_quantity_days = #{collectionQuantityDays},
+            </if>
+            <if test="comboType != null">
+                combo_type = #{comboType},
+            </if>
+            <if test="comboDescription != null">
+                combo_description = #{comboDescription},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime},
+            </if>
+            <if test="createBy != null">
+                create_by = #{createBy},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime},
+            </if>
+            <if test="updateBy != null">
+                update_by = #{updateBy},
+            </if>
+            <if test="isDeleted != null">
+                is_deleted = #{isDeleted},
+            </if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteMercadoComboInfoById" parameterType="Long">
+        delete
+        from mercado_combo_info
+        where id = #{id}
+    </delete>
+
+    <delete id="deleteMercadoComboInfoByIds" parameterType="String">
+        delete from mercado_combo_info where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <select id="getAllDeptComboList" resultType="com.smarterp.system.domain.vo.SysDeptVO">
+        select
+            d.dept_id AS deptId,
+            combo.combo_efficient_days - DATEDIFF(NOW(),deptcom.create_time) AS comboEfficientDays
+        from sys_dept d
+                 left join mercaodo_deptcombo deptcom ON deptcom.dept_id = d.dept_id
+                 left join mercado_combo_info combo ON deptcom.combo_id = combo.id
+        where d.del_flag = '0'
+        order by d.parent_id, d.order_num
+    </select>
+
+
+</mapper>

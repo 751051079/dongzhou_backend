@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smarterp.order.mapper.MercadoProductItemMapper">
+
+    <resultMap type="com.smarterp.order.domain.MercadoProductItem" id="MercadoProductItemResult">
+        <result property="id" column="id"/>
+        <result property="productId" column="product_id"/>
+        <result property="siteId" column="site_id"/>
+        <result property="logisticType" column="logistic_type"/>
+        <result property="siteSalePrice" column="site_sale_price"/>
+        <result property="siteProductTitle" column="site_product_title"/>
+        <result property="siteProductDescription" column="site_product_description"/>
+        <result property="siteCategory" column="site_category"/>
+        <result property="siteReleaseStatus" column="site_release_status"/>
+        <result property="siteDescriptionStatus" column="site_description_status"/>
+        <result property="siteItemId" column="site_item_id"/>
+        <result property="merchantId" column="merchant_id"/>
+        <result property="createTime" column="create_time"/>
+        <result property="createBy" column="create_by"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="updateBy" column="update_by"/>
+        <result property="isDeleted" column="is_deleted"/>
+        <result property="retryNum" column="retry_num"/>
+        <result property="permalink" column="permalink"/>
+    </resultMap>
+
+    <sql id="selectMercadoProductItemVo">
+        select id,
+               product_id,
+               site_id,
+               logistic_type,
+               site_sale_price,
+               site_product_title,
+               site_product_description,
+               site_category,
+               site_release_status,
+               site_description_status,
+               site_item_id,
+               merchant_id,
+               create_time,
+               create_by,
+               update_time,
+               update_by,
+               is_deleted,
+               retry_num
+        from mercado_product_item
+    </sql>
+
+    <select id="selectMercadoProductItemList" parameterType="com.smarterp.order.domain.MercadoProductItem"
+            resultMap="MercadoProductItemResult">
+        select product.id,
+        product.product_id,
+        product.site_id,
+        product.logistic_type,
+        product.site_sale_price,
+        product.site_product_title,
+        product.site_product_description,
+        product.site_category,
+        product.site_release_status,
+        product.site_description_status,
+        product.site_item_id,
+        product.merchant_id,
+        product.create_time,
+        product.create_by,
+        product.update_time,
+        product.update_by,
+        product.is_deleted,
+        product.retry_num,
+        item.permalink
+        from mercado_product_item product
+        LEFT JOIN mercado_shop_item item ON product.site_item_id COLLATE utf8mb4_unicode_ci = item.id COLLATE utf8mb4_unicode_ci
+        <where>
+            <if test="productId != null ">
+                and product.product_id = #{productId}
+            </if>
+            <if test="siteId != null  and siteId != ''">
+                and product.site_id = #{siteId}
+            </if>
+            <if test="logisticType != null  and logisticType != ''">
+                and product.logistic_type = #{logisticType}
+            </if>
+            <if test="siteSalePrice != null ">
+                and product.site_sale_price = #{siteSalePrice}
+            </if>
+            <if test="siteProductTitle != null  and siteProductTitle != ''">
+                and product.site_product_title = #{siteProductTitle}
+            </if>
+            <if test="siteProductDescription != null  and siteProductDescription != ''">
+                and product.site_product_description = #{siteProductDescription}
+            </if>
+            <if test="siteCategory != null  and siteCategory != ''">
+                and product.site_category = #{siteCategory}
+            </if>
+            <if test="siteReleaseStatus != null  and siteReleaseStatus != ''">
+                and product.site_release_status = #{siteReleaseStatus}
+            </if>
+            <if test="siteDescriptionStatus != null  and siteDescriptionStatus != ''">
+                and product.site_description_status = #{siteDescriptionStatus}
+            </if>
+            <if test="siteItemId != null  and siteItemId != ''">
+                and product.site_item_id = #{siteItemId}
+            </if>
+            <if test="merchantId != null and merchantId != '' ">
+                and product.merchant_id = #{merchantId}
+            </if>
+            <if test="isDeleted != null ">
+                and product.is_deleted = #{isDeleted}
+            </if>
+        </where>
+    </select>
+
+    <select id="selectMercadoProductItemById" parameterType="Long" resultMap="MercadoProductItemResult">
+        <include refid="selectMercadoProductItemVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertMercadoProductItem" parameterType="com.smarterp.order.domain.MercadoProductItem">
+        insert into mercado_product_item
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="productId != null">
+                product_id,
+            </if>
+            <if test="siteId != null">
+                site_id,
+            </if>
+            <if test="logisticType != null">
+                logistic_type,
+            </if>
+            <if test="siteSalePrice != null">
+                site_sale_price,
+            </if>
+            <if test="siteProductTitle != null">
+                site_product_title,
+            </if>
+            <if test="siteProductDescription != null">
+                site_product_description,
+            </if>
+            <if test="siteCategory != null">
+                site_category,
+            </if>
+            <if test="siteReleaseStatus != null">
+                site_release_status,
+            </if>
+            <if test="siteDescriptionStatus != null">
+                site_description_status,
+            </if>
+            <if test="siteItemId != null">
+                site_item_id,
+            </if>
+            <if test="merchantId != null">
+                merchant_id,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="createBy != null">
+                create_by,
+            </if>
+            <if test="updateTime != null">
+                update_time,
+            </if>
+            <if test="updateBy != null">
+                update_by,
+            </if>
+            <if test="isDeleted != null">
+                is_deleted,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id},
+            </if>
+            <if test="productId != null">
+                #{productId},
+            </if>
+            <if test="siteId != null">
+                #{siteId},
+            </if>
+            <if test="logisticType != null">
+                #{logisticType},
+            </if>
+            <if test="siteSalePrice != null">
+                #{siteSalePrice},
+            </if>
+            <if test="siteProductTitle != null">
+                #{siteProductTitle},
+            </if>
+            <if test="siteProductDescription != null">
+                #{siteProductDescription},
+            </if>
+            <if test="siteCategory != null">
+                #{siteCategory},
+            </if>
+            <if test="siteReleaseStatus != null">
+                #{siteReleaseStatus},
+            </if>
+            <if test="siteDescriptionStatus != null">
+                #{siteDescriptionStatus},
+            </if>
+            <if test="siteItemId != null">
+                #{siteItemId},
+            </if>
+            <if test="merchantId != null">
+                #{merchantId},
+            </if>
+            <if test="createTime != null">
+                #{createTime},
+            </if>
+            <if test="createBy != null">
+                #{createBy},
+            </if>
+            <if test="updateTime != null">
+                #{updateTime},
+            </if>
+            <if test="updateBy != null">
+                #{updateBy},
+            </if>
+            <if test="isDeleted != null">
+                #{isDeleted},
+            </if>
+        </trim>
+    </insert>
+
+    <update id="updateMercadoProductItem" parameterType="com.smarterp.order.domain.MercadoProductItem">
+        update mercado_product_item
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="productId != null">
+                product_id = #{productId},
+            </if>
+            <if test="siteId != null">
+                site_id = #{siteId},
+            </if>
+            <if test="logisticType != null">
+                logistic_type = #{logisticType},
+            </if>
+            <if test="siteSalePrice != null">
+                site_sale_price = #{siteSalePrice},
+            </if>
+            <if test="siteProductTitle != null">
+                site_product_title = #{siteProductTitle},
+            </if>
+            <if test="siteProductDescription != null">
+                site_product_description = #{siteProductDescription},
+            </if>
+            <if test="siteCategory != null">
+                site_category = #{siteCategory},
+            </if>
+            <if test="siteReleaseStatus != null">
+                site_release_status = #{siteReleaseStatus},
+            </if>
+            <if test="siteDescriptionStatus != null">
+                site_description_status = #{siteDescriptionStatus},
+            </if>
+            <if test="siteItemId != null">
+                site_item_id = #{siteItemId},
+            </if>
+            <if test="merchantId != null">
+                merchant_id = #{merchantId},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime},
+            </if>
+            <if test="createBy != null">
+                create_by = #{createBy},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime},
+            </if>
+            <if test="updateBy != null">
+                update_by = #{updateBy},
+            </if>
+            <if test="isDeleted != null">
+                is_deleted = #{isDeleted},
+            </if>
+            <if test="retryNum != null">
+                retry_num = #{retryNum},
+            </if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteMercadoProductItemById" parameterType="Long">
+        delete
+        from mercado_product_item
+        where id = #{id}
+    </delete>
+
+    <delete id="deleteMercadoProductItemByIds" parameterType="String">
+        delete from mercado_product_item where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <delete id="deleteMercadoProductItemByProductId" parameterType="java.lang.Long">
+        delete from mercado_product_item where product_id = #{productId}
+    </delete>
+
+    <select id="getAllDeptComboList" resultType="com.smarterp.order.domain.vo.SysDeptVO">
+        select
+        d.dept_id AS deptId,
+        combo.combo_efficient_days - DATEDIFF(NOW(),deptcom.create_time) AS comboEfficientDays
+        from sys_dept d
+        left join mercaodo_deptcombo deptcom ON deptcom.dept_id = d.dept_id
+        left join mercado_combo_info combo ON deptcom.combo_id = combo.id
+        where d.del_flag = '0'
+        order by d.parent_id, d.order_num
+    </select>
+
+    <insert id="batchProductItemList" parameterType="java.util.List">
+        insert into
+        mercado_product_item
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            id,
+            product_id,
+            site_id,
+            logistic_type,
+            site_sale_price,
+            site_product_title,
+            site_product_description,
+            site_category,
+            site_release_status,
+            site_description_status,
+            site_item_id,
+            merchant_id,
+            create_time,
+            create_by,
+            update_time,
+            update_by,
+            is_deleted,
+        </trim>
+        values
+        <foreach collection="list" item="item" index="index" separator=",">
+            <trim prefix="(" suffix=")" suffixOverrides=",">
+                #{item.id},
+                #{item.productId},
+                #{item.siteId},
+                #{item.logisticType},
+                #{item.siteSalePrice},
+                #{item.siteProductTitle},
+                #{item.siteProductDescription},
+                #{item.siteCategory},
+                #{item.siteReleaseStatus},
+                #{item.siteDescriptionStatus},
+                #{item.siteItemId},
+                #{item.merchantId},
+                #{item.createTime},
+                #{item.createBy},
+                #{item.updateTime},
+                #{item.updateBy},
+                #{item.isDeleted},
+            </trim>
+        </foreach>
+    </insert>
+
+    <delete id="deleteMercadoProductItemByProductIds">
+        DELETE FROM mercado_product_item WHERE product_id IN
+        <foreach item="productId" collection="list" open="(" separator="," close=")">
+            #{productId}
+        </foreach>
+    </delete>
+
+</mapper>

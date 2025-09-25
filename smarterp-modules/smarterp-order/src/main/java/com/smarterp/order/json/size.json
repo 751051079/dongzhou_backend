@@ -1,0 +1,99 @@
+{
+  "paging": {
+    "total": 1,
+    "offset": 0,
+    "limit": 100
+  },
+  "charts": [
+    {
+      "id": "2639043",
+      "names": {
+        "CBT": "American football jerseys Gender neutral kid"
+      },
+      "domain_id": "AMERICAN_FOOTBALL_JERSEYS",
+      "site_id": "CBT",
+      "type": "SPECIFIC",
+      "seller_id": 1237419550,
+      "measure_type": "BODY_MEASURE",
+      "main_attribute_id": "SIZE",
+      "attributes": [
+        {
+          "id": "GENDER",
+          "name": "Gender",
+          "values": [
+            {
+              "id": "19159491",
+              "name": "Gender neutral kid"
+            }
+          ]
+        }
+      ],
+      "rows": [
+        {
+          "id": "2639043:1",
+          "attributes": [
+            {
+              "id": "SIZE",
+              "name": "Size",
+              "label": "Manufacturer size",
+              "values": [
+                {
+                  "name": "XS"
+                }
+              ]
+            },
+            {
+              "id": "SIZE",
+              "name": "Manufacturer size",
+              "label": "Manufacturer size",
+              "values": [
+                {
+                  "name": "XS"
+                }
+              ]
+            },
+            {
+              "id": "FILTRABLE_SIZE",
+              "name": "Equivalencies",
+              "label": "Equivalencies",
+              "values": [
+                {
+                  "id": "12189461",
+                  "name": "2 years"
+                }
+              ]
+            },
+            {
+              "id": "CHEST_CIRCUMFERENCE_FROM",
+              "name": "Contorno del pecho desde",
+              "label": "Chest circumference",
+              "values": [
+                {
+                  "name": "90 cm",
+                  "struct": {
+                    "number": 90.0,
+                    "unit": "cm"
+                  }
+                }
+              ]
+            },
+            {
+              "id": "CHEST_CIRCUMFERENCE_TO",
+              "name": "Contorno del pecho hasta",
+              "label": "Chest circumference",
+              "values": [
+                {
+                  "name": "100 cm",
+                  "struct": {
+                    "number": 100.0,
+                    "unit": "cm"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

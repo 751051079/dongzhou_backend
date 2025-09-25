@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smarterp.order.mapper.MercadoOrderInfoMapper">
+
+    <resultMap type="com.smarterp.order.domain.MercadoOrderInfo" id="MercadoOrderInfoResult">
+        <result property="id" column="id"/>
+        <result property="parentId" column="parent_id"/>
+        <result property="deptId" column="dept_id"/>
+        <result property="merchantId" column="merchant_id"/>
+        <result property="userId" column="user_id"/>
+        <result property="siteId" column="site_id"/>
+        <result property="logisticType" column="logistic_type"/>
+        <result property="shipmentId" column="shipment_id"/>
+        <result property="buyerId" column="buyer_id"/>
+        <result property="buyerNickName" column="buyer_nick_name"/>
+        <result property="buyerLastName" column="buyer_last_name"/>
+        <result property="buyerFirstName" column="buyer_first_name"/>
+        <result property="orderPictures" column="order_pictures"/>
+        <result property="dateCreated" column="date_created"/>
+        <result property="dateClosed" column="date_closed"/>
+        <result property="lastUpdated" column="last_updated"/>
+        <result property="expirationDate" column="expiration_date"/>
+        <result property="datePayed" column="date_payed"/>
+        <result property="dateShipping" column="date_shipping"/>
+        <result property="orderStatus" column="order_status"/>
+        <result property="shipStatus" column="ship_status"/>
+        <result property="payStatus" column="pay_status"/>
+        <result property="itemId" column="item_id"/>
+        <result property="title" column="title"/>
+        <result property="categoryId" column="category_id"/>
+        <result property="variationId" column="variation_id"/>
+        <result property="variationAttributes" column="variation_attributes"/>
+        <result property="warranty" column="warranty"/>
+        <result property="sellerSku" column="seller_sku"/>
+        <result property="parentItemId" column="parent_item_id"/>
+        <result property="quantity" column="quantity"/>
+        <result property="unitPrice" column="unit_price"/>
+        <result property="fullUnitPrice" column="full_unit_price"/>
+        <result property="currencyId" column="currency_id"/>
+        <result property="saleFee" column="sale_fee"/>
+        <result property="baseExchangeRate" column="base_exchange_rate"/>
+        <result property="permalink" column="permalink"/>
+    </resultMap>
+
+    <sql id="selectMercadoOrderInfoVo">
+        select id,
+               parent_id,
+               dept_id,
+               merchant_id,
+               user_id,
+               site_id,
+               logistic_type,
+               shipment_id,
+               buyer_id,
+               buyer_nick_name,
+               buyer_last_name,
+               buyer_first_name,
+               order_pictures,
+               date_created,
+               date_closed,
+               last_updated,
+               expiration_date,
+               date_payed,
+               date_shipping,
+               order_status,
+               ship_status,
+               pay_status,
+               item_id,
+               title,
+               category_id,
+               variation_id,
+               variation_attributes,
+               warranty,
+               seller_sku,
+               parent_item_id,
+               quantity,
+               unit_price,
+               full_unit_price,
+               currency_id,
+               sale_fee,
+               base_exchange_rate,
+               permalink
+        from mercado_order_info
+    </sql>
+
+    <select id="selectMercadoOrderInfoList" parameterType="com.smarterp.order.domain.MercadoOrderInfo"
+            resultType="com.smarterp.order.domain.dto.MercadoOrderInfoDetail">
+        SELECT
+        orderInfo.id orderId,
+        orderInfo.item_id itemId ,
+        orderInfo.seller_sku sellerSku,
+        orderInfo.unit_price unitPrice,
+        orderInfo.quantity quantity,
+        orderInfo.variation_attributes variationAttributes,
+        orderInfo.site_id siteId,
+        orderInfo.logistic_type logisticType,
+        orderInfo.merchant_id mercadoShopId,
+        orderInfo.buyer_nick_name buyerNickName,
+        orderInfo.date_created dateCreated,
+        orderInfo.date_shipping dateShipping,
+        orderInfo.ship_status shipStatus,
+        orderInfo.order_pictures thumbnail,
+        orderInfo.permalink permalink
+        FROM
+        mercado_order_info orderInfo
+        <where>
+            <if test="merchantId != null  and merchantId != ''">
+                and orderInfo.merchant_id = #{merchantId}
+            </if>
+            <if test="merchantIds != null and merchantIds.size > 0">
+                AND orderInfo.merchant_id in
+                <foreach collection="merchantIds" item="merchantId" open="(" separator="," close=")">
+                    #{merchantId}
+                </foreach>
+            </if>
+            <if test="userId != null  and userId != ''">
+                and orderInfo.user_id = #{userId}
+            </if>
+            <if test="deptId != null  and deptId != ''">
+                and orderInfo.dept_id = #{deptId}
+            </if>
+            <if test="siteId != null  and siteId != ''">
+                and orderInfo.site_id = #{siteId}
+            </if>
+            <if test="logisticType != null  and logisticType != ''">
+                and orderInfo.logistic_type = #{logisticType}
+            </if>
+            <if test="dateCreated != null ">
+                and orderInfo.date_created = #{dateCreated}
+            </if>
+            <if test="dateClosed != null ">
+                and orderInfo.date_closed = #{dateClosed}
+            </if>
+            <if test="lastUpdated != null ">
+                and orderInfo.last_updated = #{lastUpdated}
+            </if>
+            <if test="shipStatus != null  and shipStatus != ''">
+                and orderInfo.ship_status = #{shipStatus}
+            </if>
+            <if test="createBeginTime != null and createEndTime != null">
+                and orderInfo.date_created between #{createBeginTime} and #{createEndTime}
+            </if>
+        </where>
+        order by orderInfo.date_created desc
+    </select>
+
+    <select id="selectMercadoOrderInfoById" parameterType="String" resultMap="MercadoOrderInfoResult">
+        <include refid="selectMercadoOrderInfoVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertMercadoOrderInfo" parameterType="com.smarterp.order.domain.MercadoOrderInfo">
+        replace into mercado_order_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="parentId != null">parent_id,</if>
+            <if test="deptId != null">dept_id,</if>
+            <if test="merchantId != null">merchant_id,</if>
+            <if test="userId != null">user_id,</if>
+            <if test="siteId != null">site_id,</if>
+            <if test="logisticType != null">logistic_type,</if>
+            <if test="shipmentId != null">shipment_id,</if>
+            <if test="buyerId != null">buyer_id,</if>
+            <if test="buyerNickName != null">buyer_nick_name,</if>
+            <if test="buyerLastName != null">buyer_last_name,</if>
+            <if test="buyerFirstName != null">buyer_first_name,</if>
+            <if test="orderPictures != null">order_pictures,</if>
+            <if test="dateCreated != null">date_created,</if>
+            <if test="dateClosed != null">date_closed,</if>
+            <if test="lastUpdated != null">last_updated,</if>
+            <if test="expirationDate != null">expiration_date,</if>
+            <if test="datePayed != null">date_payed,</if>
+            <if test="dateShipping != null">date_shipping,</if>
+            <if test="orderStatus != null">order_status,</if>
+            <if test="shipStatus != null">ship_status,</if>
+            <if test="payStatus != null">pay_status,</if>
+            <if test="itemId != null">item_id,</if>
+            <if test="title != null">title,</if>
+            <if test="categoryId != null">category_id,</if>
+            <if test="variationId != null">variation_id,</if>
+            <if test="variationAttributes != null">variation_attributes,</if>
+            <if test="warranty != null">warranty,</if>
+            <if test="sellerSku != null">seller_sku,</if>
+            <if test="parentItemId != null">parent_item_id,</if>
+            <if test="quantity != null">quantity,</if>
+            <if test="unitPrice != null">unit_price,</if>
+            <if test="fullUnitPrice != null">full_unit_price,</if>
+            <if test="currencyId != null">currency_id,</if>
+            <if test="saleFee != null">sale_fee,</if>
+            <if test="baseExchangeRate != null">base_exchange_rate,</if>
+            <if test="permalink != null">permalink,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="parentId != null">#{parentId},</if>
+            <if test="deptId != null">#{deptId},</if>
+            <if test="merchantId != null">#{merchantId},</if>
+            <if test="userId != null">#{userId},</if>
+            <if test="siteId != null">#{siteId},</if>
+            <if test="logisticType != null">#{logisticType},</if>
+            <if test="shipmentId != null">#{shipmentId},</if>
+            <if test="buyerId != null">#{buyerId},</if>
+            <if test="buyerNickName != null">#{buyerNickName},</if>
+            <if test="buyerLastName != null">#{buyerLastName},</if>
+            <if test="buyerFirstName != null">#{buyerFirstName},</if>
+            <if test="orderPictures != null">#{orderPictures},</if>
+            <if test="dateCreated != null">#{dateCreated},</if>
+            <if test="dateClosed != null">#{dateClosed},</if>
+            <if test="lastUpdated != null">#{lastUpdated},</if>
+            <if test="expirationDate != null">#{expirationDate},</if>
+            <if test="datePayed != null">#{datePayed},</if>
+            <if test="dateShipping != null">#{dateShipping},</if>
+            <if test="orderStatus != null">#{orderStatus},</if>
+            <if test="shipStatus != null">#{shipStatus},</if>
+            <if test="payStatus != null">#{payStatus},</if>
+            <if test="itemId != null">#{itemId},</if>
+            <if test="title != null">#{title},</if>
+            <if test="categoryId != null">#{categoryId},</if>
+            <if test="variationId != null">#{variationId},</if>
+            <if test="variationAttributes != null">#{variationAttributes},</if>
+            <if test="warranty != null">#{warranty},</if>
+            <if test="sellerSku != null">#{sellerSku},</if>
+            <if test="parentItemId != null">#{parentItemId},</if>
+            <if test="quantity != null">#{quantity},</if>
+            <if test="unitPrice != null">#{unitPrice},</if>
+            <if test="fullUnitPrice != null">#{fullUnitPrice},</if>
+            <if test="currencyId != null">#{currencyId},</if>
+            <if test="saleFee != null">#{saleFee},</if>
+            <if test="baseExchangeRate != null">#{baseExchangeRate},</if>
+            <if test="permalink != null">#{permalink},</if>
+        </trim>
+    </insert>
+
+    <update id="updateMercadoOrderInfo" parameterType="com.smarterp.order.domain.MercadoOrderInfo">
+        update mercado_order_info
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="parentId != null">parent_id = #{parentId},</if>
+            <if test="deptId != null">dept_id = #{deptId},</if>
+            <if test="merchantId != null">merchant_id = #{merchantId},</if>
+            <if test="userId != null">user_id = #{userId},</if>
+            <if test="siteId != null">site_id = #{siteId},</if>
+            <if test="logisticType != null">logistic_type = #{logisticType},</if>
+            <if test="shipmentId != null">shipment_id = #{shipmentId},</if>
+            <if test="buyerId != null">buyer_id = #{buyerId},</if>
+            <if test="buyerNickName != null">buyer_nick_name = #{buyerNickName},</if>
+            <if test="buyerLastName != null">buyer_last_name = #{buyerLastName},</if>
+            <if test="buyerFirstName != null">buyer_first_name = #{buyerFirstName},</if>
+            <if test="orderPictures != null">order_pictures = #{orderPictures},</if>
+            <if test="dateCreated != null">date_created = #{dateCreated},</if>
+            <if test="dateClosed != null">date_closed = #{dateClosed},</if>
+            <if test="lastUpdated != null">last_updated = #{lastUpdated},</if>
+            <if test="expirationDate != null">expiration_date = #{expirationDate},</if>
+            <if test="datePayed != null">date_payed = #{datePayed},</if>
+            <if test="dateShipping != null">date_shipping = #{dateShipping},</if>
+            <if test="orderStatus != null">order_status = #{orderStatus},</if>
+            <if test="shipStatus != null">ship_status = #{shipStatus},</if>
+            <if test="payStatus != null">pay_status = #{payStatus},</if>
+            <if test="itemId != null">item_id = #{itemId},</if>
+            <if test="title != null">title = #{title},</if>
+            <if test="categoryId != null">category_id = #{categoryId},</if>
+            <if test="variationId != null">variation_id = #{variationId},</if>
+            <if test="variationAttributes != null">variation_attributes = #{variationAttributes},</if>
+            <if test="warranty != null">warranty = #{warranty},</if>
+            <if test="sellerSku != null">seller_sku = #{sellerSku},</if>
+            <if test="parentItemId != null">parent_item_id = #{parentItemId},</if>
+            <if test="quantity != null">quantity = #{quantity},</if>
+            <if test="unitPrice != null">unit_price = #{unitPrice},</if>
+            <if test="fullUnitPrice != null">full_unit_price = #{fullUnitPrice},</if>
+            <if test="currencyId != null">currency_id = #{currencyId},</if>
+            <if test="saleFee != null">sale_fee = #{saleFee},</if>
+            <if test="baseExchangeRate != null">base_exchange_rate = #{baseExchangeRate},</if>
+            <if test="permalink != null">permalink = #{permalink},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteMercadoOrderInfoById" parameterType="String">
+        delete
+        from mercado_order_info
+        where id = #{id}
+    </delete>
+
+    <delete id="deleteMercadoOrderInfoByIds" parameterType="String">
+        delete from mercado_order_info where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <select id="getMerchantIdsByDeptId" parameterType="java.lang.Long" resultType="java.lang.String">
+        select merchant_id from mercado_shop_info where dept_id = #{deptId}
+    </select>
+</mapper>

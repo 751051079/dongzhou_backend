@@ -1,0 +1,15 @@
+# 基础镜像
+FROM  openjdk:8-jre
+# author
+MAINTAINER smarterp
+
+# 挂载目录
+VOLUME /home/smarterp
+# 创建目录
+RUN mkdir -p /home/smarterp
+# 指定路径
+WORKDIR /home/smarterp
+# 复制jar文件到路径
+COPY ./jar/smarterp-modules-gen.jar /home/smarterp/smarterp-modules-gen.jar
+# 启动代码生成服务
+ENTRYPOINT ["java","-jar","smarterp-modules-gen.jar"]

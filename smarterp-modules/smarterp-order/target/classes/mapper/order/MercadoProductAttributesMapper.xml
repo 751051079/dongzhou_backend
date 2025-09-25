@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smarterp.order.mapper.MercadoProductAttributesMapper">
+
+    <resultMap type="com.smarterp.order.domain.MercadoProductAttributes" id="MercadoProductAttributesResult">
+        <result property="id" column="id"/>
+        <result property="productId" column="product_id"/>
+        <result property="merchantId" column="merchant_id"/>
+        <result property="attributeId" column="attribute_id"/>
+        <result property="attributeName" column="attribute_name"/>
+        <result property="attributeValueId" column="attribute_value_id"/>
+        <result property="attributeValueName" column="attribute_value_name"/>
+        <result property="attributeValues" column="attribute_values"/>
+        <result property="valueType" column="value_type"/>
+        <result property="attributeType" column="attribute_type"/>
+        <result property="createTime" column="create_time"/>
+        <result property="createBy" column="create_by"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="updateBy" column="update_by"/>
+        <result property="isDeleted" column="is_deleted"/>
+    </resultMap>
+
+    <sql id="selectMercadoProductAttributesVo">
+        select id,
+               product_id,
+               merchant_id,
+               attribute_id,
+               attribute_name,
+               attribute_value_id,
+               attribute_value_name,
+               attribute_values,
+               value_type,
+               attribute_type,
+               create_time,
+               create_by,
+               update_time,
+               update_by,
+               is_deleted
+        from mercado_product_attributes
+    </sql>
+
+    <select id="selectMercadoProductAttributesList" parameterType="com.smarterp.order.domain.MercadoProductAttributes"
+            resultMap="MercadoProductAttributesResult">
+        <include refid="selectMercadoProductAttributesVo"/>
+        <where>
+            <if test="productId != null ">
+                and product_id = #{productId}
+            </if>
+            <if test="merchantId != null  and merchantId != ''">
+                and merchant_id = #{merchantId}
+            </if>
+            <if test="attributeId != null  and attributeId != ''">
+                and attribute_id = #{attributeId}
+            </if>
+            <if test="attributeName != null  and attributeName != ''">
+                and attribute_name like concat('%', #{attributeName}, '%')
+            </if>
+            <if test="attributeValueId != null  and attributeValueId != ''">
+                and attribute_value_id = #{attributeValueId}
+            </if>
+            <if test="attributeValueName != null  and attributeValueName != ''">
+                and attribute_value_name like concat('%', #{attributeValueName}, '%')
+            </if>
+            <if test="attributeValues != null  and attributeValues != ''">
+                and attribute_values = #{attributeValues}
+            </if>
+            <if test="valueType != null  and valueType != ''">
+                and value_type = #{valueType}
+            </if>
+            <if test="attributeType != null  and attributeType != ''">
+                and attribute_type = #{attributeType}
+            </if>
+            <if test="isDeleted != null ">
+                and is_deleted = #{isDeleted}
+            </if>
+        </where>
+    </select>
+
+    <select id="selectMercadoProductAttributesById" parameterType="Long" resultMap="MercadoProductAttributesResult">
+        <include refid="selectMercadoProductAttributesVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertMercadoProductAttributes" parameterType="com.smarterp.order.domain.MercadoProductAttributes">
+        insert into mercado_product_attributes
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="productId != null">
+                product_id,
+            </if>
+            <if test="merchantId != null">
+                merchant_id,
+            </if>
+            <if test="attributeId != null">
+                attribute_id,
+            </if>
+            <if test="attributeName != null">
+                attribute_name,
+            </if>
+            <if test="attributeValueId != null">
+                attribute_value_id,
+            </if>
+            <if test="attributeValueName != null">
+                attribute_value_name,
+            </if>
+            <if test="attributeValues != null">
+                attribute_values,
+            </if>
+            <if test="valueType != null">
+                value_type,
+            </if>
+            <if test="attributeType != null">
+                attribute_type,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="createBy != null">
+                create_by,
+            </if>
+            <if test="updateTime != null">
+                update_time,
+            </if>
+            <if test="updateBy != null">
+                update_by,
+            </if>
+            <if test="isDeleted != null">
+                is_deleted,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id},
+            </if>
+            <if test="productId != null">
+                #{productId},
+            </if>
+            <if test="merchantId != null">
+                #{merchantId},
+            </if>
+            <if test="attributeId != null">
+                #{attributeId},
+            </if>
+            <if test="attributeName != null">
+                #{attributeName},
+            </if>
+            <if test="attributeValueId != null">
+                #{attributeValueId},
+            </if>
+            <if test="attributeValueName != null">
+                #{attributeValueName},
+            </if>
+            <if test="attributeValues != null">
+                #{attributeValues},
+            </if>
+            <if test="valueType != null">
+                #{valueType},
+            </if>
+            <if test="attributeType != null">
+                #{attributeType},
+            </if>
+            <if test="createTime != null">
+                #{createTime},
+            </if>
+            <if test="createBy != null">
+                #{createBy},
+            </if>
+            <if test="updateTime != null">
+                #{updateTime},
+            </if>
+            <if test="updateBy != null">
+                #{updateBy},
+            </if>
+            <if test="isDeleted != null">
+                #{isDeleted},
+            </if>
+        </trim>
+    </insert>
+
+    <update id="updateMercadoProductAttributes" parameterType="com.smarterp.order.domain.MercadoProductAttributes">
+        update mercado_product_attributes
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="productId != null">
+                product_id = #{productId},
+            </if>
+            <if test="merchantId != null">
+                merchant_id = #{merchantId},
+            </if>
+            <if test="attributeId != null">
+                attribute_id = #{attributeId},
+            </if>
+            <if test="attributeName != null">
+                attribute_name = #{attributeName},
+            </if>
+            <if test="attributeValueId != null">
+                attribute_value_id = #{attributeValueId},
+            </if>
+            <if test="attributeValueName != null">
+                attribute_value_name = #{attributeValueName},
+            </if>
+            <if test="attributeValues != null">
+                attribute_values = #{attributeValues},
+            </if>
+            <if test="valueType != null">
+                value_type = #{valueType},
+            </if>
+            <if test="attributeType != null">
+                attribute_type = #{attributeType},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime},
+            </if>
+            <if test="createBy != null">
+                create_by = #{createBy},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime},
+            </if>
+            <if test="updateBy != null">
+                update_by = #{updateBy},
+            </if>
+            <if test="isDeleted != null">
+                is_deleted = #{isDeleted},
+            </if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteMercadoProductAttributesById" parameterType="Long">
+        delete
+        from mercado_product_attributes
+        where id = #{id}
+    </delete>
+
+    <delete id="deleteMercadoProductAttributesByIds" parameterType="String">
+        delete from mercado_product_attributes where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <delete id="deleteMercadoProductAttributesByProductId" parameterType="java.lang.Long">
+        delete
+        from mercado_product_attributes
+        where product_id = #{productId}
+    </delete>
+
+    <insert id="batchMercadoProductAttributes" parameterType="java.util.List">
+        insert into
+        mercado_product_attributes
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            id,
+            product_id,
+            merchant_id,
+            attribute_id,
+            attribute_name,
+            attribute_value_id,
+            attribute_value_name,
+            attribute_values,
+            value_type,
+            attribute_type,
+            create_time,
+            create_by,
+            update_time,
+            update_by,
+            is_deleted,
+        </trim>
+        values
+        <foreach collection="list" item="item" index="index" separator=",">
+            <trim prefix="(" suffix=")" suffixOverrides=",">
+                #{item.id},
+                #{item.productId},
+                #{item.merchantId},
+                #{item.attributeId},
+                #{item.attributeName},
+                #{item.attributeValueId},
+                #{item.attributeValueName},
+                #{item.attributeValues},
+                #{item.valueType},
+                #{item.attributeType},
+                #{item.createTime},
+                #{item.createBy},
+                #{item.updateTime},
+                #{item.updateBy},
+                #{item.isDeleted},
+            </trim>
+        </foreach>
+    </insert>
+
+    <delete id="deleteMercadoProductAttributesByProductIds">
+        DELETE FROM mercado_product_attributes WHERE product_id IN
+        <foreach item="productId" collection="list" open="(" separator="," close=")">
+            #{productId}
+        </foreach>
+    </delete>
+
+
+</mapper>

@@ -1,0 +1,162 @@
+{
+  "id": 43466633461,
+  "order_id": 0,
+  "status": "delivered",
+  "substatus": "",
+  "declared_value": 34.27,
+  "currency_id": "USD",
+  "date_created": "2024-06-05T10:40:42.286-04:00",
+  "last_updated": "2024-06-06T19:12:06.874-04:00",
+  "tracking_number": "MEL43466633461LMFFF01",
+  "tracking_method": "MEL Distribution",
+  "origin": {
+    "sender_id": 1693271251,
+    "shipping_address": {
+      "address_id": 0,
+      "address_line": "XXXXXXX",
+      "street_name": "XXXXXXX",
+      "street_number": "XXXXXXX",
+      "comment": null,
+      "zip_code": "XXXXXXX",
+      "city": {
+        "id": "TUxNQ0NVQTMwNDU",
+        "name": "Cuatitlan Izcalli"
+      },
+      "state": {
+        "id": "MX-MEX",
+        "name": "Estado de México"
+      },
+      "country": {
+        "id": "MX",
+        "name": "Mexico"
+      },
+      "neighborhood": {
+        "id": null,
+        "name": "Axotlan"
+      },
+      "municipality": {
+        "id": null,
+        "name": null
+      },
+      "agency": {
+        "agency_id": null,
+        "carrier_id": null,
+        "description": null,
+        "open_hours": null,
+        "phone": null,
+        "type": null
+      },
+      "types": [
+        "logistic_center_MXCD07",
+        "warehouse"
+      ],
+      "latitude": 0,
+      "longitude": 0,
+      "geolocation_type": null,
+      "geolocation_last_updated": null,
+      "geolocation_source": null,
+      "delivery_preference": ""
+    },
+    "type": "logistic_center"
+  },
+  "destination": {
+    "type": "buying_address",
+    "receiver_id": 1686460766,
+    "receiver_name": "Liliana Galicia Flores",
+    "receiver_phone": "5514749424",
+    "comments": "",
+    "shipping_address": {
+      "address_id": 1362162971,
+      "address_line": "Calle Tercera Cerrada de Calzada San Mateo 16",
+      "street_name": "Calle Tercera Cerrada de Calzada San Mateo",
+      "street_number": "16",
+      "comment": "Referencia: en la esquina está una tienda 3B de ahí hasta el fondo zaguán verde y está de lado izquierdo Entre: colorines y olivos",
+      "zip_code": "52946",
+      "city": {
+        "id": "TUxNQ0FUSTEwNzU",
+        "name": "Atizapán De Zaragoza"
+      },
+      "state": {
+        "id": "MX-MEX",
+        "name": "Estado De México"
+      },
+      "country": {
+        "id": "MX",
+        "name": "Mexico"
+      },
+      "neighborhood": {
+        "id": null,
+        "name": "San Juan Bosco"
+      },
+      "municipality": {
+        "id": null,
+        "name": null
+      },
+      "agency": {
+        "agency_id": null,
+        "carrier_id": null,
+        "description": null,
+        "open_hours": null,
+        "phone": null,
+        "type": null
+      },
+      "types": [
+        "default_buying_address"
+      ],
+      "latitude": 19.567008,
+      "longitude": -99.239165,
+      "geolocation_type": "ROOFTOP",
+      "geolocation_last_updated": "2024-03-06T22:03:15.959Z",
+      "geolocation_source": "map-verified",
+      "delivery_preference": "residential"
+    }
+  },
+  "dimensions": {
+    "height": 14,
+    "length": 39,
+    "weight": 1100,
+    "width": 27
+  },
+  "external_reference": "2000005855644875",
+  "lead_time": {
+    "option_id": 2602868553,
+    "shipping_method": {
+      "id": 509145,
+      "type": "next_day",
+      "name": "Prioritario a domicilio",
+      "deliver_to": "address"
+    },
+    "currency_id": "USD",
+    "cost": 0,
+    "list_cost": 5.14,
+    "cost_type": "free",
+    "service_id": 158182,
+    "estimated_delivery_time": {
+      "type": "known",
+      "date": "2024-06-06T00:00:00.000-06:00",
+      "unit": "hour",
+      "offset": {
+        "date": null,
+        "shipping": null
+      },
+      "time_frame": {
+        "from": "",
+        "to": ""
+      },
+      "pay_before": "2024-06-06T00:00:00.000-06:00",
+      "shipping": 24,
+      "handling": 0,
+      "schedule": null
+    }
+  },
+  "source": {
+    "site_id": "MLM"
+  },
+  "logistic": {
+    "mode": "me2",
+    "type": "fulfillment",
+    "direction": "forward"
+  },
+  "tags": [],
+  "sender_id": 0
+}

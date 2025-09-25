@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smarterp.order.mapper.MercadoProductCombinationMapper">
+
+    <resultMap type="com.smarterp.order.domain.MercadoProductCombination" id="MercadoProductCombinationResult">
+        <result property="id" column="id"/>
+        <result property="productId" column="product_id"/>
+        <result property="combinationSku" column="combination_sku"/>
+        <result property="sizeChartId" column="size_chart_id"/>
+        <result property="combinationPrice" column="combination_price"/>
+        <result property="pictures" column="pictures"/>
+        <result property="combinationJson" column="combination_json"/>
+        <result property="availableQuantity" column="available_quantity"/>
+        <result property="combinationSort" column="combination_sort"/>
+        <result property="createTime" column="create_time"/>
+        <result property="createBy" column="create_by"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="updateBy" column="update_by"/>
+        <result property="isDeleted" column="is_deleted"/>
+    </resultMap>
+
+    <sql id="selectMercadoProductCombinationVo">
+        select * from mercado_product_combination
+    </sql>
+
+    <select id="selectMercadoProductCombinationList" parameterType="com.smarterp.order.domain.MercadoProductCombination"
+            resultMap="MercadoProductCombinationResult">
+        <include refid="selectMercadoProductCombinationVo"/>
+        <where>
+            <if test="productId != null ">
+                and product_id = #{productId}
+            </if>
+            <if test="combinationSku != null  and combinationSku != ''">
+                and combination_sku = #{combinationSku}
+            </if>
+            <if test="combinationPrice != null ">
+                and combination_price = #{combinationPrice}
+            </if>
+            <if test="pictures != null  and pictures != ''">
+                and pictures = #{pictures}
+            </if>
+            <if test="combinationJson != null  and combinationJson != ''">
+                and combination_json = #{combinationJson}
+            </if>
+            <if test="availableQuantity != null ">
+                and available_quantity = #{availableQuantity}
+            </if>
+            <if test="combinationSort != null ">
+                and combination_sort = #{combinationSort}
+            </if>
+            <if test="isDeleted != null ">
+                and is_deleted = #{isDeleted}
+            </if>
+        </where>
+    </select>
+
+    <select id="selectMercadoProductCombinationById" parameterType="Long" resultMap="MercadoProductCombinationResult">
+        <include refid="selectMercadoProductCombinationVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertMercadoProductCombination" parameterType="com.smarterp.order.domain.MercadoProductCombination">
+        insert into mercado_product_combination
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="productId != null">
+                product_id,
+            </if>
+            <if test="combinationSku != null">
+                combination_sku,
+            </if>
+            <if test="sizeChartId != null">
+                size_chart_id,
+            </if>
+            <if test="combinationPrice != null">
+                combination_price,
+            </if>
+            <if test="pictures != null">
+                pictures,
+            </if>
+            <if test="combinationJson != null">
+                combination_json,
+            </if>
+            <if test="availableQuantity != null">
+                available_quantity,
+            </if>
+            <if test="combinationSort != null">
+                combination_sort,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="createBy != null">
+                create_by,
+            </if>
+            <if test="updateTime != null">
+                update_time,
+            </if>
+            <if test="updateBy != null">
+                update_by,
+            </if>
+            <if test="isDeleted != null">
+                is_deleted,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id},
+            </if>
+            <if test="productId != null">
+                #{productId},
+            </if>
+            <if test="combinationSku != null">
+                #{combinationSku},
+            </if>
+            <if test="sizeChartId != null">
+                #{sizeChartId},
+            </if>
+            <if test="combinationPrice != null">
+                #{combinationPrice},
+            </if>
+            <if test="pictures != null">
+                #{pictures},
+            </if>
+            <if test="combinationJson != null">
+                #{combinationJson},
+            </if>
+            <if test="availableQuantity != null">
+                #{availableQuantity},
+            </if>
+            <if test="combinationSort != null">
+                #{combinationSort},
+            </if>
+            <if test="createTime != null">
+                #{createTime},
+            </if>
+            <if test="createBy != null">
+                #{createBy},
+            </if>
+            <if test="updateTime != null">
+                #{updateTime},
+            </if>
+            <if test="updateBy != null">
+                #{updateBy},
+            </if>
+            <if test="isDeleted != null">
+                #{isDeleted},
+            </if>
+        </trim>
+    </insert>
+
+    <update id="updateMercadoProductCombination" parameterType="com.smarterp.order.domain.MercadoProductCombination">
+        update mercado_product_combination
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="productId != null">
+                product_id = #{productId},
+            </if>
+            <if test="combinationSku != null">
+                combination_sku = #{combinationSku},
+            </if>
+            <if test="combinationPrice != null">
+                combination_price = #{combinationPrice},
+            </if>
+            <if test="pictures != null">
+                pictures = #{pictures},
+            </if>
+            <if test="combinationJson != null">
+                combination_json = #{combinationJson},
+            </if>
+            <if test="availableQuantity != null">
+                available_quantity = #{availableQuantity},
+            </if>
+            <if test="combinationSort != null">
+                combination_sort = #{combinationSort},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime},
+            </if>
+            <if test="createBy != null">
+                create_by = #{createBy},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime},
+            </if>
+            <if test="updateBy != null">
+                update_by = #{updateBy},
+            </if>
+            <if test="isDeleted != null">
+                is_deleted = #{isDeleted},
+            </if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteMercadoProductCombinationById" parameterType="Long">
+        delete
+        from mercado_product_combination
+        where id = #{id}
+    </delete>
+
+    <delete id="deleteMercadoProductCombinationByIds" parameterType="String">
+        delete from mercado_product_combination where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <delete id="deleteMercadoProductCombinationByProductId" parameterType="java.lang.Long">
+        delete from mercado_product_combination where product_id = #{productId}
+    </delete>
+
+    <insert id="batchMercadoProductCombination" parameterType="java.util.List">
+        insert into
+        mercado_product_combination
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            id,
+            product_id,
+            combination_sku,
+            size_chart_id,
+            combination_price,
+            pictures,
+            combination_json,
+            available_quantity,
+            combination_sort,
+            create_time,
+            create_by,
+            update_time,
+            update_by,
+            is_deleted,
+        </trim>
+        values
+        <foreach collection="list" item="item" index="index" separator=",">
+            <trim prefix="(" suffix=")" suffixOverrides=",">
+                #{item.id},
+                #{item.productId},
+                #{item.combinationSku},
+                #{item.sizeChartId},
+                #{item.combinationPrice},
+                #{item.pictures},
+                #{item.combinationJson},
+                #{item.availableQuantity},
+                #{item.combinationSort},
+                #{item.createTime},
+                #{item.createBy},
+                #{item.updateTime},
+                #{item.updateBy},
+                #{item.isDeleted},
+            </trim>
+        </foreach>
+    </insert>
+
+    <delete id="deleteMercadoProductCombinationByProductIds">
+        DELETE FROM mercado_product_combination WHERE product_id IN
+        <foreach item="productId" collection="list" open="(" separator="," close=")">
+            #{productId}
+        </foreach>
+    </delete>
+</mapper>

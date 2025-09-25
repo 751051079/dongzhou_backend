@@ -1,0 +1,490 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smarterp.order.mapper.MercadoShopItemMapper">
+
+    <resultMap type="com.smarterp.order.domain.MercadoShopItem" id="MercadoShopItemResult">
+        <result property="id" column="id"/>
+        <result property="sellerId" column="seller_id"/>
+        <result property="nickname" column="nickname"/>
+        <result property="title" column="title"/>
+        <result property="condition" column="condition"/>
+        <result property="thumbnailId" column="thumbnail_id"/>
+        <result property="catalogProductId" column="catalog_product_id"/>
+        <result property="listingTypeId" column="listing_type_id"/>
+        <result property="permalink" column="permalink"/>
+        <result property="buyingMode" column="buying_mode"/>
+        <result property="siteId" column="site_id"/>
+        <result property="categoryId" column="category_id"/>
+        <result property="domainId" column="domain_id"/>
+        <result property="thumbnail" column="thumbnail"/>
+        <result property="currencyId" column="currency_id"/>
+        <result property="orderBackend" column="order_backend"/>
+        <result property="price" column="price"/>
+        <result property="originalPrice" column="original_price"/>
+        <result property="salePrice" column="sale_price"/>
+        <result property="availableQuantity" column="available_quantity"/>
+        <result property="officialStoreId" column="official_store_id"/>
+        <result property="useThumbnailId" column="use_thumbnail_id"/>
+        <result property="acceptsMercadopago" column="accepts_mercadopago"/>
+        <result property="variationFilters" column="variation_filters"/>
+        <result property="shipping" column="shipping"/>
+        <result property="logisticType" column="logistic_type"/>
+        <result property="stopTime" column="stop_time"/>
+        <result property="attributes" column="attributes"/>
+        <result property="variationsData" column="variations_data"/>
+        <result property="installments" column="installments"/>
+        <result property="winnerItemId" column="winner_item_id"/>
+        <result property="catalogListing" column="catalog_listing"/>
+        <result property="discounts" column="discounts"/>
+        <result property="soldQuantity" column="sold_quantity"/>
+        <result property="dateCreated" column="date_created"/>
+        <result property="lastUpdated" column="last_updated"/>
+        <result property="status" column="status"/>
+    </resultMap>
+
+    <sql id="selectMercadoShopItemVo">
+        select id,
+               seller_id,
+               nickname,
+               title,
+               `condition`,
+               thumbnail_id,
+               catalog_product_id,
+               listing_type_id,
+               permalink,
+               buying_mode,
+               site_id,
+               category_id,
+               domain_id,
+               thumbnail,
+               currency_id,
+               order_backend,
+               price,
+               original_price,
+               sale_price,
+               available_quantity,
+               official_store_id,
+               use_thumbnail_id,
+               accepts_mercadopago,
+               variation_filters,
+               shipping,
+               logistic_type,
+               stop_time,
+               attributes,
+               variations_data,
+               installments,
+               winner_item_id,
+               catalog_listing,
+               discounts,
+               sold_quantity,
+               date_created,
+               last_updated,
+               `status`
+        from mercado_shop_item
+    </sql>
+
+    <select id="selectMercadoShopItemList" parameterType="com.smarterp.order.domain.MercadoShopItem"
+            resultMap="MercadoShopItemResult">
+        <include refid="selectMercadoShopItemVo"/>
+        <where>
+            <if test="userIdList != null  and userIdList.size > 0">
+                and seller_id in
+                <foreach item="userId" collection="userIdList" open="(" separator="," close=")">
+                    #{userId}
+                </foreach>
+            </if>
+            <if test="sellerId != null  and sellerId != ''">
+                and seller_id = #{sellerId}
+            </if>
+            <if test="nickname != null  and nickname != ''">
+                and nickname like concat('%', #{nickname}, '%')
+            </if>
+            <if test="title != null  and title != ''">
+                and title = #{title}
+            </if>
+            <if test="condition != null  and condition != ''">
+                and `condition` = #{condition}
+            </if>
+            <if test="thumbnailId != null  and thumbnailId != ''">
+                and thumbnail_id = #{thumbnailId}
+            </if>
+            <if test="catalogProductId != null  and catalogProductId != ''">
+                and catalog_product_id = #{catalogProductId}
+            </if>
+            <if test="listingTypeId != null  and listingTypeId != ''">
+                and listing_type_id = #{listingTypeId}
+            </if>
+            <if test="permalink != null  and permalink != ''">
+                and permalink = #{permalink}
+            </if>
+            <if test="buyingMode != null  and buyingMode != ''">
+                and buying_mode = #{buyingMode}
+            </if>
+            <if test="siteId != null  and siteId != ''">
+                and site_id = #{siteId}
+            </if>
+            <if test="categoryId != null  and categoryId != ''">
+                and category_id = #{categoryId}
+            </if>
+            <if test="domainId != null  and domainId != ''">
+                and domain_id = #{domainId}
+            </if>
+            <if test="thumbnail != null  and thumbnail != ''">
+                and thumbnail = #{thumbnail}
+            </if>
+            <if test="currencyId != null  and currencyId != ''">
+                and currency_id = #{currencyId}
+            </if>
+            <if test="orderBackend != null  and orderBackend != ''">
+                and order_backend = #{orderBackend}
+            </if>
+            <if test="price != null  and price != ''">
+                and price = #{price}
+            </if>
+            <if test="originalPrice != null  and originalPrice != ''">
+                and original_price = #{originalPrice}
+            </if>
+            <if test="salePrice != null  and salePrice != ''">
+                and sale_price = #{salePrice}
+            </if>
+            <if test="availableQuantity != null  and availableQuantity != ''">
+                and available_quantity = #{availableQuantity}
+            </if>
+            <if test="officialStoreId != null  and officialStoreId != ''">
+                and official_store_id = #{officialStoreId}
+            </if>
+            <if test="useThumbnailId != null ">
+                and use_thumbnail_id = #{useThumbnailId}
+            </if>
+            <if test="acceptsMercadopago != null ">
+                and accepts_mercadopago = #{acceptsMercadopago}
+            </if>
+            <if test="variationFilters != null  and variationFilters != ''">
+                and variation_filters = #{variationFilters}
+            </if>
+            <if test="shipping != null  and shipping != ''">
+                and shipping = #{shipping}
+            </if>
+            <if test="logisticType != null  and logisticType != ''">
+                and logistic_type = #{logisticType}
+            </if>
+            <if test="stopTime != null ">
+                and stop_time = #{stopTime}
+            </if>
+            <if test="attributes != null  and attributes != ''">
+                and attributes = #{attributes}
+            </if>
+            <if test="variationsData != null  and variationsData != ''">
+                and variations_data = #{variationsData}
+            </if>
+            <if test="installments != null  and installments != ''">
+                and installments = #{installments}
+            </if>
+            <if test="winnerItemId != null  and winnerItemId != ''">
+                and winner_item_id = #{winnerItemId}
+            </if>
+            <if test="catalogListing != null ">
+                and catalog_listing = #{catalogListing}
+            </if>
+            <if test="discounts != null  and discounts != ''">
+                and discounts = #{discounts}
+            </if>
+            <if test="soldQuantity != null ">
+                and sold_quantity = #{soldQuantity}
+            </if>
+            <if test="dateCreated != null ">
+                and date_created = #{dateCreated}
+            </if>
+            <if test="lastUpdated != null ">
+                and last_updated = #{lastUpdated}
+            </if>
+            <if test="status != null ">
+                and `status` = #{status}
+            </if>
+        </where>
+        <choose>
+            <!-- 当参数中的orderByColumn和isAsc都不为空时，选择第一个条件 -->
+            <when test="orderByColumn != null and isAsc != null">
+                <!-- 正序 -->
+                <if test="isAsc == 'ascending'">
+                    <if test="orderByColumn == 'soldQuantity'">
+                        order by sold_quantity asc
+                    </if>
+                    <if test="orderByColumn == 'dateCreated'">
+                        order by date_created asc
+                    </if>
+                    <if test="orderByColumn == 'lastUpdated'">
+                        order by last_updated asc
+                    </if>
+                </if>
+                <!-- 倒序 -->
+                <if test="isAsc == 'descending'">
+                    <if test="orderByColumn == 'soldQuantity'">
+                        order by sold_quantity desc
+                    </if>
+                    <if test="orderByColumn == 'dateCreated'">
+                        order by date_created desc
+                    </if>
+                    <if test="orderByColumn == 'lastUpdated'">
+                        order by last_updated desc
+                    </if>
+                </if>
+            </when>
+            <!-- 当以上条件都不成立时，执行otherwise中的条件 -->
+            <otherwise>
+                order by sold_quantity desc
+            </otherwise>
+        </choose>
+    </select>
+
+    <select id="selectMercadoShopItemById" parameterType="String" resultMap="MercadoShopItemResult">
+        <include refid="selectMercadoShopItemVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertMercadoShopItem" parameterType="com.smarterp.order.domain.MercadoShopItem">
+        replace into mercado_shop_item
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="sellerId != null">seller_id,</if>
+            <if test="nickname != null">nickname,</if>
+            <if test="title != null">title,</if>
+            <if test="condition != null">`condition`,</if>
+            <if test="thumbnailId != null">thumbnail_id,</if>
+            <if test="catalogProductId != null">catalog_product_id,</if>
+            <if test="listingTypeId != null">listing_type_id,</if>
+            <if test="permalink != null">permalink,</if>
+            <if test="buyingMode != null">buying_mode,</if>
+            <if test="siteId != null">site_id,</if>
+            <if test="categoryId != null">category_id,</if>
+            <if test="domainId != null">domain_id,</if>
+            <if test="thumbnail != null">thumbnail,</if>
+            <if test="currencyId != null">currency_id,</if>
+            <if test="orderBackend != null">order_backend,</if>
+            <if test="price != null">price,</if>
+            <if test="originalPrice != null">original_price,</if>
+            <if test="salePrice != null">sale_price,</if>
+            <if test="availableQuantity != null">available_quantity,</if>
+            <if test="officialStoreId != null">official_store_id,</if>
+            <if test="useThumbnailId != null">use_thumbnail_id,</if>
+            <if test="acceptsMercadopago != null">accepts_mercadopago,</if>
+            <if test="variationFilters != null">variation_filters,</if>
+            <if test="shipping != null">shipping,</if>
+            <if test="logisticType != null">logistic_type,</if>
+            <if test="stopTime != null">stop_time,</if>
+            <if test="attributes != null">attributes,</if>
+            <if test="variationsData != null">variations_data,</if>
+            <if test="installments != null">installments,</if>
+            <if test="winnerItemId != null">winner_item_id,</if>
+            <if test="catalogListing != null">catalog_listing,</if>
+            <if test="discounts != null">discounts,</if>
+            <if test="soldQuantity != null">sold_quantity,</if>
+            <if test="dateCreated != null">date_created,</if>
+            <if test="lastUpdated != null">last_updated,</if>
+            <if test="status != null">`status`,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">#{id},</if>
+            <if test="sellerId != null">#{sellerId},</if>
+            <if test="nickname != null">#{nickname},</if>
+            <if test="title != null">#{title},</if>
+            <if test="condition != null">#{condition},</if>
+            <if test="thumbnailId != null">#{thumbnailId},</if>
+            <if test="catalogProductId != null">#{catalogProductId},</if>
+            <if test="listingTypeId != null">#{listingTypeId},</if>
+            <if test="permalink != null">#{permalink},</if>
+            <if test="buyingMode != null">#{buyingMode},</if>
+            <if test="siteId != null">#{siteId},</if>
+            <if test="categoryId != null">#{categoryId},</if>
+            <if test="domainId != null">#{domainId},</if>
+            <if test="thumbnail != null">#{thumbnail},</if>
+            <if test="currencyId != null">#{currencyId},</if>
+            <if test="orderBackend != null">#{orderBackend},</if>
+            <if test="price != null">#{price},</if>
+            <if test="originalPrice != null">#{originalPrice},</if>
+            <if test="salePrice != null">#{salePrice},</if>
+            <if test="availableQuantity != null">#{availableQuantity},</if>
+            <if test="officialStoreId != null">#{officialStoreId},</if>
+            <if test="useThumbnailId != null">#{useThumbnailId},</if>
+            <if test="acceptsMercadopago != null">#{acceptsMercadopago},</if>
+            <if test="variationFilters != null">#{variationFilters},</if>
+            <if test="shipping != null">#{shipping},</if>
+            <if test="logisticType != null">#{logisticType},</if>
+            <if test="stopTime != null">#{stopTime},</if>
+            <if test="attributes != null">#{attributes},</if>
+            <if test="variationsData != null">#{variationsData},</if>
+            <if test="installments != null">#{installments},</if>
+            <if test="winnerItemId != null">#{winnerItemId},</if>
+            <if test="catalogListing != null">#{catalogListing},</if>
+            <if test="discounts != null">#{discounts},</if>
+            <if test="soldQuantity != null">#{soldQuantity},</if>
+            <if test="dateCreated != null">#{dateCreated},</if>
+            <if test="lastUpdated != null">#{lastUpdated},</if>
+            <if test="status != null">#{status},</if>
+        </trim>
+    </insert>
+
+    <update id="updateMercadoShopItem" parameterType="com.smarterp.order.domain.MercadoShopItem">
+        update mercado_shop_item
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="sellerId != null">seller_id = #{sellerId},</if>
+            <if test="nickname != null">nickname = #{nickname},</if>
+            <if test="title != null">title = #{title},</if>
+            <if test="condition != null">`condition` = #{condition},</if>
+            <if test="thumbnailId != null">thumbnail_id = #{thumbnailId},</if>
+            <if test="catalogProductId != null">catalog_product_id = #{catalogProductId},</if>
+            <if test="listingTypeId != null">listing_type_id = #{listingTypeId},</if>
+            <if test="permalink != null">permalink = #{permalink},</if>
+            <if test="buyingMode != null">buying_mode = #{buyingMode},</if>
+            <if test="siteId != null">site_id = #{siteId},</if>
+            <if test="categoryId != null">category_id = #{categoryId},</if>
+            <if test="domainId != null">domain_id = #{domainId},</if>
+            <if test="thumbnail != null">thumbnail = #{thumbnail},</if>
+            <if test="currencyId != null">currency_id = #{currencyId},</if>
+            <if test="orderBackend != null">order_backend = #{orderBackend},</if>
+            <if test="price != null">price = #{price},</if>
+            <if test="originalPrice != null">original_price = #{originalPrice},</if>
+            <if test="salePrice != null">sale_price = #{salePrice},</if>
+            <if test="availableQuantity != null">available_quantity = #{availableQuantity},</if>
+            <if test="officialStoreId != null">official_store_id = #{officialStoreId},</if>
+            <if test="useThumbnailId != null">use_thumbnail_id = #{useThumbnailId},</if>
+            <if test="acceptsMercadopago != null">accepts_mercadopago = #{acceptsMercadopago},</if>
+            <if test="variationFilters != null">variation_filters = #{variationFilters},</if>
+            <if test="shipping != null">shipping = #{shipping},</if>
+            <if test="logisticType != null">logistic_type = #{logisticType},</if>
+            <if test="stopTime != null">stop_time = #{stopTime},</if>
+            <if test="attributes != null">attributes = #{attributes},</if>
+            <if test="variationsData != null">variations_data = #{variationsData},</if>
+            <if test="installments != null">installments = #{installments},</if>
+            <if test="winnerItemId != null">winner_item_id = #{winnerItemId},</if>
+            <if test="catalogListing != null">catalog_listing = #{catalogListing},</if>
+            <if test="discounts != null">discounts = #{discounts},</if>
+            <if test="soldQuantity != null">sold_quantity = #{soldQuantity},</if>
+            <if test="dateCreated != null">date_created = #{dateCreated},</if>
+            <if test="lastUpdated != null">last_updated = #{lastUpdated},</if>
+            <if test="status != null">`status` = #{status},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteMercadoShopItemById" parameterType="String">
+        delete
+        from mercado_shop_item
+        where id = #{id}
+    </delete>
+
+    <delete id="deleteMercadoShopItemByIds" parameterType="String">
+        delete from mercado_shop_item where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <insert id="replaceIntoItemList" parameterType="java.util.List">
+        replace into
+        mercado_shop_item
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            id,
+            seller_id,
+            nickname,
+            title,
+            `condition`,
+            thumbnail_id,
+            catalog_product_id,
+            listing_type_id,
+            permalink,
+            buying_mode,
+            site_id,
+            category_id,
+            domain_id,
+            thumbnail,
+            currency_id,
+            order_backend,
+            price,
+            original_price,
+            sale_price,
+            available_quantity,
+            official_store_id,
+            use_thumbnail_id,
+            accepts_mercadopago,
+            variation_filters,
+            shipping,
+            logistic_type,
+            stop_time,
+            attributes,
+            variations_data,
+            installments,
+            winner_item_id,
+            catalog_listing,
+            discounts,
+        </trim>
+        values
+        <foreach collection="list" item="item" index="index" separator=",">
+            <trim prefix="(" suffix=")" suffixOverrides=",">
+                #{item.id},
+                #{item.sellerId},
+                #{item.nickname},
+                #{item.title},
+                #{item.condition},
+                #{item.thumbnailId},
+                #{item.catalogProductId},
+                #{item.listingTypeId},
+                #{item.permalink},
+                #{item.buyingMode},
+                #{item.siteId},
+                #{item.categoryId},
+                #{item.domainId},
+                #{item.thumbnail},
+                #{item.currencyId},
+                #{item.orderBackend},
+                #{item.price},
+                #{item.originalPrice},
+                #{item.salePrice},
+                #{item.availableQuantity},
+                #{item.officialStoreId},
+                #{item.useThumbnailId},
+                #{item.acceptsMercadopago},
+                #{item.variationFilters},
+                #{item.shipping},
+                #{item.logisticType},
+                #{item.stopTime},
+                #{item.attributes},
+                #{item.variationsData},
+                #{item.installments},
+                #{item.winnerItemId},
+                #{item.catalogListing},
+                #{item.discounts},
+            </trim>
+        </foreach>
+    </insert>
+
+    <insert id="batchInsertShopGlobal" parameterType="java.util.List">
+        replace into
+        mercado_shop_global
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            id,
+            merchant_id,
+            global_id,
+        </trim>
+        values
+        <foreach collection="list" item="item" index="index" separator=",">
+            <trim prefix="(" suffix=")" suffixOverrides=",">
+                #{item.id},
+                #{item.merchantId},
+                #{item.globalId},
+            </trim>
+        </foreach>
+    </insert>
+
+    <select id="selectMercadoShopItemByIdList" parameterType="java.util.List" resultMap="MercadoShopItemResult">
+        select *
+        from mercado_shop_item
+        where id in
+        <foreach collection="itemIdList" open="(" item="itemId" separator="," index="" close=")">
+            #{itemId}
+        </foreach>
+    </select>
+
+</mapper>
